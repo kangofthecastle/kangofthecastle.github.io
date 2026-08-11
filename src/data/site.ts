@@ -1,12 +1,12 @@
 export const site = {
   publicName: 'Warren',
   handle: 'Dubz',
-  title: 'Warren — personal software, experiments & field notes',
+  title: 'Warren — games, study software & small tools',
   description:
-    'Personal tools, learning systems, games, and experiments—built in Vancouver for problems specific enough to be interesting.',
-  heroLine: 'I build software for problems specific enough to be interesting.',
+    'Games, study software, and small tools made by Warren in Vancouver, BC.',
+  heroLine: 'I make games, study software, and small tools.',
   supportingLine:
-    'Personal tools, experiments, games, and field notes—made in Vancouver.',
+    'Most of them start because I want something specific for myself or someone I know.',
   githubUrl: 'https://github.com/kangofthecastle',
   githubLabel: '@kangofthecastle',
   email: '',

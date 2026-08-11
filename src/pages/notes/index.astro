@@ -8,14 +8,14 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
 ---
 
 <BaseLayout
-  title="Field Notes — Warren"
-  description="Build logs, technical decisions, wrong turns, and observations from making personal software."
+  title="Notes — Warren"
+  description="Build logs and technical notes from Warren's games, study software, and personal tools."
   pageClass="inner-page"
 >
   <header class="page-hero page-hero--notes">
-    <p class="eyebrow">Field notes</p>
-    <h1>Writing from<br /><em>inside the build.</em></h1>
-    <p>Technical choices, learning systems, game mechanics, personal tools, and the useful wrong turns between idea and artifact.</p>
+    <p class="eyebrow">Notes</p>
+    <h1>Build logs and<br /><em>technical notes.</em></h1>
+    <p>What changed, what broke, how a mechanic works, and why I made a particular trade-off.</p>
   </header>
 
   <section class="notes-index section-shell">
@@ -41,16 +41,16 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
     ) : (
       <div class="empty-notebook">
         <div>
-          <h2>The notebook is wired up.<br />The first post should be real.</h2>
-          <p>A Markdown template already lives in the project. Once we choose the first topic and replace the draft, it will appear here automatically.</p>
+          <h2>There are no published posts yet.</h2>
+          <p>The blog is ready, but I am not filling it with placeholder essays. The first posts will come from the project writeups already underway.</p>
         </div>
         <div class="empty-notebook__prompts">
-          <span>Possible first entries</span>
+          <span>Good first subjects</span>
           <ul>
-            <li>Why build software for one person?</li>
-            <li>Designing readable chaos in HUBRIS</li>
-            <li>What local-first means for a study tool</li>
-            <li>Making a birthday gift explorable</li>
+            <li>How Apotheosis changes the economy in HUBRIS</li>
+            <li>Why FreeCAT stores everything in one SQLite file</li>
+            <li>What had to stay private in the birthday game</li>
+            <li>How Toybox keeps clipboard history from becoming permanent</li>
           </ul>
         </div>
       </div>

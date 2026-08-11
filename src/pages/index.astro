@@ -1,125 +1,239 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ProjectFeature from '@/components/ProjectFeature.astro';
-import SectionHeading from '@/components/SectionHeading.astro';
-import { selectedProjects } from '@/data/projects';
 import { site } from '@/data/site';
 ---
 
 <BaseLayout pageClass="home-page">
-  <section class="hero" data-hero>
-    <div class="hero__scene" aria-hidden="true">
-      <div class="hero__sky" data-depth="sky"></div>
-      <svg class="hero__mountains hero__mountains--far" viewBox="0 0 1600 500" preserveAspectRatio="none" data-depth="far">
-        <path d="M0 366L92 304l63 25 96-84 78 56 106-126 74 79 84-103 95 117 96-83 83 91 75-58 117 111 92-62 116 112 115-46v167H0Z" />
-      </svg>
-      <svg class="hero__mountains hero__mountains--near" viewBox="0 0 1600 500" preserveAspectRatio="none" data-depth="near">
-        <path d="M0 420l138-87 75 48 135-96 99 112 133-163 96 126 132-104 92 139 142-126 100 111 102-58 116 94 140-58v142H0Z" />
-      </svg>
-      <div class="hero__city" data-depth="city">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+  <section class="cinematic-intro" data-intro>
+    <div class="cinematic-intro__sticky">
+      <div class="intro-atmosphere" aria-hidden="true">
+        <span class="intro-atmosphere__wash"></span>
+        <span class="intro-atmosphere__glow intro-atmosphere__glow--gold"></span>
+        <span class="intro-atmosphere__glow intro-atmosphere__glow--blue"></span>
       </div>
-      <div class="hero__street" data-depth="street">
-        <span class="reflection reflection--red"></span>
-        <span class="reflection reflection--amber"></span>
-        <span class="reflection reflection--teal"></span>
-      </div>
-      <div class="hero__glass" data-depth="glass"></div>
-    </div>
 
-    <div class="hero__content">
-      <p class="hero__location"><span></span>{site.location} · 20:46 · after rain</p>
-      <h1>{site.heroLine}</h1>
-      <p class="hero__lede">{site.supportingLine}</p>
-      <div class="hero__actions">
-        <a class="button button--primary" href="#selected-work">See selected work</a>
-        <a class="button button--quiet" href="/about/">A little context <span aria-hidden="true">↗</span></a>
+      <div class="intro-copy" data-intro-copy>
+        <p class="plain-label">Warren · Vancouver, BC</p>
+        <h1>{site.heroLine}</h1>
+        <p>{site.supportingLine}</p>
+        <p class="intro-copy__examples">
+          Recent examples: a portrait bullet hell, a birthday RPG, a local-first MCAT app,
+          and a pixel cat that lives on the Windows desktop.
+        </p>
       </div>
-    </div>
 
-    <div class="hero__scroll-cue" aria-hidden="true">
-      <span>Scroll to enter</span>
-      <i></i>
+      <div class="intro-camera" data-intro-camera aria-hidden="true">
+        <figure class="intro-plane intro-plane--goldwake" data-intro-plane="goldwake">
+          <img src="/images/projects/goldwake-title.webp" alt="" />
+        </figure>
+        <figure class="intro-plane intro-plane--agame" data-intro-plane="agame">
+          <img src="/images/projects/a-game-clearing.webp" alt="" />
+        </figure>
+        <figure class="intro-plane intro-plane--freecat" data-intro-plane="freecat">
+          <img src="/images/projects/freecat-home.webp" alt="" />
+        </figure>
+        <div class="intro-plane intro-plane--toybox" data-intro-plane="toybox">
+          <span class="toybox-cat toybox-cat--intro"></span>
+        </div>
+      </div>
+
+      <p class="intro-destination" data-intro-destination>Four projects, shown in use.</p>
     </div>
   </section>
 
-  <section class="selected-work section-shell" id="selected-work">
-    <SectionHeading
-      eyebrow="Selected work"
-      title="Built, used, then kept alive."
-      description="Not just repositories. These stories start with the itch, show the artifact in motion, and end with what changed."
-    />
-    <div class="project-corridor">
-      {selectedProjects.map((project) => (
-        <ProjectFeature project={project} />
-      ))}
-    </div>
-    <div class="section-tail">
-      <a class="text-link text-link--large" href="/projects/">Browse every project <span aria-hidden="true">↗</span></a>
-    </div>
-  </section>
-
-  <section class="interests section-shell" data-reveal>
-    <SectionHeading
-      eyebrow="Cross-pollination"
-      title="Eclectic is a feature."
-      description="The interests are still being tuned with you; these are the signals already visible in the work."
-    />
-    <div class="interest-grid">
-      <article class="interest-card interest-card--wide">
-        <span class="interest-card__symbol" aria-hidden="true">◒</span>
-        <p class="eyebrow">Learning systems</p>
-        <h3>How does a tool help someone return tomorrow?</h3>
-        <p>Local ownership, feedback loops, memory, and tiny rewards show up repeatedly in the study software.</p>
-      </article>
-      <article class="interest-card">
-        <span class="interest-card__symbol" aria-hidden="true">✦</span>
-        <p class="eyebrow">Games</p>
-        <h3>Systems that teach through feel.</h3>
-        <p>Readable pressure, authored surprise, and mechanics that carry their own story.</p>
-      </article>
-      <article class="interest-card">
-        <span class="interest-card__symbol" aria-hidden="true">𝄞</span>
-        <p class="eyebrow">Sound</p>
-        <h3>Interfaces you can hear.</h3>
-        <p>Procedural scores, reactive pets, and audio cues that do real interaction work.</p>
-      </article>
-      <article class="interest-card interest-card--wide interest-card--cedar">
-        <span class="interest-card__symbol" aria-hidden="true">⌂</span>
-        <p class="eyebrow">Tools for one</p>
-        <h3>Personal is a legitimate scale.</h3>
-        <p>A birthday RPG, a clipboard utility, a private study loop: software can be worthwhile before it is universal.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="notes-preview section-shell" data-reveal>
-    <SectionHeading
-      eyebrow="Field notes"
-      title="Writing from inside the build."
-      description="Build logs, technical decisions, wrong turns, and small observations. The publishing system is ready for the first real entry."
-    />
-    <a class="note-sheet" href="/notes/">
-      <span class="note-sheet__status">The notebook is ready for its first real post</span>
-      <div>
-        <h3>What should the first note be?</h3>
-        <p>Choose a build log, technical essay, learning-system idea, or personal note and the rest of the archive will grow from there.</p>
+  <section class="work-scene work-scene--goldwake" data-scene="goldwake">
+    <div class="work-scene__sticky">
+      <div class="scene-copy">
+        <p class="plain-label">HUBRIS / Goldwake · game</p>
+        <h2>A portrait bullet hell where getting boxed in is also the way out.</h2>
+        <p>
+          Grazing bullets fills an Apotheosis gauge. Triggering it cancels the bullets on
+          screen into collectible gold, so the same pressure that nearly ends a run can
+          fund the next one. A run seed chooses both the encounters and the procedural score.
+        </p>
+        <dl class="scene-facts">
+          <div><dt>Runs with</dt><dd>WebGL2, Canvas, WebAudio, JavaScript</dd></div>
+          <div><dt>Distribution</dt><dd>Open <code>index.html</code>; no build step or server</dd></div>
+          <div><dt>Status</dt><dd>Playable; repository currently private</dd></div>
+        </dl>
+        <a class="scene-link" href="/projects/goldwake/">Read the project notes <span aria-hidden="true">↗</span></a>
       </div>
-      <span class="note-sheet__arrow" aria-hidden="true">↗</span>
-    </a>
+
+      <div class="scene-media scene-media--portrait" aria-label="HUBRIS title screen and boon selection moving through the game's layered backdrop">
+        <div class="goldwake-world" data-goldwake-world>
+          <img class="goldwake-layer goldwake-layer--deep" src="/images/projects/cinematic/goldwake-deep.webp" alt="" />
+          <img class="goldwake-layer goldwake-layer--structure" src="/images/projects/cinematic/goldwake-structure.webp" alt="" />
+          <figure class="goldwake-screen goldwake-screen--title">
+            <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
+          </figure>
+          <figure class="goldwake-screen goldwake-screen--boon">
+            <img src="/images/projects/goldwake-boon.webp" alt="A HUBRIS boon choice between Thor, Artemis, and Odin" />
+          </figure>
+          <img class="goldwake-layer goldwake-layer--debris" src="/images/projects/cinematic/goldwake-debris.webp" alt="" />
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="vancouver-coda" data-coda>
-    <div class="vancouver-coda__light" aria-hidden="true"></div>
-    <div class="vancouver-coda__grid" aria-hidden="true"></div>
-    <div class="vancouver-coda__content">
-      <p class="eyebrow">Made on the coast</p>
-      <h2>Built in Vancouver,<br />usually while the pavement<br />is still reflecting the sky.</h2>
-      <p>Concrete, cedar, winter light, and the useful quiet after the rain.</p>
+  <section class="work-scene work-scene--agame" data-scene="agame">
+    <div class="work-scene__sticky">
+      <div class="scene-copy">
+        <p class="plain-label">A-Game · birthday game</p>
+        <h2>I made a birthday game instead of a card.</h2>
+        <p>
+          You visit two friends, fish inside one computer, defuse a small top-down game
+          inside another, and bring the keepsakes home when a violin starts calling.
+          The keepsakes become a lit paper boat before the water gives way to a galaxy.
+        </p>
+        <dl class="scene-facts">
+          <div><dt>Built with</dt><dd>Phaser, TypeScript, Vite, Electron</dd></div>
+          <div><dt>Designed for</dt><dd>One sitting, with sound on; no fail states</dd></div>
+          <div><dt>Publication</dt><dd>Private names, letters, and photos stay out of the portfolio</dd></div>
+        </dl>
+        <a class="scene-link" href="/projects/a-game/">Read the project notes <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="scene-media scene-media--wide" aria-label="A-Game moving from its outdoor world into the final galaxy scene">
+        <div class="agame-camera" data-agame-camera>
+          <figure class="agame-frame agame-frame--outside">
+            <img src="/images/projects/a-game-outside.webp" alt="A-Game's outdoor village near the player's house" />
+          </figure>
+          <figure class="agame-frame agame-frame--clearing">
+            <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" />
+          </figure>
+          <figure class="agame-frame agame-frame--galaxy">
+            <img src="/images/projects/cinematic/a-game-galaxy.webp" alt="The water-to-galaxy transition at the end of A-Game" />
+          </figure>
+        </div>
+      </div>
     </div>
-    <div class="vancouver-coda__coordinates" aria-hidden="true">
-      <span>YVR</span>
-      <span>49.2827° N · 123.1207° W</span>
+  </section>
+
+  <section class="work-scene work-scene--freecat" data-scene="freecat">
+    <div class="work-scene__sticky">
+      <div class="scene-copy scene-copy--dark">
+        <p class="plain-label">FreeCAT · local-first study software</p>
+        <h2>The MCAT app I wanted to study with and actually own.</h2>
+        <p>
+          FreeCAT is an Electron desktop app with no account and no hosted backend.
+          Questions, lesson progress, imported Anki decks, review history, XP, and the
+          study pet all live in one local SQLite file.
+        </p>
+        <p>
+          The question bank, content review, gamification, and Anki import are working.
+          FSRS review, richer media support, image occlusion, and packaged installers are
+          still being finished. The source is intended to be open, but the repository is private today.
+        </p>
+        <dl class="scene-facts">
+          <div><dt>Built with</dt><dd>Electron, React, TypeScript, SQLite</dd></div>
+          <div><dt>Content rule</dt><dd>Original or openly licensed material only</dd></div>
+        </dl>
+        <a class="scene-link" href="/projects/freecat/">Read the project notes <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="scene-media scene-media--freecat" aria-label="Three real FreeCAT screens arranged at different depths">
+        <div class="freecat-camera" data-freecat-camera>
+          <figure class="freecat-window freecat-window--home">
+            <img src="/images/projects/freecat-home.webp" alt="FreeCAT home screen with study pet and local progress" />
+          </figure>
+          <figure class="freecat-window freecat-window--qbank">
+            <img src="/images/projects/freecat-qbank.webp" alt="FreeCAT question-bank session setup" />
+          </figure>
+          <figure class="freecat-window freecat-window--content">
+            <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work-scene work-scene--toybox" data-scene="toybox">
+    <div class="work-scene__sticky">
+      <div class="scene-copy">
+        <p class="plain-label">Toybox · Windows utilities</p>
+        <h2>A system monitor, a safer clipboard, and a desktop cat.</h2>
+        <p>
+          Toybox is a set of Python programs I use on Windows. The clipboard keeps recent
+          items in memory and can sync text to my Mac over the local network. The HUD shows
+          system and media information. The cat dances to whatever is playing, naps in a
+          box, runs focus timers, and can carry files dropped onto it.
+        </p>
+        <dl class="scene-facts">
+          <div><dt>Built with</dt><dd>Python standard library, Tkinter, Win32 APIs</dd></div>
+          <div><dt>Data</dt><dd>No telemetry; live clipboard contents are never portfolio media</dd></div>
+          <div><dt>Capture</dt><dd>This staged desktop uses the real cat sprite; a sanitized Windows recording is next</dd></div>
+        </dl>
+        <a class="scene-link" href="/projects/toybox/">Read the project notes <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="scene-media scene-media--desktop" aria-label="Staged desktop showing Toybox utilities and the real animated cat sprite">
+        <div class="toybox-desktop" data-toybox-desktop>
+          <div class="toybox-window toybox-window--hud">
+            <p>System monitor</p>
+            <strong>CPU 18%</strong>
+            <span>RAM 7.9 / 32 GB</span>
+            <span>Now playing · local audio</span>
+          </div>
+          <div class="toybox-window toybox-window--clipboard">
+            <p>Clipboard</p>
+            <span>Draft notes</span>
+            <span>localhost:4321</span>
+            <span>Project checklist</span>
+          </div>
+          <div class="toybox-window toybox-window--timer">
+            <p>Focus timer</p>
+            <strong>24:18</strong>
+            <span>Cat stays above the timer</span>
+          </div>
+          <span class="toybox-cat toybox-cat--desktop" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-work section-shell">
+    <header class="plain-section-heading">
+      <p class="plain-label">Other projects</p>
+      <h2>Other projects.</h2>
+      <p>These are substantial builds too; the shorter entries keep the homepage from turning every repository into another full-screen scene.</p>
+    </header>
+    <div class="more-work__list">
+      <a href="/projects/question-distiller/">
+        <span>Question Distiller / Structure Lab</span>
+        <p>Turns screenshot-only study documents into reviewed structured data, then into interactive chemistry lessons.</p>
+      </a>
+      <a href="/projects/">
+        <span>SAT World</span>
+        <p>An invite-only SAT platform for students, teachers, parents, live classes, study plans, analytics, and pets.</p>
+      </a>
+      <a href="/projects/baddest/">
+        <span>Baddest</span>
+        <p>A private pairwise-ranking app that turns repeated head-to-head choices into personal and shared rankings.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="notes-home section-shell">
+    <div>
+      <p class="plain-label">Notes</p>
+      <h2>The blog will be for build notes, not announcements.</h2>
+    </div>
+    <p>
+      I have not published the first entry yet. The useful version of this section will cover
+      what changed, what broke, and the decisions inside these projects.
+      <a href="/notes/">Open the notes page <span aria-hidden="true">↗</span></a>
+    </p>
+  </section>
+
+  <section class="vancouver-end">
+    <div class="vancouver-end__field" aria-hidden="true"></div>
+    <div class="vancouver-end__copy">
+      <p class="plain-label">Vancouver, British Columbia</p>
+      <h2>I live and build here.</h2>
+      <p>
+        The next content pass should use the places, photos, and details that actually matter to me.
+        Until then, the city gets named plainly rather than turned into generic mountain-and-rain scenery.
+      </p>
     </div>
   </section>
 
@@ -132,75 +246,99 @@ import { site } from '@/data/site';
     const motion = gsap.matchMedia();
 
     motion.add('(prefers-reduced-motion: no-preference) and (min-width: 861px)', () => {
-      const heroTimeline = gsap.timeline({
+      const intro = gsap.timeline({
         scrollTrigger: {
-          trigger: '[data-hero]',
+          trigger: '[data-intro]',
           start: 'top top',
-          end: 'bottom top',
-          scrub: 0.7,
+          end: 'bottom bottom',
+          scrub: 0.65,
         },
       });
 
-      heroTimeline
-        .to('[data-depth="glass"]', { yPercent: 20, opacity: 0.18 }, 0)
-        .to('[data-depth="street"]', { yPercent: 12, scale: 1.04 }, 0)
-        .to('[data-depth="city"]', { yPercent: 8 }, 0)
-        .to('[data-depth="near"]', { yPercent: 5 }, 0)
-        .to('[data-depth="far"]', { yPercent: 2 }, 0)
-        .to('.hero__content', { yPercent: -18, opacity: 0.2 }, 0.15);
-
-      gsap.utils.toArray<HTMLElement>('[data-project-feature]').forEach((feature) => {
-        const media = feature.querySelector('[data-project-media]');
-        const copy = feature.querySelector('[data-project-copy]');
-
-        gsap.fromTo(
-          media,
-          { y: 80, scale: 0.965, opacity: 0.45 },
-          {
-            y: -30,
-            scale: 1,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: feature,
-              start: 'top 92%',
-              end: 'bottom 28%',
-              scrub: 0.65,
-            },
-          },
+      intro
+        .to('[data-intro-copy]', { yPercent: -24, opacity: 0, ease: 'none' }, 0.08)
+        .fromTo('[data-intro-camera]',
+          { xPercent: 9, yPercent: 7, scale: 0.72, rotateX: 5, rotateY: -7 },
+          { xPercent: -5, yPercent: -2, scale: 1.14, rotateX: 0, rotateY: 3, ease: 'none' },
+          0,
+        )
+        .fromTo('[data-intro-plane="goldwake"]',
+          { xPercent: 54, yPercent: 18, z: -520, rotateY: -12 },
+          { xPercent: -42, yPercent: -7, z: 260, rotateY: 5, ease: 'none' },
+          0,
+        )
+        .fromTo('[data-intro-plane="agame"]',
+          { xPercent: 58, yPercent: -36, z: -940, rotateY: 12 },
+          { xPercent: 4, yPercent: -12, z: -80, rotateY: -3, ease: 'none' },
+          0.06,
+        )
+        .fromTo('[data-intro-plane="freecat"]',
+          { xPercent: 72, yPercent: 70, z: -1280, rotateY: -9 },
+          { xPercent: 23, yPercent: 25, z: -360, rotateY: 2, ease: 'none' },
+          0.1,
+        )
+        .fromTo('[data-intro-plane="toybox"]',
+          { xPercent: 240, yPercent: 60, z: -260 },
+          { xPercent: 80, yPercent: 8, z: 360, ease: 'none' },
+          0.25,
+        )
+        .fromTo('[data-intro-destination]',
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, ease: 'none' },
+          0.72,
         );
 
-        gsap.from(copy, {
-          y: 42,
-          opacity: 0,
-          immediateRender: false,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: copy, start: 'top 82%', once: true },
-        });
+      const sceneTimeline = (selector: string) => gsap.timeline({
+        scrollTrigger: {
+          trigger: selector,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.55,
+        },
       });
 
-      gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((section) => {
-        gsap.from(section.querySelectorAll('.section-heading, .interest-card, .note-sheet'), {
-          y: 30,
-          opacity: 0,
-          immediateRender: false,
-          duration: 0.85,
-          stagger: 0.08,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 86%', once: true },
-        });
-      });
+      sceneTimeline('[data-scene="goldwake"]')
+        .fromTo('[data-scene="goldwake"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
+        .fromTo('.goldwake-layer--deep', { scale: 1.02, yPercent: -4 }, { scale: 1.18, yPercent: 4, ease: 'none' }, 0)
+        .fromTo('.goldwake-layer--structure', { scale: 0.94, yPercent: -8 }, { scale: 1.24, yPercent: 8, ease: 'none' }, 0)
+        .fromTo('.goldwake-layer--debris', { scale: 0.9, yPercent: -13 }, { scale: 1.5, yPercent: 15, ease: 'none' }, 0)
+        .fromTo('.goldwake-screen--title', { scale: 0.72, yPercent: 12, rotateZ: -2 }, { scale: 1.04, yPercent: -8, rotateZ: 0, ease: 'none' }, 0)
+        .to('.goldwake-screen--title', { xPercent: -70, opacity: 0.12, ease: 'none' }, 0.54)
+        .fromTo('.goldwake-screen--boon', { xPercent: 82, scale: 0.76, opacity: 0 }, { xPercent: 0, scale: 1.02, opacity: 1, ease: 'none' }, 0.5);
 
-      gsap.from('.vancouver-coda__content > *', {
-        y: 45,
+      sceneTimeline('[data-scene="agame"]')
+        .fromTo('[data-scene="agame"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
+        .fromTo('[data-agame-camera]', { scale: 0.82, rotateY: 5 }, { scale: 1.1, rotateY: -2, ease: 'none' }, 0)
+        .fromTo('.agame-frame--outside', { xPercent: -12, yPercent: 4, rotateZ: -3 }, { xPercent: -60, yPercent: -18, rotateZ: -8, opacity: 0.25, ease: 'none' }, 0)
+        .fromTo('.agame-frame--clearing', { xPercent: 14, yPercent: 12, scale: 0.82 }, { xPercent: 0, yPercent: -3, scale: 1.05, ease: 'none' }, 0)
+        .fromTo('.agame-frame--galaxy', { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.18 }, { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, ease: 'none' }, 0.52)
+        .to('.agame-frame--clearing', { opacity: 0.08, scale: 1.18, ease: 'none' }, 0.58);
+
+      sceneTimeline('[data-scene="freecat"]')
+        .fromTo('[data-scene="freecat"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
+        .fromTo('[data-freecat-camera]', { xPercent: 18, scale: 0.72, rotateY: -9 }, { xPercent: -4, scale: 1.04, rotateY: 4, ease: 'none' }, 0)
+        .fromTo('.freecat-window--home', { z: -420, yPercent: 18 }, { z: 170, yPercent: -10, ease: 'none' }, 0)
+        .fromTo('.freecat-window--qbank', { z: -820, xPercent: 44 }, { z: 60, xPercent: -5, ease: 'none' }, 0.14)
+        .fromTo('.freecat-window--content', { z: -1120, xPercent: 76 }, { z: -80, xPercent: 8, ease: 'none' }, 0.28);
+
+      sceneTimeline('[data-scene="toybox"]')
+        .fromTo('[data-scene="toybox"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
+        .fromTo('[data-toybox-desktop]', { scale: 0.82, rotateX: 5, rotateY: -6 }, { scale: 1.08, rotateX: 0, rotateY: 3, ease: 'none' }, 0)
+        .fromTo('.toybox-window--hud', { xPercent: -24, yPercent: -12, z: -280 }, { xPercent: 2, yPercent: 7, z: 120, ease: 'none' }, 0)
+        .fromTo('.toybox-window--clipboard', { xPercent: 28, yPercent: 18, z: -520 }, { xPercent: -4, yPercent: -4, z: 40, ease: 'none' }, 0.08)
+        .fromTo('.toybox-window--timer', { xPercent: 60, yPercent: -24, z: -760 }, { xPercent: 4, yPercent: 4, z: -40, ease: 'none' }, 0.18)
+        .fromTo('.toybox-cat--desktop', { xPercent: -220, yPercent: 0 }, { xPercent: 270, yPercent: -12, ease: 'none' }, 0.18);
+
+      gsap.from('.more-work__list > a, .notes-home > *, .vancouver-end__copy > *', {
+        y: 36,
         opacity: 0,
-        immediateRender: false,
-        stagger: 0.12,
-        duration: 1,
+        stagger: 0.08,
+        duration: 0.8,
         ease: 'power3.out',
-        scrollTrigger: { trigger: '[data-coda]', start: 'top 72%', once: true },
+        scrollTrigger: { trigger: '.more-work', start: 'top 80%', once: true },
       });
+
+      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
     });
   </script>
 </BaseLayout>

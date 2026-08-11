@@ -5,82 +5,56 @@ import { site } from '@/data/site';
 
 <BaseLayout
   title="About — Warren"
-  description="A developer in Vancouver making personal tools, games, learning systems, and experiments."
+  description="Warren is a developer in Vancouver making games, study software, desktop utilities, and other personal tools."
   pageClass="inner-page"
 >
   <header class="page-hero page-hero--about">
     <p class="eyebrow">About</p>
-    <h1>A developer drawn to<br /><em>useful oddities.</em></h1>
-    <p>This page is intentionally a strong first draft, with room for the biography, interests, and personal details that should come directly from you.</p>
+    <h1>I’m Warren.<br /><em>I build software in Vancouver.</em></h1>
+    <p>The short version is that I make the software I want to use, or something specific for a person I know.</p>
   </header>
 
   <section class="about-intro section-shell">
-    <div class="about-intro__portrait" aria-label="Portrait space reserved">
-      <span>Portrait optional</span>
-      <div aria-hidden="true">W/</div>
-      <p>Artifact-first works too.</p>
-    </div>
     <div class="about-intro__copy prose-large">
-      <p>I’m {site.publicName}, a developer in {site.location}. I like making software for needs that are too particular, too playful, or too personal to survive a normal product brief.</p>
-      <p>The work moves between games, learning systems, desktop utilities, visual experiments, and tools that make one person’s day work a little better.</p>
-      <p class="copy-note">Draft copy — this becomes your real biography after the content interview.</p>
+      <p>
+        My projects move between games, study software, desktop utilities, document pipelines,
+        and small experiments. The subjects vary because the starting points vary: a game I want
+        to play on a portrait monitor, an MCAT app that keeps its data locally, a birthday present
+        someone can walk around in, or a clipboard utility that behaves the way I want on my own computer.
+      </p>
+      <p>
+        I care about the part after the prototype: using the thing, finding out where it gets in the
+        way, and changing it until it becomes something I keep around.
+      </p>
     </div>
-  </section>
-
-  <section class="principles section-shell">
-    <header>
-      <p class="eyebrow">Working principles</p>
-      <h2>What the projects already suggest.</h2>
-    </header>
-    <ol>
-      <li>
-        <div>
-          <h3>Personal scale is real scale.</h3>
-          <p>A tool does not need a total addressable market to be worth making.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h3>Artifacts beat claims.</h3>
-          <p>Show the interface, the game loop, the constraint, and the trade-off.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h3>Keep the user’s data close.</h3>
-          <p>Local-first software and visible ownership are product choices, not implementation trivia.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h3>Delight can carry information.</h3>
-          <p>Sound, motion, a study pet, or a good reveal can help the interaction make sense.</p>
-        </div>
-      </li>
-    </ol>
+    <aside class="about-intro__facts">
+      <dl class="status-list">
+        <div><dt>Based in</dt><dd>{site.location}</dd></div>
+        <div><dt>Current work</dt><dd>Games, learning software, and local tools</dd></div>
+        <div><dt>GitHub</dt><dd><a href={site.githubUrl}>{site.githubLabel}</a></dd></div>
+      </dl>
+    </aside>
   </section>
 
   <section class="about-details section-shell">
     <div>
-      <p class="eyebrow">Interests to confirm</p>
+      <p class="eyebrow">Areas in the work</p>
       <ul class="tag-cloud">
-        <li>Learning science</li>
         <li>Game systems</li>
-        <li>Procedural sound</li>
         <li>Local-first software</li>
-        <li>Digital pets</li>
-        <li>Visual storytelling</li>
-        <li>Vancouver details</li>
+        <li>Learning tools</li>
+        <li>Procedural audio</li>
+        <li>Desktop utilities</li>
+        <li>Interactive chemistry</li>
       </ul>
     </div>
-    <div>
-      <p class="eyebrow">Currently</p>
-      <dl class="status-list">
-        <div><dt>Based</dt><dd>{site.location}</dd></div>
-        <div><dt>Building</dt><dd>Tools that earn repeat use</dd></div>
-        <div><dt>Writing</dt><dd>The first field note</dd></div>
-        <div><dt>Open to</dt><dd>Your preferred call to action</dd></div>
-      </dl>
+    <div class="about-details__copy">
+      <p class="eyebrow">Still to add</p>
+      <p>
+        This page still needs the personal details that cannot be recovered from a repository:
+        the interests outside software, the path into development, and the parts of Vancouver
+        that should actually appear on the site.
+      </p>
     </div>
   </section>
 </BaseLayout>

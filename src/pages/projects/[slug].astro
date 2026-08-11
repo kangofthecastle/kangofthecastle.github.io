@@ -55,8 +55,8 @@ const { project } = Astro.props;
     </section>
   ) : (
     <section class="capture-pending section-shell">
-      <p class="eyebrow">Capture plan</p>
-      <p>A sanitized walkthrough, screenshot sequence, or short loop belongs here. The prototype composition above holds the layout until we approve what can be public.</p>
+      <p class="eyebrow">Media status</p>
+      <p>This project still needs a sanitized recording or screenshot sequence before publication. The repository is private, and no live data or personal content will be used as portfolio media.</p>
     </section>
   )}
 
@@ -73,24 +73,19 @@ const { project } = Astro.props;
     </aside>
     <div class="project-story__chapters">
       <section>
-        <p class="eyebrow">The itch</p>
-        <h2>The personal problem</h2>
+        <p class="eyebrow">Why I made it</p>
+        <h2>What I wanted</h2>
         <p>{project.problem}</p>
       </section>
       <section>
-        <p class="eyebrow">The build</p>
-        <h2>The thing that took shape</h2>
+        <p class="eyebrow">What it does</p>
+        <h2>How it works</h2>
         <p>{project.solution}</p>
       </section>
       <section>
-        <p class="eyebrow">The result</p>
-        <h2>What exists now</h2>
+        <p class="eyebrow">Current state</p>
+        <h2>Where it is now</h2>
         <p>{project.outcome}</p>
-      </section>
-      <section class="project-story__pending">
-        <p class="eyebrow">Still honest</p>
-        <h2>What remains imperfect</h2>
-        <p>This section is reserved for the detail only you can add: what still bothers you, what you would change, and what the project taught you.</p>
       </section>
     </div>
   </div>
