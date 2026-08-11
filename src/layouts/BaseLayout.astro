@@ -1,0 +1,113 @@
+---
+import '@/styles/global.css';
+import { mainNav, site } from '@/data/site';
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  pageClass?: string;
+};
+
+const {
+  title = site.title,
+  description = site.description,
+  image,
+  pageClass = '',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = image ? new URL(image, Astro.site) : undefined;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101719" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    <title>{title}</title>
+  </head>
+  <body class={pageClass}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="site-noise" aria-hidden="true"></div>
+    <div class="scroll-rail" aria-hidden="true">
+      <span class="scroll-rail__label">49.2827° N</span>
+      <span class="scroll-rail__track"><span class="scroll-rail__progress"></span></span>
+      <span class="scroll-rail__label scroll-rail__label--end">123.1207° W</span>
+    </div>
+
+    <header class="site-header" data-site-header>
+      <a class="site-mark" href="/" aria-label={`${site.publicName} — home`}>
+        <span class="site-mark__glyph" aria-hidden="true">W/</span>
+        <span class="site-mark__text">{site.publicName}</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        {mainNav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={currentPath.startsWith(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <a class="header-github" href={site.githubUrl} target="_blank" rel="noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <p class="footer-kicker">Open to the interestingly specific.</p>
+        <p class="footer-heading">Let’s compare notes.</p>
+      </div>
+      <div class="footer-links">
+        {site.email ? (
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        ) : (
+          <span class="pending-contact">Public email coming in the content pass</span>
+        )}
+        <a href={site.githubUrl} target="_blank" rel="noreferrer">{site.githubLabel} ↗</a>
+      </div>
+      <div class="footer-meta">
+        <span>{site.location}</span>
+        <span>Built for the quiet part after the rain.</span>
+        <span>© {new Date().getFullYear()}</span>
+      </div>
+    </footer>
+
+    <script>
+      const root = document.documentElement;
+      const header = document.querySelector('[data-site-header]');
+
+      const updateProgress = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = max > 0 ? window.scrollY / max : 0;
+        root.style.setProperty('--scroll-progress', String(progress));
+        header?.classList.toggle('is-scrolled', window.scrollY > 24);
+      };
+
+      updateProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+    </script>
+  </body>
+</html>

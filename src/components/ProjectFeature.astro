@@ -1,0 +1,50 @@
+---
+import type { Project } from '@/data/projects';
+
+type Props = {
+  project: Project;
+  index: number;
+};
+
+const { project, index } = Astro.props;
+const paddedIndex = String(index + 1).padStart(2, '0');
+---
+
+<article class={`project-feature project-feature--${project.accent}`} data-project-feature>
+  <div class="project-feature__media" data-project-media>
+    <div class="project-feature__glow" aria-hidden="true"></div>
+    <a href={`/projects/${project.slug}/`} aria-label={`Read the ${project.title} project story`}>
+      <img
+        src={project.media}
+        alt={project.mediaAlt}
+        width="1600"
+        height="1000"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+    <div class="project-feature__caption">
+      <span>Fig. {paddedIndex}</span>
+      <span>{project.mediaCaption}</span>
+    </div>
+  </div>
+
+  <div class="project-feature__copy" data-project-copy>
+    <p class="eyebrow">{project.eyebrow}</p>
+    <h3><a href={`/projects/${project.slug}/`}>{project.title}</a></h3>
+    <p class="project-feature__summary">{project.summary}</p>
+    <dl class="project-feature__facts">
+      <div>
+        <dt>Started from</dt>
+        <dd>{project.problem}</dd>
+      </div>
+      <div>
+        <dt>Built with</dt>
+        <dd>{project.stack.join(' · ')}</dd>
+      </div>
+    </dl>
+    <a class="text-link" href={`/projects/${project.slug}/`}>
+      Open project story <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</article>

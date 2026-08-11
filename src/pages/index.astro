@@ -1,0 +1,289 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectFeature from '@/components/ProjectFeature.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { selectedProjects } from '@/data/projects';
+import { site } from '@/data/site';
+---
+
+<BaseLayout pageClass="home-page">
+  <section class="hero" data-hero>
+    <div class="hero__scene" aria-hidden="true">
+      <div class="hero__sky" data-depth="sky"></div>
+      <svg class="hero__mountains hero__mountains--far" viewBox="0 0 1600 500" preserveAspectRatio="none" data-depth="far">
+        <path d="M0 366L92 304l63 25 96-84 78 56 106-126 74 79 84-103 95 117 96-83 83 91 75-58 117 111 92-62 116 112 115-46v167H0Z" />
+      </svg>
+      <svg class="hero__mountains hero__mountains--near" viewBox="0 0 1600 500" preserveAspectRatio="none" data-depth="near">
+        <path d="M0 420l138-87 75 48 135-96 99 112 133-163 96 126 132-104 92 139 142-126 100 111 102-58 116 94 140-58v142H0Z" />
+      </svg>
+      <div class="hero__city" data-depth="city">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="hero__street" data-depth="street">
+        <span class="reflection reflection--red"></span>
+        <span class="reflection reflection--amber"></span>
+        <span class="reflection reflection--teal"></span>
+      </div>
+      <div class="hero__glass" data-depth="glass"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__location"><span></span>{site.location} · 20:46 · after rain</p>
+      <h1>{site.heroLine}</h1>
+      <p class="hero__lede">{site.supportingLine}</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#selected-work">See selected work</a>
+        <a class="button button--quiet" href="/about/">A little context <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-cue" aria-hidden="true">
+      <span>Scroll to enter</span>
+      <i></i>
+    </div>
+  </section>
+
+  <section class="thesis section-shell" data-reveal>
+    <SectionHeading
+      index="01"
+      eyebrow="The working theory"
+      title="Useful begins with personal."
+      description="The best project brief I know is noticing a small friction and refusing to leave it alone."
+    />
+    <div class="thesis__body">
+      <blockquote>
+        “Most of my projects begin with:<br />
+        <em>I wish this worked differently.</em>”
+      </blockquote>
+      <ol class="friction-list">
+        <li>
+          <span class="friction-list__number">A</span>
+          <div>
+            <strong>Study tools should belong to the learner.</strong>
+            <p>So I started building a local-first one.</p>
+          </div>
+        </li>
+        <li>
+          <span class="friction-list__number">B</span>
+          <div>
+            <strong>A birthday card can be a place.</strong>
+            <p>So I made a tiny RPG instead.</p>
+          </div>
+        </li>
+        <li>
+          <span class="friction-list__number">C</span>
+          <div>
+            <strong>Even subjective rankings deserve a system.</strong>
+            <p>So I turned opinions into pairwise choices.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="selected-work section-shell" id="selected-work">
+    <SectionHeading
+      index="02"
+      eyebrow="Selected work"
+      title="Built, used, then kept alive."
+      description="Not just repositories. These stories start with the itch, show the artifact in motion, and end with what changed."
+    />
+    <div class="project-corridor">
+      {selectedProjects.map((project, index) => (
+        <ProjectFeature project={project} index={index} />
+      ))}
+    </div>
+    <div class="section-tail">
+      <a class="text-link text-link--large" href="/projects/">Browse every project <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="process section-shell" data-process>
+    <SectionHeading
+      index="03"
+      eyebrow="How it tends to happen"
+      title="Friction → prototype → lived-with tool."
+      description="A practical loop for making things that survive contact with actual use."
+    />
+    <div class="process-line" aria-hidden="true"><span></span></div>
+    <div class="process__steps">
+      <article>
+        <span class="process__index">01 / notice</span>
+        <h3>Catch the oddly specific problem.</h3>
+        <p>The annoyance, ritual, game idea, or personal gift that generic software cannot quite reach.</p>
+      </article>
+      <article>
+        <span class="process__index">02 / shape</span>
+        <h3>Build the smallest honest version.</h3>
+        <p>Make the core interaction real early. Let the artifact argue back before polishing the edges.</p>
+      </article>
+      <article>
+        <span class="process__index">03 / inhabit</span>
+        <h3>Use it long enough to be wrong.</h3>
+        <p>Keep what earns its place. Repair what gets in the way. Document the trade-offs that remain.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="interests section-shell" data-reveal>
+    <SectionHeading
+      index="04"
+      eyebrow="Cross-pollination"
+      title="Eclectic is a feature."
+      description="The interests are still being tuned with you; these are the signals already visible in the work."
+    />
+    <div class="interest-grid">
+      <article class="interest-card interest-card--wide">
+        <span class="interest-card__symbol" aria-hidden="true">◒</span>
+        <p class="eyebrow">Learning systems</p>
+        <h3>How does a tool help someone return tomorrow?</h3>
+        <p>Local ownership, feedback loops, memory, and tiny rewards show up repeatedly in the study software.</p>
+      </article>
+      <article class="interest-card">
+        <span class="interest-card__symbol" aria-hidden="true">✦</span>
+        <p class="eyebrow">Games</p>
+        <h3>Systems that teach through feel.</h3>
+        <p>Readable pressure, authored surprise, and mechanics that carry their own story.</p>
+      </article>
+      <article class="interest-card">
+        <span class="interest-card__symbol" aria-hidden="true">𝄞</span>
+        <p class="eyebrow">Sound</p>
+        <h3>Interfaces you can hear.</h3>
+        <p>Procedural scores, reactive pets, and audio cues that do real interaction work.</p>
+      </article>
+      <article class="interest-card interest-card--wide interest-card--cedar">
+        <span class="interest-card__symbol" aria-hidden="true">⌂</span>
+        <p class="eyebrow">Tools for one</p>
+        <h3>Personal is a legitimate scale.</h3>
+        <p>A birthday RPG, a clipboard utility, a private study loop: software can be worthwhile before it is universal.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="notes-preview section-shell" data-reveal>
+    <SectionHeading
+      index="05"
+      eyebrow="Field notes"
+      title="Writing from inside the build."
+      description="Build logs, technical decisions, wrong turns, and small observations. The publishing system is ready for the first real entry."
+    />
+    <a class="note-sheet" href="/notes/">
+      <span class="note-sheet__status">Notebook / ready for entry 001</span>
+      <div>
+        <h3>What should the first note be?</h3>
+        <p>Choose a build log, technical essay, learning-system idea, or personal note and the rest of the archive will grow from there.</p>
+      </div>
+      <span class="note-sheet__arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section class="vancouver-coda" data-coda>
+    <div class="vancouver-coda__light" aria-hidden="true"></div>
+    <div class="vancouver-coda__grid" aria-hidden="true"></div>
+    <div class="vancouver-coda__content">
+      <p class="eyebrow">Made on the coast</p>
+      <h2>Built in Vancouver,<br />usually while the pavement<br />is still reflecting the sky.</h2>
+      <p>Concrete, cedar, winter light, and the useful quiet after the rain.</p>
+    </div>
+    <div class="vancouver-coda__coordinates" aria-hidden="true">
+      <span>YVR</span>
+      <span>49.2827° N / 123.1207° W</span>
+    </div>
+  </section>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const motion = gsap.matchMedia();
+
+    motion.add('(prefers-reduced-motion: no-preference) and (min-width: 861px)', () => {
+      const heroTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '[data-hero]',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.7,
+        },
+      });
+
+      heroTimeline
+        .to('[data-depth="glass"]', { yPercent: 20, opacity: 0.18 }, 0)
+        .to('[data-depth="street"]', { yPercent: 12, scale: 1.04 }, 0)
+        .to('[data-depth="city"]', { yPercent: 8 }, 0)
+        .to('[data-depth="near"]', { yPercent: 5 }, 0)
+        .to('[data-depth="far"]', { yPercent: 2 }, 0)
+        .to('.hero__content', { yPercent: -18, opacity: 0.2 }, 0.15);
+
+      gsap.utils.toArray<HTMLElement>('[data-project-feature]').forEach((feature) => {
+        const media = feature.querySelector('[data-project-media]');
+        const copy = feature.querySelector('[data-project-copy]');
+
+        gsap.fromTo(
+          media,
+          { y: 80, scale: 0.965, opacity: 0.45 },
+          {
+            y: -30,
+            scale: 1,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: feature,
+              start: 'top 92%',
+              end: 'bottom 28%',
+              scrub: 0.65,
+            },
+          },
+        );
+
+        gsap.from(copy, {
+          y: 42,
+          opacity: 0,
+          immediateRender: false,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: copy, start: 'top 82%', once: true },
+        });
+      });
+
+      gsap.fromTo(
+        '.process-line span',
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '[data-process]',
+            start: 'top 62%',
+            end: 'bottom 70%',
+            scrub: true,
+          },
+        },
+      );
+
+      gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((section) => {
+        gsap.from(section.querySelectorAll('.section-heading, .interest-card, .note-sheet'), {
+          y: 30,
+          opacity: 0,
+          immediateRender: false,
+          duration: 0.85,
+          stagger: 0.08,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: section, start: 'top 86%', once: true },
+        });
+      });
+
+      gsap.from('.vancouver-coda__content > *', {
+        y: 45,
+        opacity: 0,
+        immediateRender: false,
+        stagger: 0.12,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '[data-coda]', start: 'top 72%', once: true },
+      });
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { projects } from '@/data/projects';
+---
+
+<BaseLayout
+  title="Projects — Warren"
+  description="Games, learning systems, local-first tools, and personal software built in Vancouver."
+  pageClass="inner-page"
+>
+  <header class="page-hero page-hero--projects">
+    <p class="eyebrow">Project archive / {String(projects.length).padStart(2, '0')} entries</p>
+    <h1>Software with<br /><em>a reason to exist.</em></h1>
+    <p>Each project starts with the lived problem, shows the thing in use, and keeps the imperfect parts in frame.</p>
+  </header>
+
+  <section class="project-index section-shell" aria-label="All projects">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </section>
+</BaseLayout>

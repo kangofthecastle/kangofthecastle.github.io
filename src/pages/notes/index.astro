@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Field Notes — Warren"
+  description="Build logs, technical decisions, wrong turns, and observations from making personal software."
+  pageClass="inner-page"
+>
+  <header class="page-hero page-hero--notes">
+    <p class="eyebrow">Field notes / build logs & other observations</p>
+    <h1>Writing from<br /><em>inside the build.</em></h1>
+    <p>Technical choices, learning systems, game mechanics, personal tools, and the useful wrong turns between idea and artifact.</p>
+  </header>
+
+  <section class="notes-index section-shell">
+    {notes.length > 0 ? (
+      <ol>
+        {notes.map((note, index) => (
+          <li>
+            <a href={`/notes/${note.id}/`}>
+              <span class="notes-index__number">{String(index + 1).padStart(3, '0')}</span>
+              <div>
+                <time datetime={note.data.publishedAt.toISOString()}>
+                  {note.data.publishedAt.toLocaleDateString('en-CA', {
+                    year: 'numeric', month: 'short', day: '2-digit',
+                  })}
+                </time>
+                <h2>{note.data.title}</h2>
+                <p>{note.data.summary}</p>
+              </div>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <div class="empty-notebook">
+        <span class="empty-notebook__index">ENTRY / 000</span>
+        <div>
+          <h2>The notebook is wired up.<br />The first post should be real.</h2>
+          <p>A Markdown template already lives in the project. Once we choose the first topic and replace the draft, it will appear here automatically.</p>
+        </div>
+        <div class="empty-notebook__prompts">
+          <span>Possible first entries</span>
+          <ul>
+            <li>Why build software for one person?</li>
+            <li>Designing readable chaos in HUBRIS</li>
+            <li>What local-first means for a study tool</li>
+            <li>Making a birthday gift explorable</li>
+          </ul>
+        </div>
+      </div>
+    )}
+  </section>
+</BaseLayout>

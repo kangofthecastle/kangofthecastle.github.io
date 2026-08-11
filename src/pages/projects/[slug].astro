@@ -1,0 +1,106 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { projects, type Project } from '@/data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+type Props = { project: Project };
+const { project } = Astro.props;
+const projectNumber = projects.findIndex((entry) => entry.slug === project.slug) + 1;
+---
+
+<BaseLayout
+  title={`${project.title} — Warren`}
+  description={project.summary}
+  image={project.media}
+  pageClass={`inner-page project-page project-page--${project.accent}`}
+>
+  <header class="project-hero">
+    <div class="project-hero__meta">
+      <span>Project / {String(projectNumber).padStart(2, '0')}</span>
+      <span>{project.year}</span>
+      <span>{project.visibility === 'private' ? 'Private repository' : project.visibility}</span>
+    </div>
+    <p class="eyebrow">{project.eyebrow}</p>
+    <h1>{project.title}</h1>
+    <p class="project-hero__summary">{project.summary}</p>
+  </header>
+
+  <figure class="project-lead-media">
+    <img src={project.media} alt={project.mediaAlt} width="1600" height="1000" />
+    <figcaption>
+      <span>Artifact / first prototype pass</span>
+      <span>{project.mediaCaption}</span>
+    </figcaption>
+  </figure>
+
+  {project.captures && project.captures.length > 0 ? (
+    <section class="project-captures section-shell" aria-labelledby="capture-heading">
+      <header>
+        <p class="eyebrow">The artifact in use</p>
+        <h2 id="capture-heading">Real screens,<br />not repository chrome.</h2>
+      </header>
+      <div class="project-captures__grid">
+        {project.captures.map((capture, index) => (
+          <figure>
+            <img src={capture.src} alt={capture.alt} width="900" height="1400" loading="lazy" />
+            <figcaption>
+              <span>Capture {String(index + 1).padStart(2, '0')}</span>
+              <span>{capture.caption}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  ) : (
+    <section class="capture-pending section-shell">
+      <p class="eyebrow">Capture plan</p>
+      <p>A sanitized walkthrough, screenshot sequence, or short loop belongs here. The prototype composition above holds the layout until we approve what can be public.</p>
+    </section>
+  )}
+
+  <div class="project-story section-shell">
+    <aside>
+      <p class="eyebrow">Stack</p>
+      <ul>
+        {project.stack.map((item) => <li>{item}</li>)}
+      </ul>
+      <p class="eyebrow">Signals</p>
+      <ul>
+        {project.tags.map((item) => <li>{item}</li>)}
+      </ul>
+    </aside>
+    <div class="project-story__chapters">
+      <section>
+        <span>01 / The itch</span>
+        <h2>The personal problem</h2>
+        <p>{project.problem}</p>
+      </section>
+      <section>
+        <span>02 / The build</span>
+        <h2>The thing that took shape</h2>
+        <p>{project.solution}</p>
+      </section>
+      <section>
+        <span>03 / The change</span>
+        <h2>What exists now</h2>
+        <p>{project.outcome}</p>
+      </section>
+      <section class="project-story__pending">
+        <span>04 / Still honest</span>
+        <h2>What remains imperfect</h2>
+        <p>This section is reserved for the detail only you can add: what still bothers you, what you would change, and what the project taught you.</p>
+      </section>
+    </div>
+  </div>
+
+  <nav class="project-next" aria-label="Project navigation">
+    <span>Keep looking</span>
+    <a href="/projects/">Back to every project <span aria-hidden="true">↗</span></a>
+  </nav>
+</BaseLayout>

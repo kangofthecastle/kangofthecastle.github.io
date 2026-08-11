@@ -1,0 +1,36 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', ({ data }) => !data.draft);
+  return notes.map((note) => ({ params: { id: note.id }, props: { note } }));
+}
+
+type Props = { note: CollectionEntry<'notes'> };
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<BaseLayout
+  title={`${note.data.title} — Warren`}
+  description={note.data.summary}
+  pageClass="inner-page note-page"
+>
+  <article>
+    <header class="note-hero">
+      <a href="/notes/" class="eyebrow">← All field notes</a>
+      <h1>{note.data.title}</h1>
+      <p>{note.data.summary}</p>
+      <div>
+        <time datetime={note.data.publishedAt.toISOString()}>
+          {note.data.publishedAt.toLocaleDateString('en-CA', {
+            year: 'numeric', month: 'long', day: 'numeric',
+          })}
+        </time>
+        <span>{note.data.tags.join(' · ')}</span>
+      </div>
+    </header>
+    <div class="note-content prose"><Content /></div>
+  </article>
+</BaseLayout>

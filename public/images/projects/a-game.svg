@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">A-Game preview composition</title>
+  <desc id="desc">A warm pixel-art world transitioning from a room to an ocean beneath stars.</desc>
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#2a2447"/><stop offset=".6" stop-color="#675b86"/><stop offset="1" stop-color="#e0a775"/></linearGradient><linearGradient id="water" x2="0" y2="1"><stop stop-color="#405c79"/><stop offset="1" stop-color="#172b43"/></linearGradient></defs>
+  <rect width="1600" height="1000" fill="#171820"/>
+  <rect x="65" y="70" width="1470" height="860" rx="16" fill="url(#sky)" stroke="#dec89d" stroke-opacity=".35"/>
+  <g fill="#fff6d7" opacity=".8"><circle cx="170" cy="170" r="3"/><circle cx="290" cy="118" r="5"/><circle cx="420" cy="200" r="3"/><circle cx="610" cy="128" r="4"/><circle cx="790" cy="190" r="3"/><circle cx="1010" cy="120" r="5"/><circle cx="1240" cy="204" r="3"/><circle cx="1400" cy="130" r="4"/></g>
+  <path d="M65 553l210-130 160 85 188-158 154 142 208-207 191 206 181-103 178 159v383H65z" fill="#243f45"/>
+  <path d="M65 660c260-90 412-42 580 34 209 94 430-89 890-25v261H65z" fill="url(#water)"/>
+  <g opacity=".35" stroke="#b8dbd7" stroke-width="3"><path d="M65 736c330-70 480 80 760 10s480-65 710-7"/><path d="M65 802c330-70 480 80 760 10s480-65 710-7"/><path d="M65 866c330-70 480 80 760 10s480-65 710-7"/></g>
+  <g transform="translate(805 695)">
+    <path d="M-95 35L0 80l105-48L0 8z" fill="#e6ddc1"/><path d="M0 8v72" stroke="#a99a82" stroke-width="3"/><path d="M-95 35L0 52l105-20" fill="none" stroke="#a99a82" stroke-width="3"/>
+    <path d="M0 6V-100" stroke="#bba88a" stroke-width="6"/><path d="M6-96l102 70L6-30z" fill="#d59b88"/><path d="M-6-92l-69 52H-6z" fill="#f2d7a8"/>
+  </g>
+  <g transform="translate(310 580)">
+    <rect x="-70" y="-95" width="140" height="110" fill="#b76f57"/><polygon points="-88,-95 0,-160 88,-95" fill="#4a3945"/><rect x="-18" y="-48" width="36" height="63" fill="#433942"/><rect x="-52" y="-65" width="24" height="23" fill="#f1c47c"/><rect x="29" y="-65" width="24" height="23" fill="#f1c47c"/>
+  </g>
+  <g transform="translate(1220 530)">
+    <rect x="-6" y="-160" width="12" height="180" fill="#372d35"/><path d="M0-160l65 38-65 18z" fill="#f0b873"/><circle cx="0" cy="-160" r="36" fill="#f1bb73" opacity=".26"/>
+  </g>
+  <g font-family="monospace"><text x="105" y="128" fill="#f1d7a8" font-size="20" letter-spacing="5">A SMALL WORLD / MADE FOR ONE PERSON</text><text x="105" y="886" fill="#a4b6ba" font-size="18">ROOM → PATH → FRIENDS → KEEPSAKES → OCEAN</text></g>
+  <rect x="1090" y="765" width="360" height="104" rx="8" fill="#151722" fill-opacity=".82" stroke="#d9b88a"/>
+  <text x="1120" y="810" fill="#f6ead5" font-family="serif" font-size="25">The world opens</text><text x="1120" y="843" fill="#aeb9ba" font-family="monospace" font-size="15">when the gift is explored.</text>
+</svg>
