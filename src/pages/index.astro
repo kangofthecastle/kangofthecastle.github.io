@@ -5,29 +5,26 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 <BaseLayout pageClass="home-page home-page--poster">
   <section class="poster-hero" data-poster-hero>
     <div class="poster-hero__sticky">
-      <div class="poster-scene" data-poster-scene aria-hidden="true">
+        <div class="poster-scene" data-poster-scene aria-hidden="true">
         <div class="poster-sun" data-poster-sun></div>
-        <div class="poster-rain poster-rain--back" data-rain-back></div>
         <div class="poster-mountain poster-mountain--far" data-mountain-far></div>
         <div class="poster-mountain poster-mountain--near" data-mountain-near></div>
 
         <div class="poster-city" data-poster-city>
-          <span style="--x: 2%; --w: 7%; --h: 42%;"></span>
-          <span style="--x: 10%; --w: 5%; --h: 68%;"></span>
-          <span style="--x: 17%; --w: 9%; --h: 51%;"></span>
-          <span style="--x: 28%; --w: 6%; --h: 81%;"></span>
-          <span style="--x: 36%; --w: 11%; --h: 58%;"></span>
-          <span style="--x: 49%; --w: 5%; --h: 73%;"></span>
-          <span style="--x: 57%; --w: 10%; --h: 47%;"></span>
-          <span style="--x: 70%; --w: 7%; --h: 62%;"></span>
-          <span style="--x: 80%; --w: 13%; --h: 38%;"></span>
+          <span class="poster-building poster-building--low" style="--x: 0%; --w: 12%; --h: 35%;"></span>
+          <span class="poster-building poster-building--tower" style="--x: 15%; --w: 8%; --h: 68%;"></span>
+          <span class="poster-building" style="--x: 27%; --w: 15%; --h: 48%;"></span>
+          <span class="poster-building poster-building--slim" style="--x: 46%; --w: 7%; --h: 78%;"></span>
+          <span class="poster-building poster-building--saw" style="--x: 57%; --w: 17%; --h: 42%;"></span>
+          <span class="poster-building poster-building--tower" style="--x: 78%; --w: 8%; --h: 58%;"></span>
+          <span class="poster-building poster-building--low" style="--x: 89%; --w: 11%; --h: 31%;"></span>
         </div>
 
         <div class="poster-crane" data-poster-crane>
-          <span class="poster-crane__mast"></span>
+          <span class="poster-crane__leg poster-crane__leg--left"></span>
+          <span class="poster-crane__leg poster-crane__leg--right"></span>
           <span class="poster-crane__boom"></span>
-          <span class="poster-crane__brace poster-crane__brace--one"></span>
-          <span class="poster-crane__brace poster-crane__brace--two"></span>
+          <span class="poster-crane__trolley"></span>
           <span class="poster-crane__cable"></span>
           <span class="poster-crane__hook"></span>
         </div>
@@ -36,13 +33,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <div class="poster-seabus" data-poster-seabus>
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-        <div class="poster-rain poster-rain--front" data-rain-front></div>
         <div class="poster-halftone"></div>
       </div>
 
       <div class="poster-copy" data-poster-copy>
         <p class="poster-kicker">Warren · software developer · Vancouver</p>
-        <h1>Software for problems I actually have.</h1>
+        <h1>
+          <span>Software</span>
+          <span>for problems</span>
+          <span>I actually have.</span>
+        </h1>
         <p>
           I make games, study software, and small desktop tools—usually because I
           want a version that does something existing software does not.
@@ -207,8 +207,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-poster-crane]', { xPercent: 12, scale: 1.18, ease: 'none' }, 0)
         .to('[data-poster-water]', { yPercent: 12, scale: 1.08, ease: 'none' }, 0)
         .to('[data-poster-seabus]', { xPercent: 95, yPercent: 8, scale: 1.05, ease: 'none' }, 0)
-        .to('[data-rain-back]', { xPercent: -9, yPercent: 13, ease: 'none' }, 0)
-        .to('[data-rain-front]', { xPercent: 12, yPercent: 26, ease: 'none' }, 0)
         .to('[data-poster-copy]', { xPercent: -28, rotate: -2, opacity: 0, ease: 'none' }, 0.18)
         .to('[data-poster-stamp]', { xPercent: -45, yPercent: 25, rotate: -17, opacity: 0, ease: 'none' }, 0.23)
         .fromTo('[data-poster-aperture]',
