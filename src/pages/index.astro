@@ -43,54 +43,15 @@ import { site } from '@/data/site';
     </div>
   </section>
 
-  <section class="thesis section-shell" data-reveal>
-    <SectionHeading
-      index="01"
-      eyebrow="The working theory"
-      title="Useful begins with personal."
-      description="The best project brief I know is noticing a small friction and refusing to leave it alone."
-    />
-    <div class="thesis__body">
-      <blockquote>
-        “Most of my projects begin with:<br />
-        <em>I wish this worked differently.</em>”
-      </blockquote>
-      <ol class="friction-list">
-        <li>
-          <span class="friction-list__number">A</span>
-          <div>
-            <strong>Study tools should belong to the learner.</strong>
-            <p>So I started building a local-first one.</p>
-          </div>
-        </li>
-        <li>
-          <span class="friction-list__number">B</span>
-          <div>
-            <strong>A birthday card can be a place.</strong>
-            <p>So I made a tiny RPG instead.</p>
-          </div>
-        </li>
-        <li>
-          <span class="friction-list__number">C</span>
-          <div>
-            <strong>Even subjective rankings deserve a system.</strong>
-            <p>So I turned opinions into pairwise choices.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
   <section class="selected-work section-shell" id="selected-work">
     <SectionHeading
-      index="02"
       eyebrow="Selected work"
       title="Built, used, then kept alive."
       description="Not just repositories. These stories start with the itch, show the artifact in motion, and end with what changed."
     />
     <div class="project-corridor">
-      {selectedProjects.map((project, index) => (
-        <ProjectFeature project={project} index={index} />
+      {selectedProjects.map((project) => (
+        <ProjectFeature project={project} />
       ))}
     </div>
     <div class="section-tail">
@@ -98,36 +59,8 @@ import { site } from '@/data/site';
     </div>
   </section>
 
-  <section class="process section-shell" data-process>
-    <SectionHeading
-      index="03"
-      eyebrow="How it tends to happen"
-      title="Friction → prototype → lived-with tool."
-      description="A practical loop for making things that survive contact with actual use."
-    />
-    <div class="process-line" aria-hidden="true"><span></span></div>
-    <div class="process__steps">
-      <article>
-        <span class="process__index">01 / notice</span>
-        <h3>Catch the oddly specific problem.</h3>
-        <p>The annoyance, ritual, game idea, or personal gift that generic software cannot quite reach.</p>
-      </article>
-      <article>
-        <span class="process__index">02 / shape</span>
-        <h3>Build the smallest honest version.</h3>
-        <p>Make the core interaction real early. Let the artifact argue back before polishing the edges.</p>
-      </article>
-      <article>
-        <span class="process__index">03 / inhabit</span>
-        <h3>Use it long enough to be wrong.</h3>
-        <p>Keep what earns its place. Repair what gets in the way. Document the trade-offs that remain.</p>
-      </article>
-    </div>
-  </section>
-
   <section class="interests section-shell" data-reveal>
     <SectionHeading
-      index="04"
       eyebrow="Cross-pollination"
       title="Eclectic is a feature."
       description="The interests are still being tuned with you; these are the signals already visible in the work."
@@ -162,13 +95,12 @@ import { site } from '@/data/site';
 
   <section class="notes-preview section-shell" data-reveal>
     <SectionHeading
-      index="05"
       eyebrow="Field notes"
       title="Writing from inside the build."
       description="Build logs, technical decisions, wrong turns, and small observations. The publishing system is ready for the first real entry."
     />
     <a class="note-sheet" href="/notes/">
-      <span class="note-sheet__status">Notebook / ready for entry 001</span>
+      <span class="note-sheet__status">The notebook is ready for its first real post</span>
       <div>
         <h3>What should the first note be?</h3>
         <p>Choose a build log, technical essay, learning-system idea, or personal note and the rest of the archive will grow from there.</p>
@@ -187,7 +119,7 @@ import { site } from '@/data/site';
     </div>
     <div class="vancouver-coda__coordinates" aria-hidden="true">
       <span>YVR</span>
-      <span>49.2827° N / 123.1207° W</span>
+      <span>49.2827° N · 123.1207° W</span>
     </div>
   </section>
 
@@ -247,21 +179,6 @@ import { site } from '@/data/site';
           scrollTrigger: { trigger: copy, start: 'top 82%', once: true },
         });
       });
-
-      gsap.fromTo(
-        '.process-line span',
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '[data-process]',
-            start: 'top 62%',
-            end: 'bottom 70%',
-            scrub: true,
-          },
-        },
-      );
 
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((section) => {
         gsap.from(section.querySelectorAll('.section-heading, .interest-card, .note-sheet'), {

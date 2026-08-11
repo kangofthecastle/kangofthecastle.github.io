@@ -3,11 +3,9 @@ import type { Project } from '@/data/projects';
 
 type Props = {
   project: Project;
-  index: number;
 };
 
-const { project, index } = Astro.props;
-const paddedIndex = String(index + 1).padStart(2, '0');
+const { project } = Astro.props;
 ---
 
 <article class={`project-feature project-feature--${project.accent}`} data-project-feature>
@@ -24,7 +22,6 @@ const paddedIndex = String(index + 1).padStart(2, '0');
       />
     </a>
     <div class="project-feature__caption">
-      <span>Fig. {paddedIndex}</span>
       <span>{project.mediaCaption}</span>
     </div>
   </div>

@@ -11,7 +11,6 @@ export function getStaticPaths() {
 
 type Props = { project: Project };
 const { project } = Astro.props;
-const projectNumber = projects.findIndex((entry) => entry.slug === project.slug) + 1;
 ---
 
 <BaseLayout
@@ -22,7 +21,6 @@ const projectNumber = projects.findIndex((entry) => entry.slug === project.slug)
 >
   <header class="project-hero">
     <div class="project-hero__meta">
-      <span>Project / {String(projectNumber).padStart(2, '0')}</span>
       <span>{project.year}</span>
       <span>{project.visibility === 'private' ? 'Private repository' : project.visibility}</span>
     </div>
@@ -34,7 +32,6 @@ const projectNumber = projects.findIndex((entry) => entry.slug === project.slug)
   <figure class="project-lead-media">
     <img src={project.media} alt={project.mediaAlt} width="1600" height="1000" />
     <figcaption>
-      <span>Artifact / first prototype pass</span>
       <span>{project.mediaCaption}</span>
     </figcaption>
   </figure>
@@ -46,11 +43,10 @@ const projectNumber = projects.findIndex((entry) => entry.slug === project.slug)
         <h2 id="capture-heading">Real screens,<br />not repository chrome.</h2>
       </header>
       <div class="project-captures__grid">
-        {project.captures.map((capture, index) => (
+        {project.captures.map((capture) => (
           <figure>
             <img src={capture.src} alt={capture.alt} width="900" height="1400" loading="lazy" />
             <figcaption>
-              <span>Capture {String(index + 1).padStart(2, '0')}</span>
               <span>{capture.caption}</span>
             </figcaption>
           </figure>
@@ -77,22 +73,22 @@ const projectNumber = projects.findIndex((entry) => entry.slug === project.slug)
     </aside>
     <div class="project-story__chapters">
       <section>
-        <span>01 / The itch</span>
+        <p class="eyebrow">The itch</p>
         <h2>The personal problem</h2>
         <p>{project.problem}</p>
       </section>
       <section>
-        <span>02 / The build</span>
+        <p class="eyebrow">The build</p>
         <h2>The thing that took shape</h2>
         <p>{project.solution}</p>
       </section>
       <section>
-        <span>03 / The change</span>
+        <p class="eyebrow">The result</p>
         <h2>What exists now</h2>
         <p>{project.outcome}</p>
       </section>
       <section class="project-story__pending">
-        <span>04 / Still honest</span>
+        <p class="eyebrow">Still honest</p>
         <h2>What remains imperfect</h2>
         <p>This section is reserved for the detail only you can add: what still bothers you, what you would change, and what the project taught you.</p>
       </section>
