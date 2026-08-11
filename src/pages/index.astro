@@ -2,125 +2,155 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
-<BaseLayout pageClass="home-page home-page--harbour">
-  <section class="harbour-hero" data-harbour-hero>
-    <div class="harbour-hero__sticky">
-      <figure class="harbour-view" aria-hidden="true">
-        <img src="/images/vancouver-port.jpg" alt="" data-harbour-photo />
-        <span class="harbour-view__shade"></span>
-        <span class="harbour-view__water"></span>
-      </figure>
+<BaseLayout pageClass="home-page home-page--poster">
+  <section class="poster-hero" data-poster-hero>
+    <div class="poster-hero__sticky">
+      <div class="poster-scene" data-poster-scene aria-hidden="true">
+        <div class="poster-sun" data-poster-sun></div>
+        <div class="poster-rain poster-rain--back" data-rain-back></div>
+        <div class="poster-mountain poster-mountain--far" data-mountain-far></div>
+        <div class="poster-mountain poster-mountain--near" data-mountain-near></div>
 
-      <div class="harbour-copy" data-harbour-copy>
-        <p class="harbour-label">Warren · Vancouver, British Columbia</p>
-        <h1>Games, study software, and small tools.</h1>
+        <div class="poster-city" data-poster-city>
+          <span style="--x: 2%; --w: 7%; --h: 42%;"></span>
+          <span style="--x: 10%; --w: 5%; --h: 68%;"></span>
+          <span style="--x: 17%; --w: 9%; --h: 51%;"></span>
+          <span style="--x: 28%; --w: 6%; --h: 81%;"></span>
+          <span style="--x: 36%; --w: 11%; --h: 58%;"></span>
+          <span style="--x: 49%; --w: 5%; --h: 73%;"></span>
+          <span style="--x: 57%; --w: 10%; --h: 47%;"></span>
+          <span style="--x: 70%; --w: 7%; --h: 62%;"></span>
+          <span style="--x: 80%; --w: 13%; --h: 38%;"></span>
+        </div>
+
+        <div class="poster-crane" data-poster-crane>
+          <span class="poster-crane__mast"></span>
+          <span class="poster-crane__boom"></span>
+          <span class="poster-crane__brace poster-crane__brace--one"></span>
+          <span class="poster-crane__brace poster-crane__brace--two"></span>
+          <span class="poster-crane__cable"></span>
+          <span class="poster-crane__hook"></span>
+        </div>
+
+        <div class="poster-water" data-poster-water></div>
+        <div class="poster-seabus" data-poster-seabus>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="poster-rain poster-rain--front" data-rain-front></div>
+        <div class="poster-halftone"></div>
+      </div>
+
+      <div class="poster-copy" data-poster-copy>
+        <p class="poster-kicker">Warren · software developer · Vancouver</p>
+        <h1>Software for problems I actually have.</h1>
         <p>
-          I’m a developer in Vancouver. I build software when the version I want
-          does not exist yet—sometimes for myself, sometimes for one person I know.
+          I make games, study software, and small desktop tools—usually because I
+          want a version that does something existing software does not.
         </p>
       </div>
 
-      <figure class="harbour-portal" data-harbour-portal>
-        <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
-        <figcaption>
-          <strong>HUBRIS / Goldwake</strong>
-          <span>Portrait bullet-hell roguelite</span>
-        </figcaption>
-      </figure>
+      <div class="poster-stamp" data-poster-stamp aria-hidden="true">
+        Built in<br />Vancouver
+      </div>
 
-      <p class="harbour-handoff" data-harbour-handoff>Projects</p>
+      <div class="poster-aperture" data-poster-aperture>
+        <p>HUBRIS / Goldwake</p>
+        <figure>
+          <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
+        </figure>
+        <span>Portrait bullet-hell · WebGL2</span>
+      </div>
     </div>
   </section>
 
-  <section class="project-film" data-project-film aria-label="Selected projects">
-    <div class="project-film__sticky">
-      <p class="project-film__label">Selected projects</p>
+  <section class="print-film" data-print-film aria-label="Selected projects">
+    <div class="print-film__sticky">
+      <div class="print-film__ink" data-film-ink aria-hidden="true"></div>
+      <p class="print-film__label">Projects, shown working</p>
 
-      <article class="film-chapter film-chapter--goldwake" data-film-chapter="goldwake">
-        <div class="film-chapter__copy">
-          <p class="film-chapter__name">HUBRIS / Goldwake</p>
-          <h2>A portrait bullet hell built around one escape mechanic.</h2>
+      <article class="print-chapter print-chapter--goldwake" data-print-chapter data-ink="#df4738">
+        <div class="print-chapter__copy">
+          <p class="print-chapter__name">HUBRIS / Goldwake</p>
+          <h2>A portrait bullet-hell where grazing charges the screen clear.</h2>
           <p>
             Grazing fills an Apotheosis gauge. Triggering it cancels every enemy
-            bullet on screen into collectible gold, so the same pressure that nearly
-            ends a run can fund the next one. The run seed chooses the encounters and
-            the procedural score.
+            bullet into collectible gold. The run seed also chooses the encounters
+            and procedural score.
           </p>
-          <p class="film-chapter__meta">WebGL2 · Canvas · WebAudio · JavaScript · playable locally</p>
+          <p class="print-chapter__meta">WebGL2 · Canvas · WebAudio · JavaScript · playable locally</p>
           <a href="/projects/goldwake/">Project details <span aria-hidden="true">↗</span></a>
         </div>
-        <figure class="film-chapter__media film-chapter__media--portrait">
+        <figure class="print-chapter__media print-chapter__media--portrait">
           <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
         </figure>
       </article>
 
-      <article class="film-chapter film-chapter--agame" data-film-chapter="agame">
-        <div class="film-chapter__copy">
-          <p class="film-chapter__name">A-Game</p>
-          <h2>A birthday present you can walk around in.</h2>
+      <article class="print-chapter print-chapter--agame" data-print-chapter data-ink="#3154a6">
+        <div class="print-chapter__copy">
+          <p class="print-chapter__name">A-Game</p>
+          <h2>A birthday game built for one person and one sitting.</h2>
           <p>
-            You visit two friends, fish inside one computer, defuse a small top-down
-            game inside another, and bring three keepsakes home when a violin starts
-            calling. The keepsakes become a lit paper boat before the water turns into a galaxy.
+            You visit two friends, play games inside their computers, and bring three
+            keepsakes home when a violin starts calling. The keepsakes become a lit
+            paper boat before the water turns into a galaxy.
           </p>
-          <p class="film-chapter__meta">Phaser · TypeScript · Vite · Electron · one sitting, no fail states</p>
+          <p class="print-chapter__meta">Phaser · TypeScript · Electron · no fail states</p>
           <a href="/projects/a-game/">Project details <span aria-hidden="true">↗</span></a>
         </div>
-        <figure class="film-chapter__media film-chapter__media--landscape">
+        <figure class="print-chapter__media print-chapter__media--wide">
           <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" />
         </figure>
       </article>
 
-      <article class="film-chapter film-chapter--freecat" data-film-chapter="freecat">
-        <div class="film-chapter__copy">
-          <p class="film-chapter__name">FreeCAT</p>
-          <h2>An MCAT app with no account and one local database.</h2>
+      <article class="print-chapter print-chapter--freecat" data-print-chapter data-ink="#79b9a5">
+        <div class="print-chapter__copy">
+          <p class="print-chapter__name">FreeCAT</p>
+          <h2>Local-first MCAT study software in one SQLite file.</h2>
           <p>
-            Questions, lesson progress, imported Anki decks, review history, XP, and
-            the study pet live in one SQLite file. The question bank, content review,
-            gamification, and Anki import work now; FSRS review, richer media support,
-            image occlusion, installers, and a public repository are still in progress.
+            The question bank, lessons, imported Anki decks, review history, XP, and
+            study pet all stay on the learner’s computer. No account and no hosted
+            progress database.
           </p>
-          <p class="film-chapter__meta">Electron · React · TypeScript · SQLite · original or open content only</p>
+          <p class="print-chapter__meta">Electron · React · TypeScript · SQLite · in development</p>
           <a href="/projects/freecat/">Project details <span aria-hidden="true">↗</span></a>
         </div>
-        <figure class="film-chapter__media film-chapter__media--landscape film-chapter__media--light">
+        <figure class="print-chapter__media print-chapter__media--wide print-chapter__media--light">
           <img src="/images/projects/freecat-home.webp" alt="FreeCAT running locally with a study pet and progress summary" />
         </figure>
       </article>
 
-      <article class="film-chapter film-chapter--toybox" data-film-chapter="toybox">
-        <div class="film-chapter__copy">
-          <p class="film-chapter__name">Toybox</p>
-          <h2>Small Windows utilities without another large desktop app.</h2>
+      <article class="print-chapter print-chapter--toybox" data-print-chapter data-ink="#e5aa2d">
+        <div class="print-chapter__copy">
+          <p class="print-chapter__name">Toybox</p>
+          <h2>Small Windows utilities written in Python’s standard library.</h2>
           <p>
-            Toybox includes a system and media HUD, an in-memory clipboard history
-            that syncs text to my Mac over the local network, and a pixel cat that
-            dances to music, runs focus timers, naps in a box, and carries dropped files.
+            Toybox combines a system HUD, an in-memory clipboard that syncs text to
+            my Mac over the local network, and a pixel cat that dances to music, runs
+            timers, naps in a box, and carries dropped files.
           </p>
-          <p class="film-chapter__meta">Python standard library · Tkinter · Win32 APIs · no telemetry</p>
+          <p class="print-chapter__meta">Python · Tkinter · Win32 APIs · no telemetry</p>
           <a href="/projects/toybox/">Project details <span aria-hidden="true">↗</span></a>
         </div>
-        <figure class="film-chapter__media film-chapter__media--square">
+        <figure class="print-chapter__media print-chapter__media--square">
           <img src="/images/projects/toybox-staged.webp" alt="A sanitized Toybox staging using the real desktop cat sprite" />
         </figure>
       </article>
     </div>
   </section>
 
-  <section class="plain-work section-shell">
+  <section class="print-list section-shell">
     <header>
-      <p class="harbour-label">Other projects</p>
-      <h2>Study pipelines, class software, and experiments.</h2>
+      <p class="poster-kicker">More software</p>
+      <h2>Other things I’m building.</h2>
     </header>
-    <div class="plain-work__rows">
+    <div class="print-list__rows">
       <a href="/projects/question-distiller/">
         <strong>Question Distiller / Structure Lab</strong>
         <span>Turns screenshot-only study documents into reviewed data and interactive chemistry lessons.</span>
       </a>
       <a href="/projects/">
         <strong>SAT World</strong>
-        <span>Invite-only SAT software for students, teachers, live classes, study plans, analytics, and pets.</span>
+        <span>SAT software for students, teachers, live classes, study plans, analytics, and pets.</span>
       </a>
       <a href="/projects/baddest/">
         <strong>Baddest</strong>
@@ -129,26 +159,27 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section class="plain-notes section-shell">
-    <p class="harbour-label">Notes</p>
-    <h2>Build logs and technical notes will live here.</h2>
+  <section class="print-notes">
+    <div class="print-notes__burst" aria-hidden="true"></div>
+    <p class="poster-kicker">Notes</p>
+    <h2>Build logs, mistakes, and technical decisions.</h2>
     <p>
-      There are no published posts yet. The first entries will come from these projects:
+      Nothing is published yet. The first posts will come from these projects:
       mechanics that changed, systems that broke, and decisions worth documenting.
-      <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
     </p>
+    <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
   </section>
 
-  <section class="harbour-coda">
-    <img src="/images/vancouver-port.jpg" alt="The Port of Vancouver at night with the North Shore mountains behind it" />
-    <span class="harbour-coda__shade" aria-hidden="true"></span>
-    <div class="harbour-coda__copy">
-      <p class="harbour-label">Vancouver, British Columbia</p>
-      <h2>Home.</h2>
+  <section class="poster-coda">
+    <div class="poster-coda__sun" aria-hidden="true"></div>
+    <div class="poster-coda__mountain poster-coda__mountain--far" aria-hidden="true"></div>
+    <div class="poster-coda__mountain poster-coda__mountain--near" aria-hidden="true"></div>
+    <div class="poster-coda__water" aria-hidden="true"></div>
+    <div class="poster-coda__copy">
+      <p class="poster-kicker">Vancouver, British Columbia</p>
+      <h2>Made here.</h2>
+      <p>Usually for a problem I encountered here too.</p>
     </div>
-    <a class="harbour-credit" href="https://unsplash.com/pt-br/fotografias/porto-industrial-com-guindastes-iluminados-a-noite-NfOZ_Of6DZU" target="_blank" rel="noreferrer">
-      Vancouver harbour photograph by Albert Stoynov / Unsplash
-    </a>
   </section>
 
   <script>
@@ -159,69 +190,82 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     const motion = gsap.matchMedia();
 
     motion.add('(prefers-reduced-motion: no-preference) and (min-width: 861px)', () => {
-      const harbour = gsap.timeline({
+      const opening = gsap.timeline({
         scrollTrigger: {
-          trigger: '[data-harbour-hero]',
+          trigger: '[data-poster-hero]',
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.7,
+          scrub: 0.55,
         },
       });
 
-      harbour
-        .fromTo('[data-harbour-photo]',
-          { scale: 1.01, xPercent: 0, yPercent: 0, filter: 'brightness(0.76) saturate(0.82)' },
-          { scale: 1.22, xPercent: -3, yPercent: 1, filter: 'brightness(0.34) saturate(0.7)', ease: 'none' },
-          0,
+      opening
+        .to('[data-poster-sun]', { scale: 1.45, xPercent: -13, yPercent: 5, ease: 'none' }, 0)
+        .to('[data-mountain-far]', { xPercent: -7, yPercent: 4, scale: 1.08, ease: 'none' }, 0)
+        .to('[data-mountain-near]', { xPercent: 7, yPercent: 7, scale: 1.14, ease: 'none' }, 0)
+        .to('[data-poster-city]', { xPercent: -9, scale: 1.12, ease: 'none' }, 0)
+        .to('[data-poster-crane]', { xPercent: 12, scale: 1.18, ease: 'none' }, 0)
+        .to('[data-poster-water]', { yPercent: 12, scale: 1.08, ease: 'none' }, 0)
+        .to('[data-poster-seabus]', { xPercent: 95, yPercent: 8, scale: 1.05, ease: 'none' }, 0)
+        .to('[data-rain-back]', { xPercent: -9, yPercent: 13, ease: 'none' }, 0)
+        .to('[data-rain-front]', { xPercent: 12, yPercent: 26, ease: 'none' }, 0)
+        .to('[data-poster-copy]', { xPercent: -28, rotate: -2, opacity: 0, ease: 'none' }, 0.18)
+        .to('[data-poster-stamp]', { xPercent: -45, yPercent: 25, rotate: -17, opacity: 0, ease: 'none' }, 0.23)
+        .fromTo('[data-poster-aperture]',
+          { xPercent: 44, yPercent: 32, scale: 0.08, rotate: 8, opacity: 0 },
+          { xPercent: 0, yPercent: 0, scale: 1, rotate: -1.5, opacity: 1, ease: 'power2.inOut' },
+          0.28,
         )
-        .to('[data-harbour-copy]', { x: -72, y: -28, opacity: 0, ease: 'none' }, 0.16)
-        .fromTo('[data-harbour-portal]',
-          { xPercent: 110, yPercent: 18, scale: 0.14, rotateY: -12, opacity: 0 },
-          { xPercent: 0, yPercent: 0, scale: 1, rotateY: 0, opacity: 1, ease: 'none' },
-          0.16,
-        )
-        .fromTo('[data-harbour-handoff]',
-          { y: 24, opacity: 0 },
-          { y: 0, opacity: 1, ease: 'none' },
-          0.78,
-        );
+        .to('[data-poster-scene]', { scale: 1.08, filter: 'saturate(0.84) brightness(0.8)', ease: 'none' }, 0.58);
 
-      const chapters = gsap.utils.toArray<HTMLElement>('[data-film-chapter]');
+      const chapters = gsap.utils.toArray<HTMLElement>('[data-print-chapter]');
       gsap.set(chapters.slice(1), { autoAlpha: 0 });
 
       const film = gsap.timeline({
         scrollTrigger: {
-          trigger: '[data-project-film]',
+          trigger: '[data-print-film]',
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.65,
+          scrub: 0.6,
         },
       });
 
       chapters.forEach((chapter, index) => {
-        const media = chapter.querySelector('.film-chapter__media');
-        const copy = chapter.querySelector('.film-chapter__copy');
+        const media = chapter.querySelector('.print-chapter__media');
+        const copy = chapter.querySelector('.print-chapter__copy');
+        const ink = chapter.dataset.ink;
         const start = index;
+
+        film.to('[data-film-ink]', { backgroundColor: ink, duration: 0.22, ease: 'none' }, start);
 
         if (index > 0) {
           const previous = chapters[index - 1];
           film
-            .to(previous, { autoAlpha: 0, duration: 0.28, ease: 'none' }, start)
-            .fromTo(chapter, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.32, ease: 'none' }, start + 0.14)
-            .fromTo(media, { scale: 0.94, y: 28 }, { scale: 1, y: 0, duration: 0.46, ease: 'power2.out' }, start + 0.12)
-            .fromTo(copy, { y: 22 }, { y: 0, duration: 0.38, ease: 'power2.out' }, start + 0.15);
+            .to(previous, { autoAlpha: 0, y: -32, duration: 0.24, ease: 'none' }, start)
+            .fromTo(chapter, { autoAlpha: 0, y: 46 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: 'power2.out' }, start + 0.13)
+            .fromTo(media, { scale: 0.82, rotate: 3 }, { scale: 1, rotate: 0, duration: 0.42, ease: 'power3.out' }, start + 0.1)
+            .fromTo(copy, { x: -32 }, { x: 0, duration: 0.34, ease: 'power2.out' }, start + 0.15);
         }
 
-        film.to(media, { scale: 1.035, duration: 0.58, ease: 'none' }, start + 0.42);
+        film.to(media, { scale: 1.045, rotate: index % 2 === 0 ? -0.7 : 0.7, duration: 0.62, ease: 'none' }, start + 0.38);
       });
 
-      gsap.from('.plain-work__rows > a, .plain-notes > *, .harbour-coda__copy > *', {
-        y: 28,
+      gsap.from('.print-list__rows > a', {
+        y: 36,
         opacity: 0,
-        duration: 0.75,
-        stagger: 0.07,
+        duration: 0.7,
+        stagger: 0.08,
         ease: 'power3.out',
-        scrollTrigger: { trigger: '.plain-work', start: 'top 82%', once: true },
+        scrollTrigger: { trigger: '.print-list', start: 'top 78%', once: true },
+      });
+
+      gsap.from('.poster-coda__copy > *', {
+        y: 32,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.poster-coda', start: 'top 70%', once: true },
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
