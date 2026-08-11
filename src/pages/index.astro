@@ -1,240 +1,154 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { site } from '@/data/site';
 ---
 
-<BaseLayout pageClass="home-page">
-  <section class="cinematic-intro" data-intro>
-    <div class="cinematic-intro__sticky">
-      <div class="intro-atmosphere" aria-hidden="true">
-        <span class="intro-atmosphere__wash"></span>
-        <span class="intro-atmosphere__glow intro-atmosphere__glow--gold"></span>
-        <span class="intro-atmosphere__glow intro-atmosphere__glow--blue"></span>
-      </div>
+<BaseLayout pageClass="home-page home-page--harbour">
+  <section class="harbour-hero" data-harbour-hero>
+    <div class="harbour-hero__sticky">
+      <figure class="harbour-view" aria-hidden="true">
+        <img src="/images/vancouver-port.jpg" alt="" data-harbour-photo />
+        <span class="harbour-view__shade"></span>
+        <span class="harbour-view__water"></span>
+      </figure>
 
-      <div class="intro-copy" data-intro-copy>
-        <p class="plain-label">Warren · Vancouver, BC</p>
-        <h1>{site.heroLine}</h1>
-        <p>{site.supportingLine}</p>
-        <p class="intro-copy__examples">
-          Recent examples: a portrait bullet hell, a birthday RPG, a local-first MCAT app,
-          and a pixel cat that lives on the Windows desktop.
+      <div class="harbour-copy" data-harbour-copy>
+        <p class="harbour-label">Warren · Vancouver, British Columbia</p>
+        <h1>Games, study software, and small tools.</h1>
+        <p>
+          I’m a developer in Vancouver. I build software when the version I want
+          does not exist yet—sometimes for myself, sometimes for one person I know.
         </p>
       </div>
 
-      <div class="intro-camera" data-intro-camera aria-hidden="true">
-        <figure class="intro-plane intro-plane--goldwake" data-intro-plane="goldwake">
-          <img src="/images/projects/goldwake-title.webp" alt="" />
+      <figure class="harbour-portal" data-harbour-portal>
+        <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
+        <figcaption>
+          <strong>HUBRIS / Goldwake</strong>
+          <span>Portrait bullet-hell roguelite</span>
+        </figcaption>
+      </figure>
+
+      <p class="harbour-handoff" data-harbour-handoff>Projects</p>
+    </div>
+  </section>
+
+  <section class="project-film" data-project-film aria-label="Selected projects">
+    <div class="project-film__sticky">
+      <p class="project-film__label">Selected projects</p>
+
+      <article class="film-chapter film-chapter--goldwake" data-film-chapter="goldwake">
+        <div class="film-chapter__copy">
+          <p class="film-chapter__name">HUBRIS / Goldwake</p>
+          <h2>A portrait bullet hell built around one escape mechanic.</h2>
+          <p>
+            Grazing fills an Apotheosis gauge. Triggering it cancels every enemy
+            bullet on screen into collectible gold, so the same pressure that nearly
+            ends a run can fund the next one. The run seed chooses the encounters and
+            the procedural score.
+          </p>
+          <p class="film-chapter__meta">WebGL2 · Canvas · WebAudio · JavaScript · playable locally</p>
+          <a href="/projects/goldwake/">Project details <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="film-chapter__media film-chapter__media--portrait">
+          <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
         </figure>
-        <figure class="intro-plane intro-plane--agame" data-intro-plane="agame">
-          <img src="/images/projects/a-game-clearing.webp" alt="" />
+      </article>
+
+      <article class="film-chapter film-chapter--agame" data-film-chapter="agame">
+        <div class="film-chapter__copy">
+          <p class="film-chapter__name">A-Game</p>
+          <h2>A birthday present you can walk around in.</h2>
+          <p>
+            You visit two friends, fish inside one computer, defuse a small top-down
+            game inside another, and bring three keepsakes home when a violin starts
+            calling. The keepsakes become a lit paper boat before the water turns into a galaxy.
+          </p>
+          <p class="film-chapter__meta">Phaser · TypeScript · Vite · Electron · one sitting, no fail states</p>
+          <a href="/projects/a-game/">Project details <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="film-chapter__media film-chapter__media--landscape">
+          <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" />
         </figure>
-        <figure class="intro-plane intro-plane--freecat" data-intro-plane="freecat">
-          <img src="/images/projects/freecat-home.webp" alt="" />
+      </article>
+
+      <article class="film-chapter film-chapter--freecat" data-film-chapter="freecat">
+        <div class="film-chapter__copy">
+          <p class="film-chapter__name">FreeCAT</p>
+          <h2>An MCAT app with no account and one local database.</h2>
+          <p>
+            Questions, lesson progress, imported Anki decks, review history, XP, and
+            the study pet live in one SQLite file. The question bank, content review,
+            gamification, and Anki import work now; FSRS review, richer media support,
+            image occlusion, installers, and a public repository are still in progress.
+          </p>
+          <p class="film-chapter__meta">Electron · React · TypeScript · SQLite · original or open content only</p>
+          <a href="/projects/freecat/">Project details <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="film-chapter__media film-chapter__media--landscape film-chapter__media--light">
+          <img src="/images/projects/freecat-home.webp" alt="FreeCAT running locally with a study pet and progress summary" />
         </figure>
-        <div class="intro-plane intro-plane--toybox" data-intro-plane="toybox">
-          <span class="toybox-cat toybox-cat--intro"></span>
-        </div>
-      </div>
+      </article>
 
-      <p class="intro-destination" data-intro-destination>Four projects, shown in use.</p>
+      <article class="film-chapter film-chapter--toybox" data-film-chapter="toybox">
+        <div class="film-chapter__copy">
+          <p class="film-chapter__name">Toybox</p>
+          <h2>Small Windows utilities without another large desktop app.</h2>
+          <p>
+            Toybox includes a system and media HUD, an in-memory clipboard history
+            that syncs text to my Mac over the local network, and a pixel cat that
+            dances to music, runs focus timers, naps in a box, and carries dropped files.
+          </p>
+          <p class="film-chapter__meta">Python standard library · Tkinter · Win32 APIs · no telemetry</p>
+          <a href="/projects/toybox/">Project details <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="film-chapter__media film-chapter__media--square">
+          <img src="/images/projects/toybox-staged.webp" alt="A sanitized Toybox staging using the real desktop cat sprite" />
+        </figure>
+      </article>
     </div>
   </section>
 
-  <section class="work-scene work-scene--goldwake" data-scene="goldwake">
-    <div class="work-scene__sticky">
-      <div class="scene-copy">
-        <p class="plain-label">HUBRIS / Goldwake · game</p>
-        <h2>A portrait bullet hell where getting boxed in is also the way out.</h2>
-        <p>
-          Grazing bullets fills an Apotheosis gauge. Triggering it cancels the bullets on
-          screen into collectible gold, so the same pressure that nearly ends a run can
-          fund the next one. A run seed chooses both the encounters and the procedural score.
-        </p>
-        <dl class="scene-facts">
-          <div><dt>Runs with</dt><dd>WebGL2, Canvas, WebAudio, JavaScript</dd></div>
-          <div><dt>Distribution</dt><dd>Open <code>index.html</code>; no build step or server</dd></div>
-          <div><dt>Status</dt><dd>Playable; repository currently private</dd></div>
-        </dl>
-        <a class="scene-link" href="/projects/goldwake/">Read the project notes <span aria-hidden="true">↗</span></a>
-      </div>
-
-      <div class="scene-media scene-media--portrait" aria-label="HUBRIS title screen and boon selection moving through the game's layered backdrop">
-        <div class="goldwake-world" data-goldwake-world>
-          <img class="goldwake-layer goldwake-layer--deep" src="/images/projects/cinematic/goldwake-deep.webp" alt="" />
-          <img class="goldwake-layer goldwake-layer--structure" src="/images/projects/cinematic/goldwake-structure.webp" alt="" />
-          <figure class="goldwake-screen goldwake-screen--title">
-            <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
-          </figure>
-          <figure class="goldwake-screen goldwake-screen--boon">
-            <img src="/images/projects/goldwake-boon.webp" alt="A HUBRIS boon choice between Thor, Artemis, and Odin" />
-          </figure>
-          <img class="goldwake-layer goldwake-layer--debris" src="/images/projects/cinematic/goldwake-debris.webp" alt="" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="work-scene work-scene--agame" data-scene="agame">
-    <div class="work-scene__sticky">
-      <div class="scene-copy">
-        <p class="plain-label">A-Game · birthday game</p>
-        <h2>I made a birthday game instead of a card.</h2>
-        <p>
-          You visit two friends, fish inside one computer, defuse a small top-down game
-          inside another, and bring the keepsakes home when a violin starts calling.
-          The keepsakes become a lit paper boat before the water gives way to a galaxy.
-        </p>
-        <dl class="scene-facts">
-          <div><dt>Built with</dt><dd>Phaser, TypeScript, Vite, Electron</dd></div>
-          <div><dt>Designed for</dt><dd>One sitting, with sound on; no fail states</dd></div>
-          <div><dt>Publication</dt><dd>Private names, letters, and photos stay out of the portfolio</dd></div>
-        </dl>
-        <a class="scene-link" href="/projects/a-game/">Read the project notes <span aria-hidden="true">↗</span></a>
-      </div>
-
-      <div class="scene-media scene-media--wide" aria-label="A-Game moving from its outdoor world into the final galaxy scene">
-        <div class="agame-camera" data-agame-camera>
-          <figure class="agame-frame agame-frame--outside">
-            <img src="/images/projects/a-game-outside.webp" alt="A-Game's outdoor village near the player's house" />
-          </figure>
-          <figure class="agame-frame agame-frame--clearing">
-            <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" />
-          </figure>
-          <figure class="agame-frame agame-frame--galaxy">
-            <img src="/images/projects/cinematic/a-game-galaxy.webp" alt="The water-to-galaxy transition at the end of A-Game" />
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="work-scene work-scene--freecat" data-scene="freecat">
-    <div class="work-scene__sticky">
-      <div class="scene-copy scene-copy--dark">
-        <p class="plain-label">FreeCAT · local-first study software</p>
-        <h2>The MCAT app I wanted to study with and actually own.</h2>
-        <p>
-          FreeCAT is an Electron desktop app with no account and no hosted backend.
-          Questions, lesson progress, imported Anki decks, review history, XP, and the
-          study pet all live in one local SQLite file.
-        </p>
-        <p>
-          The question bank, content review, gamification, and Anki import are working.
-          FSRS review, richer media support, image occlusion, and packaged installers are
-          still being finished. The source is intended to be open, but the repository is private today.
-        </p>
-        <dl class="scene-facts">
-          <div><dt>Built with</dt><dd>Electron, React, TypeScript, SQLite</dd></div>
-          <div><dt>Content rule</dt><dd>Original or openly licensed material only</dd></div>
-        </dl>
-        <a class="scene-link" href="/projects/freecat/">Read the project notes <span aria-hidden="true">↗</span></a>
-      </div>
-
-      <div class="scene-media scene-media--freecat" aria-label="Three real FreeCAT screens arranged at different depths">
-        <div class="freecat-camera" data-freecat-camera>
-          <figure class="freecat-window freecat-window--home">
-            <img src="/images/projects/freecat-home.webp" alt="FreeCAT home screen with study pet and local progress" />
-          </figure>
-          <figure class="freecat-window freecat-window--qbank">
-            <img src="/images/projects/freecat-qbank.webp" alt="FreeCAT question-bank session setup" />
-          </figure>
-          <figure class="freecat-window freecat-window--content">
-            <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" />
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="work-scene work-scene--toybox" data-scene="toybox">
-    <div class="work-scene__sticky">
-      <div class="scene-copy">
-        <p class="plain-label">Toybox · Windows utilities</p>
-        <h2>A system monitor, a safer clipboard, and a desktop cat.</h2>
-        <p>
-          Toybox is a set of Python programs I use on Windows. The clipboard keeps recent
-          items in memory and can sync text to my Mac over the local network. The HUD shows
-          system and media information. The cat dances to whatever is playing, naps in a
-          box, runs focus timers, and can carry files dropped onto it.
-        </p>
-        <dl class="scene-facts">
-          <div><dt>Built with</dt><dd>Python standard library, Tkinter, Win32 APIs</dd></div>
-          <div><dt>Data</dt><dd>No telemetry; live clipboard contents are never portfolio media</dd></div>
-          <div><dt>Capture</dt><dd>This staged desktop uses the real cat sprite; a sanitized Windows recording is next</dd></div>
-        </dl>
-        <a class="scene-link" href="/projects/toybox/">Read the project notes <span aria-hidden="true">↗</span></a>
-      </div>
-
-      <div class="scene-media scene-media--desktop" aria-label="Staged desktop showing Toybox utilities and the real animated cat sprite">
-        <div class="toybox-desktop" data-toybox-desktop>
-          <div class="toybox-window toybox-window--hud">
-            <p>System monitor</p>
-            <strong>CPU 18%</strong>
-            <span>RAM 7.9 / 32 GB</span>
-            <span>Now playing · local audio</span>
-          </div>
-          <div class="toybox-window toybox-window--clipboard">
-            <p>Clipboard</p>
-            <span>Draft notes</span>
-            <span>localhost:4321</span>
-            <span>Project checklist</span>
-          </div>
-          <div class="toybox-window toybox-window--timer">
-            <p>Focus timer</p>
-            <strong>24:18</strong>
-            <span>Cat stays above the timer</span>
-          </div>
-          <span class="toybox-cat toybox-cat--desktop" aria-hidden="true"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="more-work section-shell">
-    <header class="plain-section-heading">
-      <p class="plain-label">Other projects</p>
-      <h2>Other projects.</h2>
-      <p>These are substantial builds too; the shorter entries keep the homepage from turning every repository into another full-screen scene.</p>
+  <section class="plain-work section-shell">
+    <header>
+      <p class="harbour-label">Other projects</p>
+      <h2>Study pipelines, class software, and experiments.</h2>
     </header>
-    <div class="more-work__list">
+    <div class="plain-work__rows">
       <a href="/projects/question-distiller/">
-        <span>Question Distiller / Structure Lab</span>
-        <p>Turns screenshot-only study documents into reviewed structured data, then into interactive chemistry lessons.</p>
+        <strong>Question Distiller / Structure Lab</strong>
+        <span>Turns screenshot-only study documents into reviewed data and interactive chemistry lessons.</span>
       </a>
       <a href="/projects/">
-        <span>SAT World</span>
-        <p>An invite-only SAT platform for students, teachers, parents, live classes, study plans, analytics, and pets.</p>
+        <strong>SAT World</strong>
+        <span>Invite-only SAT software for students, teachers, live classes, study plans, analytics, and pets.</span>
       </a>
       <a href="/projects/baddest/">
-        <span>Baddest</span>
-        <p>A private pairwise-ranking app that turns repeated head-to-head choices into personal and shared rankings.</p>
+        <strong>Baddest</strong>
+        <span>Turns repeated head-to-head choices into personal and shared rankings.</span>
       </a>
     </div>
   </section>
 
-  <section class="notes-home section-shell">
-    <div>
-      <p class="plain-label">Notes</p>
-      <h2>The blog will be for build notes, not announcements.</h2>
-    </div>
+  <section class="plain-notes section-shell">
+    <p class="harbour-label">Notes</p>
+    <h2>Build logs and technical notes will live here.</h2>
     <p>
-      I have not published the first entry yet. The useful version of this section will cover
-      what changed, what broke, and the decisions inside these projects.
-      <a href="/notes/">Open the notes page <span aria-hidden="true">↗</span></a>
+      There are no published posts yet. The first entries will come from these projects:
+      mechanics that changed, systems that broke, and decisions worth documenting.
+      <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
     </p>
   </section>
 
-  <section class="vancouver-end">
-    <div class="vancouver-end__field" aria-hidden="true"></div>
-    <div class="vancouver-end__copy">
-      <p class="plain-label">Vancouver, British Columbia</p>
-      <h2>I live and build here.</h2>
-      <p>
-        The next content pass should use the places, photos, and details that actually matter to me.
-        Until then, the city gets named plainly rather than turned into generic mountain-and-rain scenery.
-      </p>
+  <section class="harbour-coda">
+    <img src="/images/vancouver-port.jpg" alt="The Port of Vancouver at night with the North Shore mountains behind it" />
+    <span class="harbour-coda__shade" aria-hidden="true"></span>
+    <div class="harbour-coda__copy">
+      <p class="harbour-label">Vancouver, British Columbia</p>
+      <h2>Home.</h2>
     </div>
+    <a class="harbour-credit" href="https://unsplash.com/pt-br/fotografias/porto-industrial-com-guindastes-iluminados-a-noite-NfOZ_Of6DZU" target="_blank" rel="noreferrer">
+      Vancouver harbour photograph by Albert Stoynov / Unsplash
+    </a>
   </section>
 
   <script>
@@ -242,100 +156,72 @@ import { site } from '@/data/site';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
     gsap.registerPlugin(ScrollTrigger);
-
     const motion = gsap.matchMedia();
 
     motion.add('(prefers-reduced-motion: no-preference) and (min-width: 861px)', () => {
-      const intro = gsap.timeline({
+      const harbour = gsap.timeline({
         scrollTrigger: {
-          trigger: '[data-intro]',
+          trigger: '[data-harbour-hero]',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.7,
+        },
+      });
+
+      harbour
+        .fromTo('[data-harbour-photo]',
+          { scale: 1.01, xPercent: 0, yPercent: 0, filter: 'brightness(0.76) saturate(0.82)' },
+          { scale: 1.22, xPercent: -3, yPercent: 1, filter: 'brightness(0.34) saturate(0.7)', ease: 'none' },
+          0,
+        )
+        .to('[data-harbour-copy]', { x: -72, y: -28, opacity: 0, ease: 'none' }, 0.16)
+        .fromTo('[data-harbour-portal]',
+          { xPercent: 110, yPercent: 18, scale: 0.14, rotateY: -12, opacity: 0 },
+          { xPercent: 0, yPercent: 0, scale: 1, rotateY: 0, opacity: 1, ease: 'none' },
+          0.16,
+        )
+        .fromTo('[data-harbour-handoff]',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, ease: 'none' },
+          0.78,
+        );
+
+      const chapters = gsap.utils.toArray<HTMLElement>('[data-film-chapter]');
+      gsap.set(chapters.slice(1), { autoAlpha: 0 });
+
+      const film = gsap.timeline({
+        scrollTrigger: {
+          trigger: '[data-project-film]',
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.65,
         },
       });
 
-      intro
-        .to('[data-intro-copy]', { yPercent: -24, opacity: 0, ease: 'none' }, 0.08)
-        .fromTo('[data-intro-camera]',
-          { xPercent: 9, yPercent: 7, scale: 0.72, rotateX: 5, rotateY: -7 },
-          { xPercent: -5, yPercent: -2, scale: 1.14, rotateX: 0, rotateY: 3, ease: 'none' },
-          0,
-        )
-        .fromTo('[data-intro-plane="goldwake"]',
-          { xPercent: 54, yPercent: 18, z: -520, rotateY: -12 },
-          { xPercent: -42, yPercent: -7, z: 260, rotateY: 5, ease: 'none' },
-          0,
-        )
-        .fromTo('[data-intro-plane="agame"]',
-          { xPercent: 58, yPercent: -36, z: -940, rotateY: 12 },
-          { xPercent: 4, yPercent: -12, z: -80, rotateY: -3, ease: 'none' },
-          0.06,
-        )
-        .fromTo('[data-intro-plane="freecat"]',
-          { xPercent: 72, yPercent: 70, z: -1280, rotateY: -9 },
-          { xPercent: 23, yPercent: 25, z: -360, rotateY: 2, ease: 'none' },
-          0.1,
-        )
-        .fromTo('[data-intro-plane="toybox"]',
-          { xPercent: 240, yPercent: 60, z: -260 },
-          { xPercent: 80, yPercent: 8, z: 360, ease: 'none' },
-          0.25,
-        )
-        .fromTo('[data-intro-destination]',
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, ease: 'none' },
-          0.72,
-        );
+      chapters.forEach((chapter, index) => {
+        const media = chapter.querySelector('.film-chapter__media');
+        const copy = chapter.querySelector('.film-chapter__copy');
+        const start = index;
 
-      const sceneTimeline = (selector: string) => gsap.timeline({
-        scrollTrigger: {
-          trigger: selector,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.55,
-        },
+        if (index > 0) {
+          const previous = chapters[index - 1];
+          film
+            .to(previous, { autoAlpha: 0, duration: 0.28, ease: 'none' }, start)
+            .fromTo(chapter, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.32, ease: 'none' }, start + 0.14)
+            .fromTo(media, { scale: 0.94, y: 28 }, { scale: 1, y: 0, duration: 0.46, ease: 'power2.out' }, start + 0.12)
+            .fromTo(copy, { y: 22 }, { y: 0, duration: 0.38, ease: 'power2.out' }, start + 0.15);
+        }
+
+        film.to(media, { scale: 1.035, duration: 0.58, ease: 'none' }, start + 0.42);
       });
 
-      sceneTimeline('[data-scene="goldwake"]')
-        .fromTo('[data-scene="goldwake"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
-        .fromTo('.goldwake-layer--deep', { scale: 1.02, yPercent: -4 }, { scale: 1.18, yPercent: 4, ease: 'none' }, 0)
-        .fromTo('.goldwake-layer--structure', { scale: 0.94, yPercent: -8 }, { scale: 1.24, yPercent: 8, ease: 'none' }, 0)
-        .fromTo('.goldwake-layer--debris', { scale: 0.9, yPercent: -13 }, { scale: 1.5, yPercent: 15, ease: 'none' }, 0)
-        .fromTo('.goldwake-screen--title', { scale: 0.72, yPercent: 12, rotateZ: -2 }, { scale: 1.04, yPercent: -8, rotateZ: 0, ease: 'none' }, 0)
-        .to('.goldwake-screen--title', { xPercent: -70, opacity: 0.12, ease: 'none' }, 0.54)
-        .fromTo('.goldwake-screen--boon', { xPercent: 82, scale: 0.76, opacity: 0 }, { xPercent: 0, scale: 1.02, opacity: 1, ease: 'none' }, 0.5);
-
-      sceneTimeline('[data-scene="agame"]')
-        .fromTo('[data-scene="agame"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
-        .fromTo('[data-agame-camera]', { scale: 0.82, rotateY: 5 }, { scale: 1.1, rotateY: -2, ease: 'none' }, 0)
-        .fromTo('.agame-frame--outside', { xPercent: -12, yPercent: 4, rotateZ: -3 }, { xPercent: -60, yPercent: -18, rotateZ: -8, opacity: 0.25, ease: 'none' }, 0)
-        .fromTo('.agame-frame--clearing', { xPercent: 14, yPercent: 12, scale: 0.82 }, { xPercent: 0, yPercent: -3, scale: 1.05, ease: 'none' }, 0)
-        .fromTo('.agame-frame--galaxy', { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.18 }, { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, ease: 'none' }, 0.52)
-        .to('.agame-frame--clearing', { opacity: 0.08, scale: 1.18, ease: 'none' }, 0.58);
-
-      sceneTimeline('[data-scene="freecat"]')
-        .fromTo('[data-scene="freecat"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
-        .fromTo('[data-freecat-camera]', { xPercent: 18, scale: 0.72, rotateY: -9 }, { xPercent: -4, scale: 1.04, rotateY: 4, ease: 'none' }, 0)
-        .fromTo('.freecat-window--home', { z: -420, yPercent: 18 }, { z: 170, yPercent: -10, ease: 'none' }, 0)
-        .fromTo('.freecat-window--qbank', { z: -820, xPercent: 44 }, { z: 60, xPercent: -5, ease: 'none' }, 0.14)
-        .fromTo('.freecat-window--content', { z: -1120, xPercent: 76 }, { z: -80, xPercent: 8, ease: 'none' }, 0.28);
-
-      sceneTimeline('[data-scene="toybox"]')
-        .fromTo('[data-scene="toybox"] .scene-copy', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: 'none' }, 0)
-        .fromTo('[data-toybox-desktop]', { scale: 0.82, rotateX: 5, rotateY: -6 }, { scale: 1.08, rotateX: 0, rotateY: 3, ease: 'none' }, 0)
-        .fromTo('.toybox-window--hud', { xPercent: -24, yPercent: -12, z: -280 }, { xPercent: 2, yPercent: 7, z: 120, ease: 'none' }, 0)
-        .fromTo('.toybox-window--clipboard', { xPercent: 28, yPercent: 18, z: -520 }, { xPercent: -4, yPercent: -4, z: 40, ease: 'none' }, 0.08)
-        .fromTo('.toybox-window--timer', { xPercent: 60, yPercent: -24, z: -760 }, { xPercent: 4, yPercent: 4, z: -40, ease: 'none' }, 0.18)
-        .fromTo('.toybox-cat--desktop', { xPercent: -220, yPercent: 0 }, { xPercent: 270, yPercent: -12, ease: 'none' }, 0.18);
-
-      gsap.from('.more-work__list > a, .notes-home > *, .vancouver-end__copy > *', {
-        y: 36,
+      gsap.from('.plain-work__rows > a, .plain-notes > *, .harbour-coda__copy > *', {
+        y: 28,
         opacity: 0,
-        stagger: 0.08,
-        duration: 0.8,
+        duration: 0.75,
+        stagger: 0.07,
         ease: 'power3.out',
-        scrollTrigger: { trigger: '.more-work', start: 'top 80%', once: true },
+        scrollTrigger: { trigger: '.plain-work', start: 'top 82%', once: true },
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
