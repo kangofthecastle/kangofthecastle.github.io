@@ -67,6 +67,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     <div class="print-film__sticky">
       <div class="print-film__ink" data-film-ink aria-hidden="true"></div>
       <p class="print-film__label">Projects, shown working</p>
+      <div class="print-film__curtain" data-film-curtain aria-hidden="true"></div>
 
       <article class="print-chapter print-chapter--goldwake" data-print-chapter data-ink="#172338">
         <div class="print-chapter__copy">
@@ -85,32 +86,39 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           <img class="goldwake-structure" data-goldwake-structure src="/images/projects/cinematic/goldwake-structure.webp" alt="" />
           <div class="goldwake-screen" data-goldwake-screen>
             <img src="/images/projects/goldwake-title.webp" alt="The HUBRIS title screen" />
+            <img class="goldwake-player" data-goldwake-player src="/images/projects/goldwake-assets/player-ship.png" alt="" />
+            <div class="goldwake-bullets" data-goldwake-bullets aria-hidden="true">
+              <i class="goldwake-bullet--rune" style="--x: 9%; --y: 16%; --tx: 41%; --ty: 58%; --r: 24deg;"></i>
+              <i class="goldwake-bullet--arrow" style="--x: 29%; --y: 6%; --tx: 46%; --ty: 53%; --r: 18deg;"></i>
+              <i class="goldwake-bullet--popcorn" style="--x: 50%; --y: 10%; --tx: 51%; --ty: 50%; --r: 0deg;"></i>
+              <i class="goldwake-bullet--rune" style="--x: 73%; --y: 7%; --tx: 56%; --ty: 53%; --r: -17deg;"></i>
+              <i class="goldwake-bullet--arrow" style="--x: 91%; --y: 20%; --tx: 61%; --ty: 58%; --r: -28deg;"></i>
+              <i class="goldwake-bullet--popcorn" style="--x: 95%; --y: 49%; --tx: 63%; --ty: 64%; --r: -74deg;"></i>
+              <i class="goldwake-bullet--rune" style="--x: 86%; --y: 78%; --tx: 60%; --ty: 71%; --r: -120deg;"></i>
+              <i class="goldwake-bullet--arrow" style="--x: 67%; --y: 93%; --tx: 56%; --ty: 75%; --r: 170deg;"></i>
+              <i class="goldwake-bullet--popcorn" style="--x: 35%; --y: 91%; --tx: 47%; --ty: 75%; --r: 155deg;"></i>
+              <i class="goldwake-bullet--rune" style="--x: 9%; --y: 75%; --tx: 41%; --ty: 71%; --r: 112deg;"></i>
+              <i class="goldwake-bullet--arrow" style="--x: 3%; --y: 44%; --tx: 39%; --ty: 64%; --r: 68deg;"></i>
+            </div>
+            <div class="goldwake-wave" data-goldwake-wave aria-hidden="true"></div>
+            <div class="goldwake-coins" data-goldwake-coins aria-hidden="true">
+              <i style="--x: 41%; --y: 58%;"></i><i style="--x: 46%; --y: 53%;"></i>
+              <i style="--x: 51%; --y: 50%;"></i><i style="--x: 56%; --y: 53%;"></i>
+              <i style="--x: 61%; --y: 58%;"></i><i style="--x: 63%; --y: 64%;"></i>
+              <i style="--x: 60%; --y: 71%;"></i><i style="--x: 56%; --y: 75%;"></i>
+              <i style="--x: 47%; --y: 75%;"></i><i style="--x: 41%; --y: 71%;"></i>
+              <i style="--x: 39%; --y: 64%;"></i>
+            </div>
+            <div class="goldwake-shards" data-goldwake-shards aria-hidden="true">
+              <img style="--sx: -7rem; --sy: -5rem; --sr: -38deg;" src="/images/projects/goldwake-assets/apotheosis-shard.png" alt="" />
+              <img style="--sx: -2rem; --sy: -8rem; --sr: -12deg;" src="/images/projects/goldwake-assets/apotheosis-shard.png" alt="" />
+              <img style="--sx: 4rem; --sy: -7rem; --sr: 22deg;" src="/images/projects/goldwake-assets/apotheosis-shard.png" alt="" />
+              <img style="--sx: 7rem; --sy: -3rem; --sr: 48deg;" src="/images/projects/goldwake-assets/apotheosis-shard.png" alt="" />
+              <img style="--sx: 5rem; --sy: 3rem; --sr: 96deg;" src="/images/projects/goldwake-assets/apotheosis-shard.png" alt="" />
+              <img style="--sx: -5rem; --sy: 2rem; --sr: -86deg;" src="/images/projects/goldwake-assets/apotheosis-shard.png" alt="" />
+            </div>
           </div>
           <img class="goldwake-debris" data-goldwake-debris src="/images/projects/cinematic/goldwake-debris.webp" alt="" />
-          <div class="goldwake-bullets" data-goldwake-bullets aria-hidden="true">
-            <i style="--x: 13%; --y: 19%; --tx: 39%; --ty: 42%;"></i>
-            <i style="--x: 28%; --y: 8%; --tx: 46%; --ty: 36%;"></i>
-            <i style="--x: 48%; --y: 13%; --tx: 51%; --ty: 38%;"></i>
-            <i style="--x: 73%; --y: 7%; --tx: 57%; --ty: 39%;"></i>
-            <i style="--x: 88%; --y: 22%; --tx: 62%; --ty: 44%;"></i>
-            <i style="--x: 94%; --y: 49%; --tx: 64%; --ty: 50%;"></i>
-            <i style="--x: 84%; --y: 75%; --tx: 60%; --ty: 57%;"></i>
-            <i style="--x: 65%; --y: 91%; --tx: 55%; --ty: 61%;"></i>
-            <i style="--x: 36%; --y: 88%; --tx: 46%; --ty: 60%;"></i>
-            <i style="--x: 11%; --y: 72%; --tx: 38%; --ty: 56%;"></i>
-            <i style="--x: 5%; --y: 45%; --tx: 36%; --ty: 49%;"></i>
-          </div>
-          <div class="goldwake-wave" data-goldwake-wave aria-hidden="true"></div>
-          <div class="goldwake-coins" data-goldwake-coins aria-hidden="true">
-            <i style="--angle: -72deg; --distance: 9rem;"></i>
-            <i style="--angle: -36deg; --distance: 12rem;"></i>
-            <i style="--angle: 2deg; --distance: 10rem;"></i>
-            <i style="--angle: 46deg; --distance: 13rem;"></i>
-            <i style="--angle: 88deg; --distance: 9rem;"></i>
-            <i style="--angle: 137deg; --distance: 12rem;"></i>
-            <i style="--angle: 184deg; --distance: 10rem;"></i>
-            <i style="--angle: 228deg; --distance: 13rem;"></i>
-          </div>
           <figcaption>Bullets close in. Apotheosis cancels them into gold.</figcaption>
         </figure>
       </article>
@@ -143,9 +151,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             <img src="/images/projects/a-game-assets/keepsake-defused-spike-charm.png" alt="" />
           </div>
           <img class="agame-boat" data-agame-boat src="/images/projects/a-game-assets/alice-boat.png" alt="Alice travelling in the paper boat" />
-          <div class="agame-stars" data-agame-stars aria-hidden="true">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
           <figcaption>Village, clearing, paper boat, then the water becomes a galaxy.</figcaption>
         </figure>
       </article>
@@ -180,7 +185,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             <span>Content review</span>
             <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" />
           </div>
-          <div class="freecat-route" data-freecat-route aria-hidden="true"><i></i><i></i><i></i></div>
           <figcaption>Three working surfaces. The data underneath them never leaves the machine.</figcaption>
         </figure>
       </article>
@@ -199,24 +203,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         </div>
         <figure class="project-motion project-motion--toybox" data-toybox-scene>
           <img class="toybox-proof" src="/images/projects/toybox-staged.webp" alt="A sanitized Toybox staging using the real desktop cat sprite" />
-          <div class="toybox-window toybox-window--system" data-toybox-window="system">
-            <span>System monitor</span>
-            <strong>CPU 18%</strong>
-            <small>RAM 7.9 / 32 GB<br />Now playing · local audio</small>
-          </div>
-          <div class="toybox-window toybox-window--timer" data-toybox-window="timer">
-            <span>Focus timer</span>
-            <strong class="toybox-timer__time toybox-timer__time--one">24:18</strong>
-            <strong class="toybox-timer__time toybox-timer__time--two" data-toybox-time>12:06</strong>
-            <small>Cat stays above the timer</small>
-          </div>
-          <div class="toybox-window toybox-window--clipboard" data-toybox-window="clipboard">
-            <span>Clipboard · memory only</span>
-            <small>Draft notes<br />localhost:4321<br />Project checklist</small>
-          </div>
           <div class="toybox-sync" data-toybox-sync aria-hidden="true">
-            <span>PC</span><i></i><span>MAC</span>
+            <span>PC</span><i></i><b data-toybox-packet></b><span>MAC</span>
           </div>
+          <div class="toybox-cat-cover" aria-hidden="true"></div>
           <div class="toybox-cat" data-toybox-cat aria-label="The actual Toybox desktop cat sprite"></div>
           <figcaption>Monitor, clipboard, timer, and the real desktop cat sharing one small desktop.</figcaption>
         </figure>
@@ -289,52 +279,56 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       });
 
       opening
-        .to('[data-poster-sun]', { scale: 1.45, xPercent: -13, yPercent: 5, ease: 'none' }, 0)
-        .to('[data-mountain-far]', { xPercent: -7, yPercent: 4, scale: 1.08, ease: 'none' }, 0)
-        .to('[data-mountain-near]', { xPercent: 7, yPercent: 7, scale: 1.14, ease: 'none' }, 0)
-        .to('[data-poster-city]', { xPercent: -9, scale: 1.12, ease: 'none' }, 0)
-        .to('[data-poster-crane]', { xPercent: 12, scale: 1.18, ease: 'none' }, 0)
-        .to('[data-poster-water]', { yPercent: 12, scale: 1.08, ease: 'none' }, 0)
-        .to('[data-poster-seabus]', { xPercent: 95, yPercent: 8, scale: 1.05, ease: 'none' }, 0)
-        .to('[data-poster-copy]', { xPercent: -28, rotate: -2, opacity: 0, ease: 'none' }, 0.18)
-        .to('[data-poster-stamp]', { xPercent: -45, yPercent: 25, rotate: -17, opacity: 0, ease: 'none' }, 0.23)
+        .addLabel('harbour', 0)
+        .to('[data-poster-seabus]', { xPercent: 285, yPercent: 5, duration: 0.7, ease: 'none' }, 'harbour')
+        .to('[data-poster-sun]', { scale: 1.18, xPercent: -4, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
+        .to('[data-mountain-far]', { xPercent: -2.5, yPercent: 1.5, duration: 0.82, ease: 'none' }, 'harbour')
+        .to('[data-mountain-near]', { xPercent: 4.5, yPercent: 3, duration: 0.82, ease: 'none' }, 'harbour')
+        .to('[data-poster-city]', { xPercent: -6, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
+        .to('[data-poster-water]', { yPercent: 5, duration: 0.82, ease: 'none' }, 'harbour')
+        .to('.poster-crane__trolley, .poster-crane__cable, .poster-crane__hook', { xPercent: 155, duration: 0.3, ease: 'none' }, 0.16)
+        .to('.poster-crane__cable', { scaleY: 0.52, transformOrigin: 'top center', duration: 0.24, ease: 'none' }, 0.3)
+        .to('.poster-crane__hook', { yPercent: -105, duration: 0.24, ease: 'none' }, 0.3)
+        .to('[data-poster-copy] h1 span', { xPercent: -20, autoAlpha: 0, duration: 0.28, stagger: 0.035, ease: 'power1.in' }, 0.34)
+        .to('[data-poster-copy] .poster-kicker, [data-poster-copy] > p:last-child', { xPercent: -8, autoAlpha: 0, duration: 0.22, stagger: 0.04, ease: 'power1.in' }, 0.42)
+        .to('[data-poster-stamp]', { xPercent: -24, yPercent: 18, rotate: -11, opacity: 0, duration: 0.25, ease: 'none' }, 0.42)
         .fromTo('[data-poster-aperture]',
-          { xPercent: 44, yPercent: 32, scale: 0.08, rotate: 8, opacity: 0 },
-          { xPercent: 0, yPercent: 0, scale: 1, rotate: -1.5, opacity: 1, ease: 'power2.inOut' },
-          0.28,
-        )
-        .to('[data-poster-scene]', { scale: 1.08, filter: 'saturate(0.84) brightness(0.8)', ease: 'none' }, 0.58);
+          { xPercent: 22, yPercent: 18, scale: 0.12, rotate: 5, opacity: 0 },
+          { xPercent: 0, yPercent: 0, scale: 1, rotate: -1.5, opacity: 1, duration: 0.46, ease: 'power2.inOut' },
+          0.46,
+        );
 
       const chapters = gsap.utils.toArray<HTMLElement>('[data-print-chapter]');
+      const copies = chapters.map((chapter) => chapter.querySelector('.print-chapter__copy'));
       gsap.set(chapters.slice(1), { autoAlpha: 0 });
 
       const bullets = gsap.utils.toArray<HTMLElement>('[data-goldwake-bullets] i');
       const coins = gsap.utils.toArray<HTMLElement>('[data-goldwake-coins] i');
-      const stars = gsap.utils.toArray<HTMLElement>('[data-agame-stars] i');
-      const freecatWindows = gsap.utils.toArray<HTMLElement>('[data-freecat-window]');
+      const shards = gsap.utils.toArray<HTMLElement>('[data-goldwake-shards] img');
 
       gsap.set(chapters, { x: 0, y: 0 });
-      gsap.set(chapters.map((chapter) => chapter.querySelector('.print-chapter__copy')), {
+      gsap.set(copies, {
         x: 0,
         y: 0,
         xPercent: 0,
         autoAlpha: 1,
       });
-      gsap.set(bullets, { autoAlpha: 0, scale: 0.4 });
-      gsap.set(coins, { autoAlpha: 0, scale: 0 });
+      gsap.set('[data-film-curtain]', { scaleX: 1, autoAlpha: 0 });
+      gsap.set('[data-goldwake-player]', { yPercent: 80, autoAlpha: 0 });
+      gsap.set(bullets, { autoAlpha: 0, scale: 0.25 });
+      gsap.set(coins, { autoAlpha: 0, scale: 0, y: 0 });
+      gsap.set(shards, { autoAlpha: 0, scale: 0.2, x: 0, y: 0 });
       gsap.set('[data-goldwake-scene]', { clipPath: 'inset(0)' });
-      gsap.set('[data-agame-clearing]', { clipPath: 'inset(0 0 0 100%)' });
+      gsap.set('[data-agame-clearing]', { clipPath: 'circle(0% at 62% 61%)' });
       gsap.set('[data-agame-galaxy]', { clipPath: 'inset(100% 0 0 0)' });
-      gsap.set(stars, { autoAlpha: 0, y: 18 });
-      gsap.set('[data-freecat-window="qbank"]', { xPercent: 86, yPercent: 4, rotate: 5, autoAlpha: 0 });
-      gsap.set('[data-freecat-window="content"]', { xPercent: -86, yPercent: 8, rotate: -5, autoAlpha: 0 });
-      gsap.set('[data-freecat-database]', { scale: 0.7, autoAlpha: 0 });
-      gsap.set('[data-freecat-route]', { scaleX: 0 });
-      gsap.set('[data-toybox-window="system"]', { xPercent: -135, rotate: -7, autoAlpha: 0 });
-      gsap.set('[data-toybox-window="timer"]', { yPercent: -135, rotate: 6, autoAlpha: 0 });
-      gsap.set('[data-toybox-window="clipboard"]', { xPercent: 135, yPercent: 35, rotate: 5, autoAlpha: 0 });
+      gsap.set('[data-agame-keepsakes] img', { autoAlpha: 0 });
+      gsap.set('[data-agame-boat]', { autoAlpha: 0 });
+      gsap.set('[data-freecat-window="home"]', { autoAlpha: 1, clipPath: 'inset(0)' });
+      gsap.set('[data-freecat-window="qbank"], [data-freecat-window="content"]', { autoAlpha: 0, clipPath: 'inset(0 100% 0 0)' });
+      gsap.set('[data-freecat-database]', { scale: 0.82, autoAlpha: 0 });
       gsap.set('[data-toybox-sync] i', { scaleX: 0 });
-      gsap.set('[data-toybox-cat]', { xPercent: -180, autoAlpha: 0 });
+      gsap.set('[data-toybox-packet]', { autoAlpha: 0, xPercent: 0 });
+      gsap.set('[data-toybox-cat]', { xPercent: -90, autoAlpha: 0 });
 
       const film = gsap.timeline({
         scrollTrigger: {
@@ -345,144 +339,129 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         },
       });
 
-      const coinVector = (target: HTMLElement, axis: 'x' | 'y') => {
-        const angle = Number.parseFloat(target.style.getPropertyValue('--angle')) * (Math.PI / 180);
-        const distance = Number.parseFloat(target.style.getPropertyValue('--distance')) * 16;
-        return (axis === 'x' ? Math.cos(angle) : Math.sin(angle)) * distance;
-      };
-
       film
-        // Goldwake begins as the portrait game itself, then performs its core mechanic.
-        .to('[data-film-ink]', { backgroundColor: '#071311', duration: 0.18, ease: 'none' }, 0)
-        .to('[data-goldwake-depth]', { xPercent: -7, yPercent: -2, duration: 1.5, ease: 'none' }, 0)
-        .to('[data-goldwake-structure]', { xPercent: 6, scale: 1.08, duration: 1.5, ease: 'none' }, 0)
+        .addLabel('goldwake', 0)
+        .to('[data-film-ink]', { backgroundColor: '#071311', duration: 0.12, ease: 'none' }, 'goldwake')
+        .to('[data-goldwake-depth]', { xPercent: -3, yPercent: 1, duration: 1.45, ease: 'none' }, 'goldwake')
+        .to('[data-goldwake-structure]', { xPercent: 4.5, yPercent: -1, scale: 1.045, duration: 1.45, ease: 'none' }, 'goldwake')
+        .to('[data-goldwake-debris]', { xPercent: -7, rotate: -1.2, scale: 1.065, duration: 1.45, ease: 'none' }, 'goldwake')
         .fromTo('[data-goldwake-screen]',
-          { yPercent: 8, rotateY: -5 },
-          { yPercent: -3, rotateY: 4, duration: 0.86, ease: 'none' },
-          0.12,
+          { yPercent: 4, rotateY: -2.5, scale: 0.98 },
+          { yPercent: -2, rotateY: 2, scale: 1.02, duration: 1.25, ease: 'none' },
+          0.05,
         )
-        .to(bullets, { autoAlpha: 1, scale: 1, duration: 0.22, stagger: 0.025, ease: 'back.out(2)' }, 0.24)
+        .to('[data-goldwake-player]', { yPercent: 0, autoAlpha: 1, duration: 0.24, ease: 'power2.out' }, 0.12)
+        .to('[data-goldwake-player]', { x: -10, y: -6, duration: 0.5, ease: 'none' }, 0.35)
+        .to('[data-goldwake-player]', { x: 8, y: 2, duration: 0.48, ease: 'none' }, 0.85)
+        .to(bullets, { autoAlpha: 1, scale: 1, duration: 0.2, stagger: 0.018, ease: 'power2.out' }, 0.24)
         .to(bullets, {
           left: (_index, target) => (target as HTMLElement).style.getPropertyValue('--tx'),
           top: (_index, target) => (target as HTMLElement).style.getPropertyValue('--ty'),
-          duration: 0.54,
-          stagger: 0.012,
+          duration: 0.58,
+          stagger: 0.009,
           ease: 'power1.in',
-        }, 0.52)
-        .to('[data-goldwake-wave]', { autoAlpha: 1, scale: 7.5, duration: 0.32, ease: 'power3.out' }, 0.98)
-        .to(bullets, { autoAlpha: 0, scale: 0.1, duration: 0.16, stagger: 0.012, ease: 'power2.in' }, 1.02)
-        .fromTo(coins,
-          { x: 0, y: 0, scale: 0, autoAlpha: 0 },
-          {
-            x: (_index, target) => coinVector(target as HTMLElement, 'x'),
-            y: (_index, target) => coinVector(target as HTMLElement, 'y'),
-            scale: 1,
-            autoAlpha: 1,
-            duration: 0.34,
-            stagger: 0.025,
-            ease: 'back.out(2.4)',
-          },
-          1.04,
-        )
-        .to('[data-goldwake-debris]', { rotate: -2, scale: 1.08, duration: 1.25, ease: 'none' }, 0.18)
+        }, 0.48)
+        .to('[data-goldwake-wave]', { autoAlpha: 0.92, scale: 2.35, duration: 0.18, ease: 'power2.out' }, 1.0)
+        .to('[data-goldwake-wave]', { autoAlpha: 0, scale: 3.1, duration: 0.18, ease: 'power1.in' }, 1.18)
+        .to(bullets, { autoAlpha: 0, scale: 0.05, duration: 0.13, stagger: 0.007, ease: 'power2.in' }, 1.02)
+        .to(coins, { autoAlpha: 1, scale: 1, y: -7, duration: 0.2, stagger: 0.012, ease: 'power2.out' }, 1.06)
+        .to(coins, { y: 10, duration: 0.42, stagger: 0.008, ease: 'none' }, 1.25)
+        .to(shards, {
+          x: (_index, target) => (target as HTMLElement).style.getPropertyValue('--sx'),
+          y: (_index, target) => (target as HTMLElement).style.getPropertyValue('--sy'),
+          rotate: (_index, target) => (target as HTMLElement).style.getPropertyValue('--sr'),
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.28,
+          stagger: 0.018,
+          ease: 'power2.out',
+        }, 1.02)
+        .to(shards, { autoAlpha: 0, scale: 0.7, duration: 0.22, stagger: 0.012, ease: 'power1.in' }, 1.3)
 
-        // A-Game wipes over a complete Goldwake scene; the frame is never left empty.
-        .to(chapters[0].querySelector('.print-chapter__copy'), { y: -24, autoAlpha: 0, duration: 0.25, ease: 'power2.in' }, 1.48)
-        .set(chapters[1], { autoAlpha: 1 }, 1.5)
-        .fromTo(chapters[1].querySelector('.print-chapter__copy'),
-          { y: 42, autoAlpha: 0 },
-          { y: 0, autoAlpha: 1, duration: 0.34, ease: 'power3.out' },
-          1.84,
-        )
-        .fromTo('[data-agame-scene]',
-          { clipPath: 'inset(100% 0 0 0)' },
-          { clipPath: 'inset(0% 0 0 0)', duration: 0.42, ease: 'power3.inOut' },
-          1.52,
-        )
-        .to('[data-film-ink]', { backgroundColor: '#3154a6', duration: 0.3, ease: 'none' }, 1.52)
-        .set(chapters[0], { autoAlpha: 0 }, 1.98)
+        // One opaque ink pass covers each project swap; no half-built frames show through.
+        .addLabel('toAgame', 1.48)
+        .set('[data-film-curtain]', { autoAlpha: 0, scaleX: 1, backgroundColor: '#3154a6' }, 'toAgame')
+        .to('[data-film-curtain]', { autoAlpha: 1, duration: 0.2, ease: 'none' }, 'toAgame')
+        .to(copies[0], { y: -14, autoAlpha: 0, duration: 0.14, ease: 'power2.in' }, 'toAgame+=0.02')
+        .set(copies[1], { y: 16, autoAlpha: 0 }, 'toAgame+=0.19')
+        .set(chapters[0], { autoAlpha: 0 }, 'toAgame+=0.2')
+        .set(chapters[1], { autoAlpha: 1 }, 'toAgame+=0.2')
+        .set('[data-film-ink]', { backgroundColor: '#3154a6' }, 'toAgame+=0.2')
+        .to(copies[1], { y: 0, autoAlpha: 1, duration: 0.22, ease: 'power2.out' }, 'toAgame+=0.2')
+        .to('[data-film-curtain]', { autoAlpha: 0, duration: 0.2, ease: 'none' }, 'toAgame+=0.2')
 
-        // A-Game travels through three real scenes instead of holding on one frame.
-        .to('[data-agame-outside]', { xPercent: -7, duration: 0.82, ease: 'none' }, 1.68)
-        .to('[data-agame-clearing]', { clipPath: 'inset(0 0 0 0%)', duration: 0.54, ease: 'power2.inOut' }, 2.02)
+        .addLabel('agame', 1.82)
+        .to('[data-agame-outside]', { xPercent: -4, yPercent: -1, scale: 1.035, duration: 1.4, ease: 'none' }, 'agame')
+        .to('[data-agame-clearing]', { clipPath: 'circle(82% at 62% 61%)', duration: 0.52, ease: 'power2.inOut' }, 'agame+=0.3')
+        .fromTo('[data-agame-clearing] img', { scale: 1.07 }, { scale: 1, duration: 0.6, ease: 'none' }, 'agame+=0.26')
+        .to('[data-agame-outside]', { autoAlpha: 0.2, duration: 0.28, ease: 'none' }, 'agame+=0.68')
         .fromTo('[data-agame-keepsakes] img',
-          { y: -72, rotate: -9, autoAlpha: 0 },
-          { y: 0, rotate: 0, autoAlpha: 1, duration: 0.28, stagger: 0.055, ease: 'back.out(1.8)' },
-          2.16,
+          { y: -34, rotate: -8, autoAlpha: 0 },
+          { y: 0, rotate: 0, autoAlpha: 1, duration: 0.26, stagger: 0.05, ease: 'power2.out' },
+          'agame+=0.64',
         )
         .fromTo('[data-agame-boat]',
-          { xPercent: -125, yPercent: 12, rotate: -3, autoAlpha: 0 },
-          { xPercent: 0, yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.38, ease: 'power2.out' },
-          2.22,
+          { xPercent: -110, yPercent: 7, rotate: -2, autoAlpha: 0 },
+          { xPercent: 0, yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.36, ease: 'power2.out' },
+          'agame+=0.78',
         )
-        .to('[data-agame-keepsakes] img', { y: 58, scale: 0.25, autoAlpha: 0, duration: 0.3, stagger: 0.045, ease: 'power2.in' }, 2.48)
-        .to('[data-agame-galaxy]', { clipPath: 'inset(0% 0 0 0)', duration: 0.64, ease: 'power3.inOut' }, 2.52)
-        .to('[data-agame-clearing]', { yPercent: -5, duration: 0.64, ease: 'none' }, 2.52)
-        .to('[data-agame-boat]', { xPercent: 430, yPercent: -18, rotate: 1, duration: 0.82, ease: 'none' }, 2.56)
-        .to(stars, { autoAlpha: 1, y: 0, duration: 0.28, stagger: 0.035, ease: 'power2.out' }, 2.67)
-        .to(stars, { x: 28, y: -18, duration: 0.65, stagger: 0.025, ease: 'none' }, 2.88)
+        .to('[data-agame-keepsakes] img', { x: 24, y: 28, scale: 0.7, autoAlpha: 0, duration: 0.3, stagger: 0.04, ease: 'power2.in' }, 'agame+=1.03')
+        .to('[data-agame-galaxy]', { clipPath: 'inset(0% 0 0 0)', duration: 0.68, ease: 'power2.inOut' }, 'agame+=1.1')
+        .to('[data-agame-clearing]', { yPercent: -3, autoAlpha: 0.34, duration: 0.68, ease: 'none' }, 'agame+=1.1')
+        .to('[data-agame-boat]', { xPercent: 305, duration: 0.92, ease: 'none' }, 'agame+=1.02')
+        .to('[data-agame-boat]', { yPercent: -6, rotate: 0.8, duration: 0.3, ease: 'none' }, 'agame+=1.02')
+        .to('[data-agame-boat]', { yPercent: 2, rotate: -0.5, duration: 0.31, ease: 'none' }, 'agame+=1.32')
+        .to('[data-agame-boat]', { yPercent: -3, rotate: 0.4, duration: 0.31, ease: 'none' }, 'agame+=1.63')
 
-        // The FreeCAT desktop wipes across the galaxy while the previous frame remains intact.
-        .to(chapters[1].querySelector('.print-chapter__copy'), { y: -36, autoAlpha: 0, duration: 0.24, ease: 'power2.in' }, 3.24)
-        .set(chapters[2], { autoAlpha: 1 }, 3.32)
-        .fromTo('[data-freecat-scene]',
-          { clipPath: 'inset(0 100% 0 0)' },
-          { clipPath: 'inset(0% 0 0 0)', duration: 0.42, ease: 'power3.inOut' },
-          3.3,
-        )
-        .fromTo(chapters[2].querySelector('.print-chapter__copy'),
-          { x: -44, autoAlpha: 0 },
-          { x: 0, autoAlpha: 1, duration: 0.32, ease: 'power3.out' },
-          3.74,
-        )
-        .to('[data-film-ink]', { backgroundColor: '#79b9a5', duration: 0.28, ease: 'none' }, 3.31)
-        .set(chapters[1], { autoAlpha: 0 }, 3.76)
+        .addLabel('toFreecat', 3.72)
+        .set('[data-film-curtain]', { autoAlpha: 0, scaleX: 1, backgroundColor: '#79b9a5' }, 'toFreecat')
+        .to('[data-film-curtain]', { autoAlpha: 1, duration: 0.2, ease: 'none' }, 'toFreecat')
+        .to(copies[1], { y: -14, autoAlpha: 0, duration: 0.14, ease: 'power2.in' }, 'toFreecat+=0.02')
+        .set(copies[2], { y: 16, autoAlpha: 0 }, 'toFreecat+=0.19')
+        .set(chapters[1], { autoAlpha: 0 }, 'toFreecat+=0.2')
+        .set(chapters[2], { autoAlpha: 1 }, 'toFreecat+=0.2')
+        .set('[data-film-ink]', { backgroundColor: '#79b9a5' }, 'toFreecat+=0.2')
+        .to(copies[2], { y: 0, autoAlpha: 1, duration: 0.22, ease: 'power2.out' }, 'toFreecat+=0.2')
+        .to('[data-film-curtain]', { autoAlpha: 0, duration: 0.2, ease: 'none' }, 'toFreecat+=0.2')
 
-        // FreeCAT routes through its real screens while the local file stays fixed.
-        .to('[data-freecat-database]', { scale: 1, autoAlpha: 1, duration: 0.28, ease: 'back.out(2)' }, 3.52)
-        .to('[data-freecat-route]', { scaleX: 1, duration: 0.42, ease: 'power2.out' }, 3.54)
-        .to('[data-freecat-window="home"]', { xPercent: -38, yPercent: 9, rotate: -4, scale: 0.82, filter: 'saturate(0.7)', duration: 0.42, ease: 'power3.inOut' }, 3.86)
-        .to('[data-freecat-window="qbank"]', { xPercent: 0, yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.46, ease: 'power3.out' }, 3.9)
-        .to('[data-freecat-window="qbank"]', { xPercent: 38, yPercent: 10, rotate: 4, scale: 0.82, filter: 'saturate(0.72)', duration: 0.42, ease: 'power3.inOut' }, 4.36)
-        .to('[data-freecat-window="content"]', { xPercent: 0, yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.46, ease: 'power3.out' }, 4.4)
-        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.7rem rgba(121,185,165,0)', duration: 0.38, ease: 'power2.out' }, 4.46)
+        .addLabel('freecat', 4.03)
+        .to('[data-freecat-database]', { scale: 1, autoAlpha: 1, duration: 0.24, ease: 'power2.out' }, 'freecat+=0.12')
+        .set('[data-freecat-window="qbank"]', { autoAlpha: 1 }, 'freecat+=0.45')
+        .to('[data-freecat-window="qbank"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=0.45')
+        .to('[data-freecat-window="home"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=0.7')
+        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=0.52')
+        .set('[data-freecat-window="content"]', { autoAlpha: 1 }, 'freecat+=1.02')
+        .to('[data-freecat-window="content"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=1.02')
+        .to('[data-freecat-window="qbank"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=1.27')
+        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09')
 
-        // The windows fold into the file, then Toybox opens over the intact desktop.
-        .to(freecatWindows, { xPercent: 43, yPercent: 46, scale: 0.14, rotate: 0, autoAlpha: 0, duration: 0.36, stagger: 0.035, ease: 'power3.in' }, 4.96)
-        .to('[data-freecat-route]', { scaleX: 0, duration: 0.26, ease: 'power2.in' }, 4.98)
-        .to(chapters[2].querySelector('.print-chapter__copy'), { y: -24, autoAlpha: 0, duration: 0.25, ease: 'power2.in' }, 5.04)
-        .set(chapters[3], { autoAlpha: 1 }, 5.12)
-        .fromTo('[data-toybox-scene]',
-          { clipPath: 'circle(0% at 50% 50%)' },
-          { clipPath: 'circle(74% at 50% 50%)', duration: 0.5, ease: 'power3.inOut' },
-          5.08,
-        )
-        .fromTo(chapters[3].querySelector('.print-chapter__copy'),
-          { y: 38, autoAlpha: 0 },
-          { y: 0, autoAlpha: 1, duration: 0.34, ease: 'power3.out' },
-          5.38,
-        )
-        .to('[data-film-ink]', { backgroundColor: '#0b1c24', duration: 0.3, ease: 'none' }, 5.12)
-        .set(chapters[2], { autoAlpha: 0 }, 5.62)
+        .addLabel('toToybox', 5.68)
+        .set('[data-film-curtain]', { autoAlpha: 0, scaleX: 1, backgroundColor: '#0b1c24' }, 'toToybox')
+        .to('[data-film-curtain]', { autoAlpha: 1, duration: 0.2, ease: 'none' }, 'toToybox')
+        .to(copies[2], { y: -14, autoAlpha: 0, duration: 0.14, ease: 'power2.in' }, 'toToybox+=0.02')
+        .set(copies[3], { y: 16, autoAlpha: 0 }, 'toToybox+=0.19')
+        .set(chapters[2], { autoAlpha: 0 }, 'toToybox+=0.2')
+        .set(chapters[3], { autoAlpha: 1 }, 'toToybox+=0.2')
+        .set('[data-film-ink]', { backgroundColor: '#0b1c24' }, 'toToybox+=0.2')
+        .to(copies[3], { y: 0, autoAlpha: 1, duration: 0.22, ease: 'power2.out' }, 'toToybox+=0.2')
+        .to('[data-film-curtain]', { autoAlpha: 0, duration: 0.2, ease: 'none' }, 'toToybox+=0.2')
 
-        // Toybox assembles like the utilities themselves: independent, small, useful.
-        .to('[data-toybox-window="system"]', { xPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.34, ease: 'back.out(1.7)' }, 5.14)
-        .to('[data-toybox-window="timer"]', { yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.34, ease: 'back.out(1.7)' }, 5.28)
-        .to('[data-toybox-window="clipboard"]', { xPercent: 0, yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.38, ease: 'back.out(1.7)' }, 5.42)
-        .to('[data-toybox-sync] i', { scaleX: 1, duration: 0.42, ease: 'steps(6)' }, 5.88)
-        .to('[data-toybox-cat]', { xPercent: 0, autoAlpha: 1, duration: 0.2, ease: 'none' }, 5.86)
-        .to('[data-toybox-cat]', { xPercent: 650, duration: 0.78, ease: 'none' }, 5.94)
-        .to('.toybox-timer__time--one', { autoAlpha: 0, duration: 0.12, ease: 'none' }, 6.14)
-        .to('[data-toybox-time]', { autoAlpha: 1, duration: 0.12, ease: 'none' }, 6.14)
-        .to('[data-toybox-window="system"]', { y: -8, duration: 0.5, ease: 'none' }, 6.16)
-        .to('[data-toybox-window="clipboard"]', { y: 8, duration: 0.5, ease: 'none' }, 6.16);
+        .addLabel('toybox', 6.0)
+        .to('[data-toybox-sync] i', { scaleX: 1, duration: 0.42, ease: 'steps(6)' }, 'toybox+=0.2')
+        .to('[data-toybox-cat]', { xPercent: 0, autoAlpha: 1, duration: 0.18, ease: 'none' }, 'toybox+=0.1')
+        .to('[data-toybox-cat]', { xPercent: 180, duration: 0.36, ease: 'none' }, 'toybox+=0.3')
+        .to('[data-toybox-cat]', { xPercent: 420, duration: 0.5, ease: 'none' }, 'toybox+=0.78')
+        .to('[data-toybox-packet]', { autoAlpha: 1, duration: 0.1, ease: 'none' }, 'toybox+=0.48')
+        .to('[data-toybox-packet]', { xPercent: 1150, duration: 0.58, ease: 'none' }, 'toybox+=0.52')
+        .to('[data-toybox-packet]', { autoAlpha: 0, duration: 0.1, ease: 'none' }, 'toybox+=1.1');
 
       gsap.from('.print-list__rows > a', {
-        y: 36,
+        x: -18,
         opacity: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power3.out',
+        clipPath: 'inset(0 100% 0 0)',
+        duration: 0.58,
+        stagger: 0.1,
+        ease: 'power2.out',
         scrollTrigger: { trigger: '.print-list', start: 'top 78%', once: true },
       });
 
@@ -503,8 +482,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           scrub: 0.7,
         },
       })
-        .fromTo('.print-notes__burst', { rotate: -28, scale: 0.72 }, { rotate: 22, scale: 1.16, ease: 'none' })
-        .fromTo('.print-notes h2', { xPercent: -8 }, { xPercent: 5, ease: 'none' }, 0);
+        .fromTo('.print-notes__burst', { rotate: -22, scale: 0.76 }, { rotate: 18, scale: 1.12, ease: 'none' });
 
       gsap.timeline({
         scrollTrigger: {
@@ -514,9 +492,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           scrub: 0.7,
         },
       })
-        .fromTo('.poster-coda__sun', { yPercent: 28 }, { yPercent: -18, ease: 'none' })
-        .fromTo('.poster-coda__mountain--far', { xPercent: -5 }, { xPercent: 4, ease: 'none' }, 0)
-        .fromTo('.poster-coda__mountain--near', { xPercent: 4 }, { xPercent: -5, ease: 'none' }, 0)
+        .fromTo('.poster-coda__sun', { yPercent: 58 }, { yPercent: -12, ease: 'none' })
+        .fromTo('.poster-coda__mountain--far', { xPercent: -2 }, { xPercent: 2, ease: 'none' }, 0)
+        .fromTo('.poster-coda__mountain--near', { xPercent: 2 }, { xPercent: -2, ease: 'none' }, 0)
         .fromTo('.poster-coda__water', { backgroundPositionY: '0rem' }, { backgroundPositionY: '4rem', ease: 'none' }, 0);
 
       window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
