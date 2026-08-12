@@ -2321,7 +2321,7 @@ h3 {
   right: 0;
   width: 46%;
   height: 100%;
-  background: var(--poster-tomato);
+  background: #071311;
 }
 
 .print-film__ink::before {
@@ -2628,38 +2628,32 @@ h3 {
 .agame-boat {
   position: absolute;
   z-index: 15;
-  bottom: 13%;
-  left: 13%;
-  width: 5rem;
-  height: 3.4rem;
-  filter: drop-shadow(0 0.45rem 0.25rem rgba(13, 9, 43, 0.48));
+  bottom: 5.5%;
+  left: 7%;
+  width: clamp(8.5rem, 13vw, 13.5rem);
+  height: auto;
+  filter: drop-shadow(0 0.65rem 0.38rem rgba(13, 9, 43, 0.58));
   will-change: transform, opacity;
 }
 
-.agame-boat > i {
+.agame-keepsakes {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 65%;
-  clip-path: polygon(0 0, 50% 28%, 100% 0, 72% 100%, 28% 100%);
-  background: #f3e7ca;
+  z-index: 16;
+  bottom: 22%;
+  left: 12%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  will-change: transform, opacity;
 }
 
-.agame-boat > span {
-  position: absolute;
-  top: 0;
-  width: 0.72rem;
-  aspect-ratio: 1;
-  border: 0.12rem solid #f3e7ca;
-  border-radius: 50%;
-  background: var(--poster-mustard);
-  box-shadow: 0 0 0.8rem #f5d990;
+.agame-keepsakes img {
+  width: clamp(1.8rem, 2.7vw, 2.8rem);
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0.3rem 0.35rem rgba(0, 0, 0, 0.55));
+  will-change: transform, opacity;
 }
-
-.agame-boat > span:nth-of-type(1) { left: 18%; }
-.agame-boat > span:nth-of-type(2) { left: 44%; background: var(--poster-tomato); }
-.agame-boat > span:nth-of-type(3) { left: 70%; background: var(--poster-mint); }
 
 .agame-stars {
   position: absolute;
@@ -3337,6 +3331,7 @@ h3 {
   .agame-panel--outside,
   .agame-panel--galaxy,
   .agame-boat,
+  .agame-keepsakes,
   .agame-stars { display: none; }
 
   .agame-panel--clearing { clip-path: none; }
