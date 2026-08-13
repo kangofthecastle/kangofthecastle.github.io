@@ -2231,7 +2231,7 @@ h3 {
 
 .print-film {
   position: relative;
-  height: 980vh;
+  height: 1120vh;
   min-height: 300rem;
   background: var(--poster-paper);
 }
@@ -2262,6 +2262,83 @@ h3 {
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.film-flow {
+  position: absolute;
+  z-index: 55;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.film-flow__wash {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: 0;
+}
+
+.film-flow__defs {
+  position: absolute;
+}
+
+.film-flow__blobs {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  filter: url("#film-flow-goo");
+  transform: scale(1.025);
+}
+
+.film-flow__blobs i {
+  position: absolute;
+  display: block;
+  width: 58vmax;
+  aspect-ratio: 1.08;
+  border-radius: 46% 54% 63% 37% / 54% 39% 61% 46%;
+  transform: scale(0.04);
+  will-change: transform;
+}
+
+.film-flow__blobs i:nth-child(1) { top: -42%; left: -30%; }
+.film-flow__blobs i:nth-child(2) {
+  top: -46%;
+  left: 22%;
+  border-radius: 57% 43% 38% 62% / 43% 58% 42% 57%;
+}
+.film-flow__blobs i:nth-child(3) {
+  top: -38%;
+  right: -34%;
+  border-radius: 39% 61% 58% 42% / 62% 42% 58% 38%;
+}
+.film-flow__blobs i:nth-child(4) {
+  bottom: -43%;
+  left: -29%;
+  border-radius: 63% 37% 46% 54% / 42% 63% 37% 58%;
+}
+.film-flow__blobs i:nth-child(5) {
+  bottom: -48%;
+  left: 25%;
+  border-radius: 43% 57% 64% 36% / 59% 38% 62% 41%;
+}
+.film-flow__blobs i:nth-child(6) {
+  right: -33%;
+  bottom: -40%;
+  border-radius: 58% 42% 36% 64% / 46% 61% 39% 54%;
+}
+.film-flow__blobs i:nth-child(7) {
+  top: 18%;
+  left: 31%;
+  width: 38vmax;
+  border-radius: 37% 63% 53% 47% / 58% 46% 54% 42%;
+}
+.film-flow__blobs i:nth-child(8) {
+  right: 19%;
+  bottom: 12%;
+  width: 34vmax;
+  border-radius: 61% 39% 45% 55% / 40% 57% 43% 60%;
 }
 
 .print-chapter {
@@ -3212,7 +3289,8 @@ h3 {
 
   .poster-tide,
   .projects-handoff,
-  .print-film__curtain { display: none; }
+  .print-film__curtain,
+  .film-flow { display: none; }
 
   .print-film {
     height: auto;
@@ -3397,7 +3475,8 @@ h3 {
   .print-film__ink { display: none; }
   .poster-tide,
   .projects-handoff,
-  .print-film__curtain { display: none; }
+  .print-film__curtain,
+  .film-flow { display: none; }
   .project-motion--freecat { overflow: hidden; }
 
   .agame-panel--outside,

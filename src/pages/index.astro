@@ -51,6 +51,22 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <section class="print-film" data-print-film aria-label="Selected projects">
     <div class="print-film__sticky">
       <p class="print-film__label">Projects, shown working</p>
+      <div class="film-flow" data-film-flow aria-hidden="true">
+        <svg class="film-flow__defs" width="0" height="0" focusable="false">
+          <filter id="film-flow-goo" x="-15%" y="-15%" width="130%" height="130%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="13" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+            />
+          </filter>
+        </svg>
+        <div class="film-flow__wash" data-film-flow-wash></div>
+        <div class="film-flow__blobs">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
       <div class="projects-handoff projects-handoff--film" data-film-intro aria-hidden="true">
         <p>Projects</p>
         <h2>Games, study software, and small tools.</h2>
@@ -284,8 +300,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
       const chapters = gsap.utils.toArray<HTMLElement>('[data-print-chapter]');
       const copies = chapters.map((chapter) => chapter.querySelector('.print-chapter__copy'));
-      const scenes = chapters.map((chapter) => chapter.querySelector('.project-motion'));
       gsap.set(chapters.slice(1), { autoAlpha: 0 });
+      const flowBlobs = gsap.utils.toArray<HTMLElement>('[data-film-flow] i');
 
       const bullets = gsap.utils.toArray<HTMLElement>('[data-goldwake-bullets] i');
       const coins = gsap.utils.toArray<HTMLElement>('[data-goldwake-coins] i');
@@ -299,6 +315,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         autoAlpha: 1,
       });
       gsap.set(copies[0], { y: 22, autoAlpha: 0 });
+      gsap.set('[data-film-flow]', { autoAlpha: 0 });
+      gsap.set('[data-film-flow-wash]', { autoAlpha: 0 });
+      gsap.set(flowBlobs, { scale: 0.04, rotate: 0 });
       gsap.set('[data-goldwake-player]', { yPercent: 80, autoAlpha: 0 });
       gsap.set(bullets, { autoAlpha: 0, scale: 0.25 });
       gsap.set(coins, { autoAlpha: 0, scale: 0, y: 0 });
@@ -323,6 +342,42 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           scrub: 0.6,
         },
       });
+
+      const flowLayer = document.querySelector<HTMLElement>('[data-film-flow]') as HTMLElement;
+      const flowWash = document.querySelector<HTMLElement>('[data-film-flow-wash]') as HTMLElement;
+      const flowScales = [1.46, 1.34, 1.52, 1.42, 1.5, 1.36, 1.28, 1.24];
+      const flowRotations = [14, -11, 9, -13, 12, -8, 17, -15];
+
+      const addFluidTransition = (
+        label: string,
+        time: number,
+        outgoing: HTMLElement,
+        incoming: HTMLElement,
+        color: string,
+      ) => {
+        film
+          .addLabel(label, time)
+          .set(flowLayer, { autoAlpha: 1 }, label)
+          .set(flowWash, { autoAlpha: 0, backgroundColor: color }, label)
+          .set(flowBlobs, { scale: 0.04, rotate: 0, backgroundColor: color }, label)
+          .to(flowBlobs, {
+            scale: (index) => flowScales[index],
+            rotate: (index) => flowRotations[index],
+            duration: 0.72,
+            stagger: 0.045,
+            ease: 'power2.inOut',
+          }, label)
+          .to(flowWash, { autoAlpha: 1, duration: 0.18, ease: 'sine.inOut' }, `${label}+=0.72`)
+          .set(outgoing, { autoAlpha: 0 }, `${label}+=0.9`)
+          .set(incoming, { autoAlpha: 1 }, `${label}+=0.9`)
+          .to(flowBlobs, {
+            scale: (index) => flowScales[index] * 1.06,
+            rotate: (index) => flowRotations[index] * 1.25,
+            duration: 0.76,
+            ease: 'sine.inOut',
+          }, `${label}+=0.98`)
+          .to(flowLayer, { autoAlpha: 0, duration: 0.76, ease: 'sine.inOut' }, `${label}+=1.02`);
+      };
 
       film
         .addLabel('intro', 0)
@@ -366,31 +421,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           stagger: 0.018,
           ease: 'power2.out',
         }, 'goldwake+=1.02')
-        .to(shards, { autoAlpha: 0, scale: 0.7, duration: 0.22, stagger: 0.012, ease: 'power1.in' }, 'goldwake+=1.3')
+        .to(shards, { autoAlpha: 0, scale: 0.7, duration: 0.22, stagger: 0.012, ease: 'power1.in' }, 'goldwake+=1.3');
 
-        // The Apotheosis pulse becomes an aperture into the next complete poster.
-        .addLabel('toAgame', 2.18)
-        .set(chapters[1], {
-          autoAlpha: 1,
-          clipPath: 'circle(7% at 76% 67%)',
-          scale: 0.985,
-          filter: 'drop-shadow(0 0 2.4rem rgba(49,84,166,0.5))',
-        }, 'toAgame')
-        .set(copies[1], { xPercent: 3, autoAlpha: 0 }, 'toAgame')
-        .set(scenes[0], { clipPath: 'circle(92% at 50% 69%)' }, 'toAgame')
-        .to(copies[0], { xPercent: -7, autoAlpha: 0, duration: 0.32, ease: 'power2.inOut' }, 'toAgame')
-        .to(scenes[0], { clipPath: 'circle(0% at 50% 69%)', scale: 1.1, rotate: -0.6, filter: 'blur(5px) brightness(0.96)', duration: 0.86, ease: 'power2.inOut' }, 'toAgame')
-        .to(chapters[1], {
-          clipPath: 'circle(150% at 76% 67%)',
-          scale: 1,
-          filter: 'drop-shadow(0 0 0 rgba(49,84,166,0))',
-          duration: 0.98,
-          ease: 'power2.inOut',
-        }, 'toAgame')
-        .to(copies[1], { xPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'toAgame+=0.65')
-        .set(chapters[0], { autoAlpha: 0 }, 'toAgame+=1.04')
+      addFluidTransition('toAgame', 2.18, chapters[0], chapters[1], '#3154a6');
 
-        .addLabel('agame', 3.26)
+      film
+        .addLabel('agame', 4.16)
         .to('[data-agame-outside]', { xPercent: -4, yPercent: -1, scale: 1.035, duration: 1.4, ease: 'none' }, 'agame')
         .to('[data-agame-clearing]', { clipPath: 'circle(82% at 62% 61%)', duration: 0.52, ease: 'power2.inOut' }, 'agame+=0.3')
         .fromTo('[data-agame-clearing] img', { scale: 1.07 }, { scale: 1, duration: 0.6, ease: 'none' }, 'agame+=0.26')
@@ -411,31 +447,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-agame-boat]', { xPercent: 305, duration: 0.92, ease: 'none' }, 'agame+=1.02')
         .to('[data-agame-boat]', { yPercent: -6, rotate: 0.8, duration: 0.3, ease: 'none' }, 'agame+=1.02')
         .to('[data-agame-boat]', { yPercent: 2, rotate: -0.5, duration: 0.31, ease: 'none' }, 'agame+=1.32')
-        .to('[data-agame-boat]', { yPercent: -3, rotate: 0.4, duration: 0.31, ease: 'none' }, 'agame+=1.63')
+        .to('[data-agame-boat]', { yPercent: -3, rotate: 0.4, duration: 0.31, ease: 'none' }, 'agame+=1.63');
 
-        // The galaxy horizon dilates into FreeCAT's local desktop.
-        .addLabel('toFreecat', 5.18)
-        .set(chapters[2], {
-          autoAlpha: 1,
-          clipPath: 'circle(7% at 72% 58%)',
-          scale: 0.985,
-          filter: 'drop-shadow(0 0 2.4rem rgba(121,185,165,0.55))',
-        }, 'toFreecat')
-        .set(copies[2], { xPercent: 3, autoAlpha: 0 }, 'toFreecat')
-        .set(scenes[1], { clipPath: 'circle(94% at 58% 62%)' }, 'toFreecat')
-        .to(copies[1], { xPercent: -7, autoAlpha: 0, duration: 0.32, ease: 'power2.inOut' }, 'toFreecat')
-        .to(scenes[1], { clipPath: 'circle(0% at 58% 62%)', scale: 1.09, yPercent: -1, filter: 'blur(5px) saturate(0.88)', duration: 0.86, ease: 'power2.inOut' }, 'toFreecat')
-        .to(chapters[2], {
-          clipPath: 'circle(150% at 72% 58%)',
-          scale: 1,
-          filter: 'drop-shadow(0 0 0 rgba(121,185,165,0))',
-          duration: 0.98,
-          ease: 'power2.inOut',
-        }, 'toFreecat')
-        .to(copies[2], { xPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'toFreecat+=0.65')
-        .set(chapters[1], { autoAlpha: 0 }, 'toFreecat+=1.04')
+      addFluidTransition('toFreecat', 6.22, chapters[1], chapters[2], '#79b9a5');
 
-        .addLabel('freecat', 6.26)
+      film
+        .addLabel('freecat', 8.2)
         .to('[data-freecat-database]', { scale: 1, autoAlpha: 1, duration: 0.24, ease: 'power2.out' }, 'freecat+=0.12')
         .set('[data-freecat-window="qbank"]', { autoAlpha: 1 }, 'freecat+=0.45')
         .to('[data-freecat-window="qbank"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=0.45')
@@ -444,31 +461,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .set('[data-freecat-window="content"]', { autoAlpha: 1 }, 'freecat+=1.02')
         .to('[data-freecat-window="content"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=1.02')
         .to('[data-freecat-window="qbank"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=1.27')
-        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09')
+        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09');
 
-        // The local database indicator opens into the darker utility desktop.
-        .addLabel('toToybox', 8.02)
-        .set(chapters[3], {
-          autoAlpha: 1,
-          clipPath: 'circle(7% at 91% 84%)',
-          scale: 0.985,
-          filter: 'drop-shadow(0 0 2.6rem rgba(11,28,36,0.65))',
-        }, 'toToybox')
-        .set(copies[3], { xPercent: 3, autoAlpha: 0 }, 'toToybox')
-        .set(scenes[2], { clipPath: 'circle(104% at 92% 88%)' }, 'toToybox')
-        .to(copies[2], { xPercent: -7, autoAlpha: 0, duration: 0.32, ease: 'power2.inOut' }, 'toToybox')
-        .to(scenes[2], { clipPath: 'circle(0% at 92% 88%)', scale: 1.08, rotate: 0.35, filter: 'blur(5px) brightness(0.94)', duration: 0.86, ease: 'power2.inOut' }, 'toToybox')
-        .to(chapters[3], {
-          clipPath: 'circle(155% at 91% 84%)',
-          scale: 1,
-          filter: 'drop-shadow(0 0 0 rgba(11,28,36,0))',
-          duration: 1.02,
-          ease: 'power2.inOut',
-        }, 'toToybox')
-        .to(copies[3], { xPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'toToybox+=0.68')
-        .set(chapters[2], { autoAlpha: 0 }, 'toToybox+=1.08')
+      addFluidTransition('toToybox', 9.72, chapters[2], chapters[3], '#0b1c24');
 
-        .addLabel('toybox', 9.14)
+      film
+        .addLabel('toybox', 11.7)
         .to('[data-toybox-sync] i', { scaleX: 1, duration: 0.42, ease: 'steps(6)' }, 'toybox+=0.2')
         .to('[data-toybox-cat]', { xPercent: 0, autoAlpha: 1, duration: 0.18, ease: 'none' }, 'toybox+=0.1')
         .to('[data-toybox-cat]', { xPercent: 180, duration: 0.36, ease: 'none' }, 'toybox+=0.3')
