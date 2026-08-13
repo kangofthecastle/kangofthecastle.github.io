@@ -2037,87 +2037,6 @@ h3 {
   clip-path: polygon(0 18%, 14% 4%, 28% 18%, 42% 4%, 56% 18%, 70% 4%, 84% 18%, 100% 4%, 100% 100%, 0 100%);
 }
 
-.poster-crane {
-  position: absolute;
-  z-index: 7;
-  right: 4vw;
-  bottom: 24%;
-  width: min(29vw, 32rem);
-  height: 42%;
-  transform-origin: 72% 100%;
-  will-change: transform;
-}
-
-.poster-crane__leg,
-.poster-crane__boom,
-.poster-crane__brace,
-.poster-crane__trolley,
-.poster-crane__cable,
-.poster-crane__hook {
-  position: absolute;
-  display: block;
-  background: var(--poster-mustard);
-}
-
-.poster-crane__leg {
-  bottom: 0;
-  width: 1.05rem;
-  height: 74%;
-  border: 0.24rem solid var(--poster-navy);
-  transform-origin: center bottom;
-}
-
-.poster-crane__leg--left { left: 37%; transform: skewX(-5deg); }
-.poster-crane__leg--right { right: 8%; transform: skewX(5deg); }
-
-.poster-crane__boom {
-  top: 23%;
-  right: 4%;
-  width: 96%;
-  height: 1rem;
-  border: 0.24rem solid var(--poster-navy);
-  transform-origin: right center;
-}
-
-.poster-crane__brace {
-  top: 30%;
-  width: 43%;
-  height: 0.28rem;
-  background: var(--poster-navy);
-  transform-origin: left center;
-}
-
-.poster-crane__brace--one { left: 39%; transform: rotate(42deg); }
-.poster-crane__brace--two { right: 9%; transform: rotate(138deg); transform-origin: right center; }
-
-.poster-crane__trolley {
-  top: 21.5%;
-  left: 23%;
-  width: 2.7rem;
-  height: 1.55rem;
-  border: 0.22rem solid var(--poster-navy);
-  background: var(--poster-paper);
-}
-
-.poster-crane__cable {
-  top: 26%;
-  left: calc(23% + 1.25rem);
-  width: 0.18rem;
-  height: 34%;
-  background: var(--poster-navy);
-}
-
-.poster-crane__hook {
-  top: 59%;
-  left: calc(23% + 0.85rem);
-  width: 0.95rem;
-  height: 0.95rem;
-  border: 0.2rem solid var(--poster-navy);
-  border-top: 0;
-  border-radius: 0 0 80% 80%;
-  background: transparent;
-}
-
 .poster-water {
   position: absolute;
   z-index: 6;
@@ -2187,17 +2106,14 @@ h3 {
 }
 
 .poster-copy h1 {
-  max-width: none;
-  margin: 0 0 1.6rem;
+  max-width: 54rem;
+  margin: 0 0 1.8rem;
   color: var(--poster-navy);
   font-family: var(--poster-heavy);
-  font-size: clamp(4.6rem, min(7.2vw, 12.5vh), 8.8rem);
+  font-size: clamp(4.45rem, min(6.8vw, 11.6vh), 8.35rem);
   font-weight: 900;
-  letter-spacing: -0.065em;
-  line-height: 0.88;
-  -webkit-text-stroke: 0.012em var(--poster-paper);
-  paint-order: stroke fill;
-  text-shadow: 0.025em 0.025em 0 var(--poster-tomato);
+  letter-spacing: -0.032em;
+  line-height: 0.96;
   text-transform: uppercase;
 }
 
@@ -2206,12 +2122,12 @@ h3 {
 }
 
 .poster-copy h1 span:nth-child(2) {
-  margin-top: 0.08em;
+  margin-top: 0.12em;
   font-size: 0.76em;
 }
 
 .poster-copy h1 span:nth-child(3) {
-  margin-top: 0.13em;
+  margin-top: 0.18em;
   font-size: 0.68em;
 }
 
@@ -2250,54 +2166,72 @@ h3 {
 .poster-stamp::before,
 .poster-stamp::after { content: none; }
 
-.poster-aperture {
+.poster-tide {
   position: absolute;
-  z-index: 40;
-  top: 12vh;
-  right: clamp(2rem, 8vw, 10rem);
-  height: min(74vh, 51rem);
-  aspect-ratio: 9 / 14;
-  padding: 0.8rem;
-  border: 0.5rem solid var(--poster-navy);
-  background: var(--poster-mustard);
-  box-shadow: 1.25rem 1.25rem 0 var(--poster-tomato);
-  opacity: 0;
-  transform-origin: center;
-  will-change: transform, opacity;
+  z-index: 38;
+  right: -8%;
+  bottom: -8%;
+  left: -8%;
+  height: 116%;
+  border-top: 0.45rem solid var(--poster-navy);
+  border-radius: 50% 50% 0 0 / 2.5rem 2.5rem 0 0;
+  background: var(--poster-mint);
+  transform: translateY(104%);
+  will-change: transform;
 }
 
-.poster-aperture > p,
-.poster-aperture > span {
-  margin: 0;
+.poster-tide::after {
+  position: absolute;
+  top: 1.15rem;
+  right: 0;
+  left: 0;
+  height: 0.22rem;
+  background: rgba(243, 231, 202, 0.64);
+  content: "";
+}
+
+.projects-handoff {
+  position: absolute;
+  z-index: 60;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 6rem var(--page-gutter);
+  background: var(--poster-mint);
   color: var(--poster-navy);
+  text-align: center;
+}
+
+.projects-handoff > p {
+  margin: 0;
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em;
   line-height: 1.3;
   text-transform: uppercase;
 }
 
-.poster-aperture > p { margin-bottom: 0.55rem; }
-.poster-aperture > span { display: block; margin-top: 0.55rem; }
-
-.poster-aperture figure {
-  height: calc(100% - 3.7rem);
-  margin: 0;
-  overflow: hidden;
-  border: 0.28rem solid var(--poster-navy);
-  background: var(--poster-navy);
+.projects-handoff h2 {
+  max-width: 11ch;
+  margin: 1.1rem 0 0;
+  font-family: var(--poster-heavy);
+  font-size: clamp(4.4rem, min(9vw, 14vh), 11rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.91;
+  text-transform: uppercase;
 }
 
-.poster-aperture img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.projects-handoff--film {
+  clip-path: inset(0);
+  will-change: clip-path;
 }
 
 .print-film {
   position: relative;
-  height: 680vh;
+  height: 820vh;
   min-height: 300rem;
   background: var(--poster-paper);
 }
@@ -2346,16 +2280,11 @@ h3 {
 
 .print-film__curtain {
   position: absolute;
-  z-index: 28;
-  top: 0;
-  right: 0;
-  width: 52%;
-  height: 100%;
-  border-left: 0.4rem solid var(--poster-navy);
+  z-index: 55;
+  inset: 0;
   background: var(--poster-cobalt);
-  opacity: 0;
-  transform: scaleX(1);
-  will-change: opacity, background-color;
+  clip-path: inset(0 100% 0 0);
+  will-change: clip-path, background-color;
   pointer-events: none;
 }
 
@@ -3270,7 +3199,6 @@ h3 {
   .poster-mountain--far { bottom: 27%; height: 34%; }
   .poster-mountain--near { bottom: 25%; left: -8%; width: 116%; height: 28%; }
   .poster-city { right: -5%; bottom: 26%; left: 34%; height: 13%; }
-  .poster-crane { right: -4.5rem; bottom: 25%; width: 23rem; height: 31%; }
   .poster-water { height: 26%; }
   .poster-seabus { bottom: 8%; left: 4%; width: 17rem; height: 6rem; }
 
@@ -3296,18 +3224,9 @@ h3 {
     width: auto;
   }
 
-  .poster-aperture {
-    top: auto;
-    right: var(--page-gutter);
-    bottom: 3rem;
-    height: auto;
-    width: min(52vw, 15rem);
-    opacity: 1 !important;
-    transform: rotate(-2deg) !important;
-    box-shadow: 0.75rem 0.75rem 0 var(--poster-tomato);
-  }
-
-  .poster-aperture figure { height: auto; aspect-ratio: 9 / 13; }
+  .poster-tide,
+  .projects-handoff,
+  .print-film__curtain { display: none; }
 
   .print-film {
     height: auto;
@@ -3435,7 +3354,6 @@ h3 {
   .poster-copy .poster-kicker { max-width: 18rem; }
   .poster-copy h1 { font-size: clamp(3.25rem, 14.6vw, 5rem); }
   .poster-copy > p:last-child { max-width: 22rem; font-size: 0.95rem; }
-  .poster-aperture { width: 53vw; }
   .poster-seabus { left: -1rem; }
 
   .print-chapter__copy h2 { font-size: clamp(2.55rem, 11.7vw, 4.3rem); }
@@ -3493,13 +3411,11 @@ h3 {
 
   .poster-hero__sticky { min-height: 100svh; overflow: hidden; }
 
-  .poster-aperture {
-    opacity: 1 !important;
-    transform: rotate(-1.5deg) !important;
-  }
-
   .print-film__sticky { padding-top: 7rem; }
   .print-film__ink { display: none; }
+  .poster-tide,
+  .projects-handoff,
+  .print-film__curtain { display: none; }
   .project-motion--freecat { overflow: hidden; }
 
   .agame-panel--outside,
@@ -3529,14 +3445,46 @@ h3 {
   }
 }
 
-@media (prefers-reduced-motion: reduce) and (min-width: 861px) {
-  .poster-aperture {
-    display: none;
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Route changes use the same full-sheet motion as the project film. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: poster-page-out 220ms cubic-bezier(0.55, 0, 1, 0.45) both;
+}
+
+::view-transition-new(root) {
+  animation: poster-page-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes poster-page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-1.25rem) scale(0.992);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
+@keyframes poster-page-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(1.25rem);
+  }
+  to {
+    clip-path: inset(0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 /* Reassert the active poster theme after the shared page rules. */
