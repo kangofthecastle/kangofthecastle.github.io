@@ -52,17 +52,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     <div class="print-film__sticky">
       <p class="print-film__label">Projects, shown working</p>
       <div class="film-flow" data-film-flow aria-hidden="true">
-        <svg class="film-flow__defs" width="0" height="0" focusable="false">
-          <filter id="film-flow-goo" x="-15%" y="-15%" width="130%" height="130%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="13" result="blur" />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-            />
-          </filter>
-        </svg>
-        <div class="film-flow__wash" data-film-flow-wash></div>
         <div class="film-flow__blobs">
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
@@ -316,8 +305,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       });
       gsap.set(copies[0], { y: 22, autoAlpha: 0 });
       gsap.set('[data-film-flow]', { autoAlpha: 0 });
-      gsap.set('[data-film-flow-wash]', { autoAlpha: 0 });
-      gsap.set(flowBlobs, { scale: 0.04, rotate: 0 });
+      gsap.set(flowBlobs, { scale: 0.18, rotate: 0, autoAlpha: 0 });
       gsap.set('[data-goldwake-player]', { yPercent: 80, autoAlpha: 0 });
       gsap.set(bullets, { autoAlpha: 0, scale: 0.25 });
       gsap.set(coins, { autoAlpha: 0, scale: 0, y: 0 });
@@ -344,39 +332,48 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       });
 
       const flowLayer = document.querySelector<HTMLElement>('[data-film-flow]') as HTMLElement;
-      const flowWash = document.querySelector<HTMLElement>('[data-film-flow-wash]') as HTMLElement;
-      const flowScales = [1.46, 1.34, 1.52, 1.42, 1.5, 1.36, 1.28, 1.24];
+      const flowScales = [0.92, 0.84, 0.96, 0.88, 0.94, 0.86, 0.76, 0.72];
       const flowRotations = [14, -11, 9, -13, 12, -8, 17, -15];
+      const flowOpacities = [0.18, 0.14, 0.12, 0.16, 0.18, 0.13, 0.11, 0.1];
 
       const addFluidTransition = (
         label: string,
         time: number,
         outgoing: HTMLElement,
         incoming: HTMLElement,
-        color: string,
+        outgoingColor: string,
+        incomingColor: string,
       ) => {
+        const colors = [outgoingColor, incomingColor, '#e5aa2d'];
+
         film
           .addLabel(label, time)
-          .set(flowLayer, { autoAlpha: 1 }, label)
-          .set(flowWash, { autoAlpha: 0, backgroundColor: color }, label)
-          .set(flowBlobs, { scale: 0.04, rotate: 0, backgroundColor: color }, label)
+          .set(flowLayer, { autoAlpha: 0 }, label)
+          .set(flowBlobs, {
+            scale: 0.18,
+            rotate: 0,
+            autoAlpha: 0,
+            backgroundColor: (index) => colors[index % colors.length],
+          }, label)
+          .to(flowLayer, { autoAlpha: 1, duration: 0.34, ease: 'sine.inOut' }, label)
           .to(flowBlobs, {
             scale: (index) => flowScales[index],
             rotate: (index) => flowRotations[index],
-            duration: 0.72,
-            stagger: 0.045,
-            ease: 'power2.inOut',
-          }, label)
-          .to(flowWash, { autoAlpha: 1, duration: 0.18, ease: 'sine.inOut' }, `${label}+=0.72`)
-          .set(outgoing, { autoAlpha: 0 }, `${label}+=0.9`)
-          .set(incoming, { autoAlpha: 1 }, `${label}+=0.9`)
-          .to(flowBlobs, {
-            scale: (index) => flowScales[index] * 1.06,
-            rotate: (index) => flowRotations[index] * 1.25,
-            duration: 0.76,
+            autoAlpha: (index) => flowOpacities[index],
+            duration: 1.16,
+            stagger: 0.055,
             ease: 'sine.inOut',
-          }, `${label}+=0.98`)
-          .to(flowLayer, { autoAlpha: 0, duration: 0.76, ease: 'sine.inOut' }, `${label}+=1.02`);
+          }, label)
+          .to(outgoing, { autoAlpha: 0, duration: 0.7, ease: 'sine.inOut' }, `${label}+=0.56`)
+          .to(incoming, { autoAlpha: 1, duration: 0.7, ease: 'sine.inOut' }, `${label}+=0.56`)
+          .to(flowBlobs, {
+            scale: (index) => flowScales[index] * 1.08,
+            rotate: (index) => flowRotations[index] * 1.35,
+            autoAlpha: 0,
+            duration: 0.88,
+            ease: 'sine.inOut',
+          }, `${label}+=0.94`)
+          .to(flowLayer, { autoAlpha: 0, duration: 0.7, ease: 'sine.inOut' }, `${label}+=1.02`);
       };
 
       film
@@ -423,7 +420,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         }, 'goldwake+=1.02')
         .to(shards, { autoAlpha: 0, scale: 0.7, duration: 0.22, stagger: 0.012, ease: 'power1.in' }, 'goldwake+=1.3');
 
-      addFluidTransition('toAgame', 2.18, chapters[0], chapters[1], '#3154a6');
+      addFluidTransition('toAgame', 2.18, chapters[0], chapters[1], '#172338', '#3154a6');
 
       film
         .addLabel('agame', 4.16)
@@ -449,7 +446,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-agame-boat]', { yPercent: 2, rotate: -0.5, duration: 0.31, ease: 'none' }, 'agame+=1.32')
         .to('[data-agame-boat]', { yPercent: -3, rotate: 0.4, duration: 0.31, ease: 'none' }, 'agame+=1.63');
 
-      addFluidTransition('toFreecat', 6.22, chapters[1], chapters[2], '#79b9a5');
+      addFluidTransition('toFreecat', 6.22, chapters[1], chapters[2], '#3154a6', '#79b9a5');
 
       film
         .addLabel('freecat', 8.2)
@@ -463,7 +460,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-freecat-window="qbank"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=1.27')
         .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09');
 
-      addFluidTransition('toToybox', 9.72, chapters[2], chapters[3], '#0b1c24');
+      addFluidTransition('toToybox', 9.72, chapters[2], chapters[3], '#79b9a5', '#0b1c24');
 
       film
         .addLabel('toybox', 11.7)
