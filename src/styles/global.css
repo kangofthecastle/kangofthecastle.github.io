@@ -2043,7 +2043,7 @@ h3 {
   right: -5%;
   bottom: -4%;
   left: -5%;
-  height: 25%;
+  height: 31%;
   background:
     repeating-linear-gradient(0deg, transparent 0 1.25rem, rgba(243, 231, 202, 0.34) 1.25rem 1.48rem),
     var(--poster-mint);
@@ -2231,7 +2231,7 @@ h3 {
 
 .print-film {
   position: relative;
-  height: 820vh;
+  height: 980vh;
   min-height: 300rem;
   background: var(--poster-paper);
 }
@@ -2246,20 +2246,6 @@ h3 {
     radial-gradient(circle, rgba(23, 35, 56, 0.23) 0 1px, transparent 1.2px) 0 0 / 8px 8px,
     var(--poster-paper);
   isolation: isolate;
-}
-
-.print-film__ink {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  width: 46%;
-  height: 100%;
-  background: #071311;
-}
-
-.print-film__ink::before {
-  content: none;
 }
 
 .print-film__label {
@@ -2278,17 +2264,8 @@ h3 {
   text-transform: uppercase;
 }
 
-.print-film__curtain {
-  position: absolute;
-  z-index: 55;
-  inset: 0;
-  background: var(--poster-cobalt);
-  clip-path: inset(0 100% 0 0);
-  will-change: clip-path, background-color;
-  pointer-events: none;
-}
-
 .print-chapter {
+  --chapter-panel: #071311;
   position: absolute;
   inset: 0;
   display: grid;
@@ -2296,7 +2273,16 @@ h3 {
   gap: clamp(3rem, 7vw, 9rem);
   align-items: center;
   padding: 9rem var(--page-gutter) 4rem;
+  background:
+    radial-gradient(circle, rgba(23, 35, 56, 0.2) 0 1px, transparent 1.2px) 0 0 / 8px 8px,
+    linear-gradient(90deg, var(--poster-paper) 0 54%, var(--chapter-panel) 54% 100%);
+  transform-origin: 76% 58%;
+  will-change: clip-path, transform, filter, opacity;
 }
+
+.print-chapter--agame { --chapter-panel: #3154a6; }
+.print-chapter--freecat { --chapter-panel: #79b9a5; }
+.print-chapter--toybox { --chapter-panel: #0b1c24; }
 
 .print-chapter__copy {
   position: relative;
@@ -3199,7 +3185,7 @@ h3 {
   .poster-mountain--far { bottom: 27%; height: 34%; }
   .poster-mountain--near { bottom: 25%; left: -8%; width: 116%; height: 28%; }
   .poster-city { right: -5%; bottom: 26%; left: 34%; height: 13%; }
-  .poster-water { height: 26%; }
+  .poster-water { height: 32%; }
   .poster-seabus { bottom: 8%; left: 4%; width: 17rem; height: 6rem; }
 
   .poster-copy {
@@ -3259,6 +3245,9 @@ h3 {
     gap: 3rem;
     padding: 5rem var(--page-gutter) 6rem;
     border-top: 0.85rem solid var(--chapter-ink);
+    background:
+      radial-gradient(circle, rgba(23, 35, 56, 0.2) 0 1px, transparent 1.2px) 0 0 / 8px 8px,
+      linear-gradient(90deg, var(--poster-paper) 0 78%, var(--chapter-ink) 78% 100%);
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
@@ -3269,14 +3258,7 @@ h3 {
   .print-chapter--toybox { --chapter-ink: var(--poster-mustard); }
 
   .print-chapter::after {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    right: 0;
-    width: 22%;
-    height: 100%;
-    background: var(--chapter-ink);
-    content: "";
+    content: none;
   }
 
   .print-chapter__copy { max-width: 44rem; }

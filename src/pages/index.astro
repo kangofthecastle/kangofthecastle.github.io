@@ -50,9 +50,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   <section class="print-film" data-print-film aria-label="Selected projects">
     <div class="print-film__sticky">
-      <div class="print-film__ink" data-film-ink aria-hidden="true"></div>
       <p class="print-film__label">Projects, shown working</p>
-      <div class="print-film__curtain" data-film-curtain aria-hidden="true"></div>
       <div class="projects-handoff projects-handoff--film" data-film-intro aria-hidden="true">
         <p>Projects</p>
         <h2>Games, study software, and small tools.</h2>
@@ -270,7 +268,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       opening
         .addLabel('harbour', 0)
         .to('[data-poster-seabus]', { xPercent: 285, yPercent: 3, duration: 0.72, ease: 'none' }, 'harbour')
-        .to('[data-poster-sun]', { scale: 1.12, xPercent: -3, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
+        .to('[data-poster-sun]', { scale: 1.32, xPercent: -4, yPercent: 3, duration: 0.72, ease: 'power1.inOut' }, 'harbour+=0.08')
         .to('[data-mountain-far]', { xPercent: -2.5, yPercent: 1.5, duration: 0.82, ease: 'none' }, 'harbour')
         .to('[data-mountain-near]', { xPercent: 3.5, yPercent: 3, duration: 0.82, ease: 'none' }, 'harbour')
         .to('[data-poster-city]', { xPercent: -4, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
@@ -286,6 +284,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
       const chapters = gsap.utils.toArray<HTMLElement>('[data-print-chapter]');
       const copies = chapters.map((chapter) => chapter.querySelector('.print-chapter__copy'));
+      const scenes = chapters.map((chapter) => chapter.querySelector('.project-motion'));
       gsap.set(chapters.slice(1), { autoAlpha: 0 });
 
       const bullets = gsap.utils.toArray<HTMLElement>('[data-goldwake-bullets] i');
@@ -300,7 +299,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         autoAlpha: 1,
       });
       gsap.set(copies[0], { y: 22, autoAlpha: 0 });
-      gsap.set('[data-film-curtain]', { clipPath: 'inset(0 100% 0 0)', autoAlpha: 1 });
       gsap.set('[data-goldwake-player]', { yPercent: 80, autoAlpha: 0 });
       gsap.set(bullets, { autoAlpha: 0, scale: 0.25 });
       gsap.set(coins, { autoAlpha: 0, scale: 0, y: 0 });
@@ -334,7 +332,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to(copies[0], { y: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'intro+=0.42')
 
         .addLabel('goldwake', 0.58)
-        .to('[data-film-ink]', { backgroundColor: '#071311', duration: 0.12, ease: 'none' }, 'goldwake')
         .to('[data-goldwake-depth]', { xPercent: -3, yPercent: 1, duration: 1.45, ease: 'none' }, 'goldwake')
         .to('[data-goldwake-structure]', { xPercent: 4.5, yPercent: -1, scale: 1.045, duration: 1.45, ease: 'none' }, 'goldwake')
         .to('[data-goldwake-debris]', { xPercent: -7, rotate: -1.2, scale: 1.065, duration: 1.45, ease: 'none' }, 'goldwake')
@@ -371,18 +368,29 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         }, 'goldwake+=1.02')
         .to(shards, { autoAlpha: 0, scale: 0.7, duration: 0.22, stagger: 0.012, ease: 'power1.in' }, 'goldwake+=1.3')
 
-        // Each chapter leaves and arrives as a complete poster behind one moving sheet.
-        .addLabel('toAgame', 2.1)
-        .set('[data-film-curtain]', { clipPath: 'inset(0 100% 0 0)', backgroundColor: '#3154a6' }, 'toAgame')
-        .to(chapters[0], { xPercent: -4, yPercent: -2, rotate: -0.6, scale: 0.965, duration: 0.38, ease: 'power2.inOut' }, 'toAgame')
-        .to('[data-film-curtain]', { clipPath: 'inset(0 0% 0 0)', duration: 0.38, ease: 'power2.inOut' }, 'toAgame')
-        .set(chapters[0], { autoAlpha: 0, xPercent: 0, yPercent: 0, rotate: 0, scale: 1 }, 'toAgame+=0.38')
-        .set(chapters[1], { autoAlpha: 1, xPercent: 4, yPercent: 2, rotate: 0.6, scale: 0.965 }, 'toAgame+=0.38')
-        .set('[data-film-ink]', { backgroundColor: '#3154a6' }, 'toAgame+=0.38')
-        .to('[data-film-curtain]', { clipPath: 'inset(0 0 0 100%)', duration: 0.42, ease: 'power2.inOut' }, 'toAgame+=0.38')
-        .to(chapters[1], { xPercent: 0, yPercent: 0, rotate: 0, scale: 1, duration: 0.42, ease: 'power2.inOut' }, 'toAgame+=0.38')
+        // The Apotheosis pulse becomes an aperture into the next complete poster.
+        .addLabel('toAgame', 2.18)
+        .set(chapters[1], {
+          autoAlpha: 1,
+          clipPath: 'circle(7% at 76% 67%)',
+          scale: 0.985,
+          filter: 'drop-shadow(0 0 2.4rem rgba(49,84,166,0.5))',
+        }, 'toAgame')
+        .set(copies[1], { xPercent: 3, autoAlpha: 0 }, 'toAgame')
+        .set(scenes[0], { clipPath: 'circle(92% at 50% 69%)' }, 'toAgame')
+        .to(copies[0], { xPercent: -7, autoAlpha: 0, duration: 0.32, ease: 'power2.inOut' }, 'toAgame')
+        .to(scenes[0], { clipPath: 'circle(0% at 50% 69%)', scale: 1.1, rotate: -0.6, filter: 'blur(5px) brightness(0.96)', duration: 0.86, ease: 'power2.inOut' }, 'toAgame')
+        .to(chapters[1], {
+          clipPath: 'circle(150% at 76% 67%)',
+          scale: 1,
+          filter: 'drop-shadow(0 0 0 rgba(49,84,166,0))',
+          duration: 0.98,
+          ease: 'power2.inOut',
+        }, 'toAgame')
+        .to(copies[1], { xPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'toAgame+=0.65')
+        .set(chapters[0], { autoAlpha: 0 }, 'toAgame+=1.04')
 
-        .addLabel('agame', 2.62)
+        .addLabel('agame', 3.26)
         .to('[data-agame-outside]', { xPercent: -4, yPercent: -1, scale: 1.035, duration: 1.4, ease: 'none' }, 'agame')
         .to('[data-agame-clearing]', { clipPath: 'circle(82% at 62% 61%)', duration: 0.52, ease: 'power2.inOut' }, 'agame+=0.3')
         .fromTo('[data-agame-clearing] img', { scale: 1.07 }, { scale: 1, duration: 0.6, ease: 'none' }, 'agame+=0.26')
@@ -405,17 +413,29 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-agame-boat]', { yPercent: 2, rotate: -0.5, duration: 0.31, ease: 'none' }, 'agame+=1.32')
         .to('[data-agame-boat]', { yPercent: -3, rotate: 0.4, duration: 0.31, ease: 'none' }, 'agame+=1.63')
 
-        .addLabel('toFreecat', 4.58)
-        .set('[data-film-curtain]', { clipPath: 'inset(0 100% 0 0)', backgroundColor: '#79b9a5' }, 'toFreecat')
-        .to(chapters[1], { xPercent: -4, yPercent: -2, rotate: -0.6, scale: 0.965, duration: 0.38, ease: 'power2.inOut' }, 'toFreecat')
-        .to('[data-film-curtain]', { clipPath: 'inset(0 0% 0 0)', duration: 0.38, ease: 'power2.inOut' }, 'toFreecat')
-        .set(chapters[1], { autoAlpha: 0, xPercent: 0, yPercent: 0, rotate: 0, scale: 1 }, 'toFreecat+=0.38')
-        .set(chapters[2], { autoAlpha: 1, xPercent: 4, yPercent: 2, rotate: 0.6, scale: 0.965 }, 'toFreecat+=0.38')
-        .set('[data-film-ink]', { backgroundColor: '#79b9a5' }, 'toFreecat+=0.38')
-        .to('[data-film-curtain]', { clipPath: 'inset(0 0 0 100%)', duration: 0.42, ease: 'power2.inOut' }, 'toFreecat+=0.38')
-        .to(chapters[2], { xPercent: 0, yPercent: 0, rotate: 0, scale: 1, duration: 0.42, ease: 'power2.inOut' }, 'toFreecat+=0.38')
+        // The galaxy horizon dilates into FreeCAT's local desktop.
+        .addLabel('toFreecat', 5.18)
+        .set(chapters[2], {
+          autoAlpha: 1,
+          clipPath: 'circle(7% at 72% 58%)',
+          scale: 0.985,
+          filter: 'drop-shadow(0 0 2.4rem rgba(121,185,165,0.55))',
+        }, 'toFreecat')
+        .set(copies[2], { xPercent: 3, autoAlpha: 0 }, 'toFreecat')
+        .set(scenes[1], { clipPath: 'circle(94% at 58% 62%)' }, 'toFreecat')
+        .to(copies[1], { xPercent: -7, autoAlpha: 0, duration: 0.32, ease: 'power2.inOut' }, 'toFreecat')
+        .to(scenes[1], { clipPath: 'circle(0% at 58% 62%)', scale: 1.09, yPercent: -1, filter: 'blur(5px) saturate(0.88)', duration: 0.86, ease: 'power2.inOut' }, 'toFreecat')
+        .to(chapters[2], {
+          clipPath: 'circle(150% at 72% 58%)',
+          scale: 1,
+          filter: 'drop-shadow(0 0 0 rgba(121,185,165,0))',
+          duration: 0.98,
+          ease: 'power2.inOut',
+        }, 'toFreecat')
+        .to(copies[2], { xPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'toFreecat+=0.65')
+        .set(chapters[1], { autoAlpha: 0 }, 'toFreecat+=1.04')
 
-        .addLabel('freecat', 5.1)
+        .addLabel('freecat', 6.26)
         .to('[data-freecat-database]', { scale: 1, autoAlpha: 1, duration: 0.24, ease: 'power2.out' }, 'freecat+=0.12')
         .set('[data-freecat-window="qbank"]', { autoAlpha: 1 }, 'freecat+=0.45')
         .to('[data-freecat-window="qbank"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=0.45')
@@ -426,17 +446,29 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-freecat-window="qbank"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=1.27')
         .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09')
 
-        .addLabel('toToybox', 6.7)
-        .set('[data-film-curtain]', { clipPath: 'inset(0 100% 0 0)', backgroundColor: '#0b1c24' }, 'toToybox')
-        .to(chapters[2], { xPercent: -4, yPercent: -2, rotate: -0.6, scale: 0.965, duration: 0.38, ease: 'power2.inOut' }, 'toToybox')
-        .to('[data-film-curtain]', { clipPath: 'inset(0 0% 0 0)', duration: 0.38, ease: 'power2.inOut' }, 'toToybox')
-        .set(chapters[2], { autoAlpha: 0, xPercent: 0, yPercent: 0, rotate: 0, scale: 1 }, 'toToybox+=0.38')
-        .set(chapters[3], { autoAlpha: 1, xPercent: 4, yPercent: 2, rotate: 0.6, scale: 0.965 }, 'toToybox+=0.38')
-        .set('[data-film-ink]', { backgroundColor: '#0b1c24' }, 'toToybox+=0.38')
-        .to('[data-film-curtain]', { clipPath: 'inset(0 0 0 100%)', duration: 0.42, ease: 'power2.inOut' }, 'toToybox+=0.38')
-        .to(chapters[3], { xPercent: 0, yPercent: 0, rotate: 0, scale: 1, duration: 0.42, ease: 'power2.inOut' }, 'toToybox+=0.38')
+        // The local database indicator opens into the darker utility desktop.
+        .addLabel('toToybox', 8.02)
+        .set(chapters[3], {
+          autoAlpha: 1,
+          clipPath: 'circle(7% at 91% 84%)',
+          scale: 0.985,
+          filter: 'drop-shadow(0 0 2.6rem rgba(11,28,36,0.65))',
+        }, 'toToybox')
+        .set(copies[3], { xPercent: 3, autoAlpha: 0 }, 'toToybox')
+        .set(scenes[2], { clipPath: 'circle(104% at 92% 88%)' }, 'toToybox')
+        .to(copies[2], { xPercent: -7, autoAlpha: 0, duration: 0.32, ease: 'power2.inOut' }, 'toToybox')
+        .to(scenes[2], { clipPath: 'circle(0% at 92% 88%)', scale: 1.08, rotate: 0.35, filter: 'blur(5px) brightness(0.94)', duration: 0.86, ease: 'power2.inOut' }, 'toToybox')
+        .to(chapters[3], {
+          clipPath: 'circle(155% at 91% 84%)',
+          scale: 1,
+          filter: 'drop-shadow(0 0 0 rgba(11,28,36,0))',
+          duration: 1.02,
+          ease: 'power2.inOut',
+        }, 'toToybox')
+        .to(copies[3], { xPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'toToybox+=0.68')
+        .set(chapters[2], { autoAlpha: 0 }, 'toToybox+=1.08')
 
-        .addLabel('toybox', 7.22)
+        .addLabel('toybox', 9.14)
         .to('[data-toybox-sync] i', { scaleX: 1, duration: 0.42, ease: 'steps(6)' }, 'toybox+=0.2')
         .to('[data-toybox-cat]', { xPercent: 0, autoAlpha: 1, duration: 0.18, ease: 'none' }, 'toybox+=0.1')
         .to('[data-toybox-cat]', { xPercent: 180, duration: 0.36, ease: 'none' }, 'toybox+=0.3')
