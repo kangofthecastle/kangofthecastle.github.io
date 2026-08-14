@@ -2378,8 +2378,15 @@ h3 {
   font-size: clamp(3rem, 4.9vw, 6rem);
   font-weight: 900;
   letter-spacing: -0.055em;
-  line-height: 0.86;
+  line-height: 0.98;
   text-transform: uppercase;
+}
+
+.print-chapter__copy h2 span {
+  padding: 0.015em 0.09em 0.035em;
+  background: var(--poster-mustard);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .print-chapter__copy > p:not(.print-chapter__name, .print-chapter__meta) {
@@ -3206,7 +3213,7 @@ h3 {
   .print-chapter__copy h2 {
     margin-bottom: 0.9rem;
     font-size: clamp(2.45rem, min(4.45vw, 7.1vh), 5rem);
-    line-height: 0.88;
+    line-height: 0.98;
   }
 
   .print-chapter__copy > p:not(.print-chapter__name, .print-chapter__meta) {
