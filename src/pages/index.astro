@@ -334,7 +334,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       const flowLayer = document.querySelector<HTMLElement>('[data-film-flow]') as HTMLElement;
       const flowScales = [0.92, 0.84, 0.96, 0.88, 0.94, 0.86, 0.76, 0.72];
       const flowRotations = [14, -11, 9, -13, 12, -8, 17, -15];
-      const flowOpacities = [0.18, 0.14, 0.12, 0.16, 0.18, 0.13, 0.11, 0.1];
+      const flowOpacities = [0.24, 0.13, 0.1, 0.22, 0.16, 0.11, 0.1, 0.09];
 
       const addFluidTransition = (
         label: string,
@@ -344,7 +344,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         outgoingColor: string,
         incomingColor: string,
       ) => {
-        const colors = [outgoingColor, incomingColor, '#e5aa2d'];
+        const colors = [
+          '#e5aa2d', incomingColor, outgoingColor, '#e5aa2d',
+          incomingColor, outgoingColor, incomingColor, outgoingColor,
+        ];
 
         film
           .addLabel(label, time)
@@ -353,7 +356,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             scale: 0.18,
             rotate: 0,
             autoAlpha: 0,
-            backgroundColor: (index) => colors[index % colors.length],
+            backgroundColor: (index) => colors[index],
           }, label)
           .to(flowLayer, { autoAlpha: 1, duration: 0.34, ease: 'sine.inOut' }, label)
           .to(flowBlobs, {
