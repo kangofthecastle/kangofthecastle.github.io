@@ -2372,21 +2372,18 @@ h3 {
 }
 
 .print-chapter__copy h2 {
+  width: fit-content;
   margin: 0 0 1.4rem;
-  color: var(--poster-navy);
+  padding: 0.14em 0.18em 0.18em;
+  background: var(--poster-mustard);
+  color: var(--poster-paper);
   font-family: var(--poster-heavy);
   font-size: clamp(3rem, 4.9vw, 6rem);
   font-weight: 900;
-  letter-spacing: -0.055em;
-  line-height: 0.98;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+  text-shadow: 0.055em 0.055em 0 var(--poster-tomato);
   text-transform: uppercase;
-}
-
-.print-chapter__copy h2 span {
-  padding: 0.015em 0.09em 0.035em;
-  background: var(--poster-mustard);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
 
 .print-chapter__copy > p:not(.print-chapter__name, .print-chapter__meta) {
@@ -3213,7 +3210,7 @@ h3 {
   .print-chapter__copy h2 {
     margin-bottom: 0.9rem;
     font-size: clamp(2.45rem, min(4.45vw, 7.1vh), 5rem);
-    line-height: 0.98;
+    line-height: 0.96;
   }
 
   .print-chapter__copy > p:not(.print-chapter__name, .print-chapter__meta) {
