@@ -1,4 +1,4 @@
-# Warren / Dubz — personal website
+# Warren — personal website
 
 A static, GitHub Pages-ready personal site for projects, field notes, interests, and contact information. The visual concept is **Rainline Workshop**: a dark, tactile field notebook from Vancouver after rain, with project artifacts providing the light.
 
@@ -53,14 +53,14 @@ Project pages are designed for real artifacts, not only repository links. Before
 
 ## GitHub Pages
 
-The repository includes `.github/workflows/deploy.yml`, using Astro’s official GitHub Pages action. The Astro `site` is configured as `https://dubz.github.io`.
+The repository includes `.github/workflows/deploy.yml`, using Astro’s official GitHub Pages action. The Astro `site` is configured as `https://kangofthecastle.github.io`.
 
-For that exact URL, the remote repository must be named `Dubz.github.io` (case-insensitive) and owned by the `Dubz` GitHub account. The current machine is authenticated to GitHub as `kangofthecastle`, so the remote is intentionally not created yet.
+The root Pages repository is `kangofthecastle/kangofthecastle.github.io`.
 
-After authenticating the correct account:
+To recreate the remote from a fresh checkout:
 
 ```bash
-gh repo create Dubz/Dubz.github.io --public --source=. --remote=origin --push
+gh repo create kangofthecastle/kangofthecastle.github.io --public --source=. --remote=origin --push
 ```
 
 Then set **Settings → Pages → Source** to **GitHub Actions** if GitHub does not select it automatically.
