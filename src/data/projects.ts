@@ -127,28 +127,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'baddest',
-    title: 'Baddest',
-    eyebrow: 'Subjective ranking, made concrete',
-    year: '2026',
-    summary:
-      'A hosted pairwise-ranking app for settling a deliberately subjective question: who is, once and for all, the baddest in the game?',
-    problem:
-      'Ranked lists are hard to make directly, especially when the criteria are vibes. Choosing between two candidates at a time is much easier.',
-    solution:
-      'An image-first voting flow backed by confidence-aware ratings, personal and shared leaderboards, and authenticated data sync.',
-    outcome:
-      'A playful opinion becomes an inspectable ranking through a sequence of tiny decisions.',
-    stack: ['React', 'TypeScript', 'Vite', 'Supabase'],
-    tags: ['Social tools', 'Ranking systems', 'Product design'],
-    media: '/images/projects/baddest.svg',
-    mediaAlt: 'Stylized preview of the Baddest pairwise ranking interface',
-    mediaCaption: 'Interface capture will replace this prototype composition.',
-    accent: 'coral',
-    selected: false,
-    visibility: 'private',
-  },
-  {
     slug: 'toybox',
     title: 'Toybox',
     eyebrow: 'Tiny Windows utilities with no dependencies',
