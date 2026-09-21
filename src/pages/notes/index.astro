@@ -15,7 +15,7 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
   <header class="page-hero page-hero--notes">
     <p class="eyebrow">Notes</p>
     <h1>Build logs and<br /><em>technical notes.</em></h1>
-    <p>What changed, what broke, how a mechanic works, and why I made a particular trade-off.</p>
+    <p>What changed, what broke, and explaining mechanics.</p>
   </header>
 
   <section class="notes-index section-shell">
@@ -42,16 +42,7 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
       <div class="empty-notebook">
         <div>
           <h2>There are no published posts yet.</h2>
-          <p>The blog is ready, but I am not filling it with placeholder essays. The first posts will come from the project writeups already underway.</p>
-        </div>
-        <div class="empty-notebook__prompts">
-          <span>Good first subjects</span>
-          <ul>
-            <li>How Apotheosis changes the economy in HUBRIS</li>
-            <li>Why FreeCAT stores everything in one SQLite file</li>
-            <li>What had to stay private in the birthday game</li>
-            <li>How Toybox keeps clipboard history from becoming permanent</li>
-          </ul>
+          <p>Coming</p>
         </div>
       </div>
     )}

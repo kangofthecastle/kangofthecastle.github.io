@@ -148,28 +148,6 @@ export const projects: Project[] = [
     selected: true,
     visibility: 'private',
   },
-  {
-    slug: 'question-distiller',
-    title: 'Question Distiller',
-    eyebrow: 'A document-to-learning pipeline',
-    year: '2026',
-    summary:
-      'Script-first tooling that turns image-only question documents into structured, reviewable learning material and interactive concept labs.',
-    problem:
-      'A large screenshot-based study corpus was searchable only by memory and reviewable only one image at a time.',
-    solution:
-      'A deterministic extraction, OCR, validation, crop-review, and concept-distillation pipeline with explicit human review gates.',
-    outcome:
-      'A brittle pile of screenshots became structured data, targeted review queues, and reusable learning artifacts without hiding provenance or uncertainty.',
-    stack: ['Python', 'OCR', 'Structured JSON', 'Three.js'],
-    tags: ['Learning systems', 'Pipelines', 'Human-in-the-loop'],
-    media: '/images/projects/distiller.svg',
-    mediaAlt: 'Stylized preview of the document-to-learning distillation pipeline',
-    mediaCaption: 'Pipeline artifact capture will replace this prototype composition.',
-    accent: 'amber',
-    selected: false,
-    visibility: 'private',
-  },
 ];
 
 export const selectedProjects = projects.filter((project) => project.selected);

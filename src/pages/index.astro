@@ -30,14 +30,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <div class="poster-copy" data-poster-copy>
         <p class="poster-kicker">Warren · software developer · Vancouver</p>
         <h1>
-          <span>Software</span>
-          <span>for problems</span>
-          <span>I actually have.</span>
+          <span>Welcome to</span>
+          <span>my weird</span>
+          <span>projects</span>
         </h1>
-        <p>
-          I make games, study software, and small desktop tools—usually because I
-          want a version that does something existing software does not.
-        </p>
+        <p>Games, study tools, among other things</p>
       </div>
 
       <div class="poster-stamp" data-poster-stamp aria-hidden="true">
@@ -50,7 +47,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   <section class="print-film" data-print-film aria-label="Selected projects">
     <div class="print-film__sticky">
-      <p class="print-film__label">Projects, shown working</p>
       <div class="film-flow" data-film-flow aria-hidden="true">
         <div class="film-flow__blobs">
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -63,12 +59,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
       <article class="print-chapter print-chapter--goldwake" data-print-chapter data-ink="#172338">
         <div class="print-chapter__copy">
-          <p class="print-chapter__name">Goldwake</p>
+          <p class="print-chapter__name">Hubris</p>
           <h2>A portrait bullet-hell where grazing charges the screen clear.</h2>
           <p>
-            Grazing fills an Apotheosis gauge. Triggering it cancels every enemy
-            bullet into collectible gold. The run seed also chooses the encounters
-            and procedural score.
+            Grazing fills a hubris gauge. Triggering it cancels every enemy bullet
+            into collectible gold. The run seed generates encounters procedurally.
           </p>
           <p class="print-chapter__meta">WebGL2 · Canvas · WebAudio · JavaScript · playable locally</p>
           <a href="/projects/goldwake/">Project details <span aria-hidden="true">↗</span></a>
@@ -111,18 +106,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             </div>
           </div>
           <img class="goldwake-debris" data-goldwake-debris src="/images/projects/cinematic/goldwake-debris.webp" alt="" />
-          <figcaption>Bullets close in. Apotheosis cancels them into gold.</figcaption>
+          <figcaption>Bullets close in. Turn them to gold to earn points</figcaption>
         </figure>
       </article>
 
       <article class="print-chapter print-chapter--agame" data-print-chapter data-ink="#3154a6">
         <div class="print-chapter__copy">
           <p class="print-chapter__name">A-Game</p>
-          <h2>A birthday game built for one person and one sitting.</h2>
+          <h2>A personalised birthday RPG.</h2>
           <p>
-            You visit two friends, play games inside their computers, and bring three
-            keepsakes home when a violin starts calling. The keepsakes become a lit
-            paper boat before the water turns into a galaxy.
+            You visit two friends, play minigames you associate with them, and earn
+            keepsakes. The keepsakes fold into a boat that goes to the ending scene.
           </p>
           <p class="print-chapter__meta">Phaser · TypeScript · Electron · no fail states</p>
           <a href="/projects/a-game/">Project details <span aria-hidden="true">↗</span></a>
@@ -143,18 +137,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             <img src="/images/projects/a-game-assets/keepsake-defused-spike-charm.png" alt="" />
           </div>
           <img class="agame-boat" data-agame-boat src="/images/projects/a-game-assets/alice-boat.png" alt="Alice travelling in the paper boat" />
-          <figcaption>Village, clearing, paper boat, then the water becomes a galaxy.</figcaption>
         </figure>
       </article>
 
       <article class="print-chapter print-chapter--freecat" data-print-chapter data-ink="#79b9a5">
         <div class="print-chapter__copy">
           <p class="print-chapter__name">FreeCAT</p>
-          <h2>Local-first MCAT study software in one SQLite file.</h2>
+          <h2>In progress, a free, fully local MCAT study app.</h2>
           <p>
-            The question bank, lessons, imported Anki decks, review history, XP, and
-            study pet all stay on the learner’s computer. No account and no hosted
-            progress database.
+            Question bank, lessons, imported Anki decks, and review history data all
+            stay local. No account or hosted database.
           </p>
           <p class="print-chapter__meta">Electron · React · TypeScript · SQLite · in development</p>
           <a href="/projects/freecat/">Project details <span aria-hidden="true">↗</span></a>
@@ -177,18 +169,18 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             <span>Content review</span>
             <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" />
           </div>
-          <figcaption>Three working surfaces. The data underneath them never leaves the machine.</figcaption>
+          <figcaption>Three modules: Practice questions, lessons, flashcards</figcaption>
         </figure>
       </article>
 
       <article class="print-chapter print-chapter--toybox" data-print-chapter data-ink="#e5aa2d">
         <div class="print-chapter__copy">
           <p class="print-chapter__name">Toybox</p>
-          <h2>Small Windows utilities written in Python’s standard library.</h2>
+          <h2>Small Windows utilities written in Python</h2>
           <p>
-            Toybox combines a system HUD, an in-memory clipboard that syncs text to
-            my Mac over the local network, and a pixel cat that dances to music, runs
-            timers, naps in a box, and carries dropped files.
+            Toybox includes a system HUD using RSS, an in-memory clipboard that syncs
+            text to Mac or other machines over the local network, and a pixel cat
+            companion that dances to music, manages monitors, and runs timers
           </p>
           <p class="print-chapter__meta">Python · Tkinter · Win32 APIs · no telemetry</p>
           <a href="/projects/toybox/">Project details <span aria-hidden="true">↗</span></a>
@@ -200,7 +192,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           </div>
           <div class="toybox-cat-cover" aria-hidden="true"></div>
           <div class="toybox-cat" data-toybox-cat aria-label="The actual Toybox desktop cat sprite"></div>
-          <figcaption>Monitor, clipboard, timer, and the real desktop cat sharing one small desktop.</figcaption>
         </figure>
       </article>
     </div>
@@ -212,13 +203,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <h2>Other things I’m building.</h2>
     </header>
     <div class="print-list__rows">
-      <a href="/projects/question-distiller/">
-        <strong>Question Distiller / Structure Lab</strong>
-        <span>Turns screenshot-only study documents into reviewed data and interactive chemistry lessons.</span>
-      </a>
       <a href="/projects/">
         <strong>SAT World</strong>
-        <span>SAT software for students, teachers, live classes, study plans, analytics, and pets.</span>
+        <span>SAT software for students, teachers, live classes, study plans, analytics</span>
       </a>
     </div>
   </section>
