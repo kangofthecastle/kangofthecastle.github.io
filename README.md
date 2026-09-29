@@ -1,6 +1,6 @@
 # Warren — personal website
 
-A static, GitHub Pages-ready personal site for projects, field notes, interests, and contact information. The visual direction is a colorful Vancouver print poster: cream paper, navy ink, bold type, and red, blue, mustard, and mint accents. The animated homepage has a direct route to the collection; supporting pages use quieter layouts for browsing projects and reading.
+A static, GitHub Pages-ready personal site for projects, notes, and contact information. Its visual direction is a Vancouver harbour print: warm paper, green ink, restrained red, serif headings and real project captures. The shared design rules are documented in [DESIGN.md](DESIGN.md).
 
 ## Local development
 
@@ -32,12 +32,13 @@ The first note is deliberately marked `draft: true`. Change the frontmatter and 
 ## Visual and motion system
 
 - Astro generates plain static pages.
-- GSAP + ScrollTrigger handles the short focus/parallax transitions on the homepage.
-- CSS handles the Vancouver scene and responsive layout. `src/styles/inner.css` connects the supporting pages to the poster theme and contains the homepage refresh refinements.
-- Mobile removes the desktop depth corridor in favor of a normal linear reading order.
-- `prefers-reduced-motion` disables parallax, blur movement, and reveal choreography.
-
-Three.js was intentionally left out of this first version: the rainy-window depth reads clearly with CSS layers, while avoiding a persistent WebGL canvas on a content-first site. It can still be introduced later if an actual interactive scene earns the cost.
+- `src/styles/global.css` is the single shared visual system.
+- Self-hosted Instrument Serif and DM Sans fonts live in `public/fonts/` with their licenses.
+- `src/components/HarbourPrint.astro` supplies the homepage's SVG illustration.
+- `src/scripts/motion.ts` handles brief entrances and bounded harbour parallax. There are no pinned scroll sections.
+- Project content follows the same normal scrolling order on desktop and mobile.
+- `prefers-reduced-motion` uses the static composition without entrance or parallax effects.
+- FreeCAT screenshots use keyboard-operable buttons, with one image visible at a time.
 
 ## Project-media rules
 

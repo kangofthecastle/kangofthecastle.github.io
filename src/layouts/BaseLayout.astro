@@ -1,6 +1,5 @@
 ---
 import '@/styles/global.css';
-import '@/styles/inner.css';
 import { mainNav, site } from '@/data/site';
 
 type Props = {
@@ -29,8 +28,9 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#172338" />
+    <meta name="theme-color" content="#f3f0e8" />
     <link rel="canonical" href={canonical} />
+    <link rel="preload" href="/fonts/instrument-serif-400-normal.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -86,6 +86,7 @@ const currentPath = Astro.url.pathname;
     </footer>
 
     <script>
+      import '@/scripts/motion';
       const header = document.querySelector('[data-site-header]');
 
       const updateHeader = () => {

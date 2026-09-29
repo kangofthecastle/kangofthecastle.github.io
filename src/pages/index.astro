@@ -1,484 +1,104 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import HarbourPrint from '@/components/HarbourPrint.astro';
 ---
 
-<BaseLayout pageClass="home-page home-page--poster">
-  <section class="poster-hero" data-poster-hero>
-    <div class="poster-hero__sticky">
-        <div class="poster-scene" data-poster-scene aria-hidden="true">
-        <div class="poster-sun" data-poster-sun></div>
-        <div class="poster-mountain poster-mountain--far" data-mountain-far></div>
-        <div class="poster-mountain poster-mountain--near" data-mountain-near></div>
-
-        <div class="poster-city" data-poster-city>
-          <span class="poster-building poster-building--low" style="--x: 0%; --w: 12%; --h: 35%;"></span>
-          <span class="poster-building poster-building--tower" style="--x: 15%; --w: 8%; --h: 68%;"></span>
-          <span class="poster-building" style="--x: 27%; --w: 15%; --h: 48%;"></span>
-          <span class="poster-building poster-building--slim" style="--x: 46%; --w: 7%; --h: 78%;"></span>
-          <span class="poster-building poster-building--saw" style="--x: 57%; --w: 17%; --h: 42%;"></span>
-          <span class="poster-building poster-building--tower" style="--x: 78%; --w: 8%; --h: 58%;"></span>
-          <span class="poster-building poster-building--low" style="--x: 89%; --w: 11%; --h: 31%;"></span>
-        </div>
-
-        <div class="poster-water" data-poster-water></div>
-        <div class="poster-seabus" data-poster-seabus>
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="poster-halftone"></div>
-      </div>
-
-      <div class="poster-copy" data-poster-copy>
-        <p class="poster-kicker">Warren · software developer · Vancouver</p>
-        <h1>
-          <span>Welcome to</span>
-          <span>my weird</span>
-          <span>projects</span>
-        </h1>
-        <p>Games, study tools, among other things</p>
-      </div>
-
-      <div class="poster-stamp" data-poster-stamp aria-hidden="true">
-        Built in<br />Vancouver
-      </div>
-
-      <div class="poster-tide" data-poster-tide aria-hidden="true"></div>
+<BaseLayout pageClass="home-page">
+  <section class="home-opening section-shell">
+    <div class="home-opening__copy">
+      <p class="eyebrow" data-reveal>Warren · software developer · Vancouver</p>
+      <h1><span class="opening-line opening-line--small"><span>Welcome to</span></span><span class="opening-line"><span>my weird</span></span><span class="opening-line opening-line--italic"><span>projects</span></span></h1>
+      <p class="home-opening__summary" data-reveal>Games, study tools, among other things</p>
+      <a class="opening-index" href="#projects" aria-label="Browse projects"><span aria-hidden="true">↓</span> Projects</a>
     </div>
+    <HarbourPrint />
   </section>
 
-  <section class="print-film" data-print-film aria-label="Selected projects">
-    <div class="print-film__sticky">
-      <div class="film-flow" data-film-flow aria-hidden="true">
-        <div class="film-flow__blobs">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
-      </div>
-      <div class="projects-handoff projects-handoff--film" data-film-intro aria-hidden="true">
-        <p>Projects</p>
-        <h2>Games, study software, and small tools.</h2>
-      </div>
-
-      <article class="print-chapter print-chapter--hubris" data-print-chapter data-ink="#172338">
-        <div class="print-chapter__copy">
-          <p class="print-chapter__name">Hubris</p>
-          <h2>A portrait bullet-hell where grazing charges the screen clear.</h2>
+  <section class="work-index section-shell" id="projects" aria-label="Selected projects">
+    <header class="section-heading" data-reveal><p class="eyebrow">Projects</p><h2>Games, study software, and small tools.</h2></header>
+<article class="work-row work-row--hubris"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">01</span>
+          <h2 class="work-title">Hubris</h2>
+          <h3>A portrait bullet-hell where grazing charges the screen clear.</h3>
           <p>
             Grazing fills a hubris gauge. Triggering it cancels every enemy bullet
             into collectible gold. The run seed generates encounters procedurally.
           </p>
-          <p class="print-chapter__meta">WebGL2 · Canvas · WebAudio · JavaScript · playable locally</p>
+          <p class="work-meta">WebGL2 · Canvas · WebAudio · JavaScript · playable locally</p>
           <a href="/projects/hubris/">Project details <span aria-hidden="true">↗</span></a>
-        </div>
-        <figure class="project-motion project-motion--hubris" data-hubris-scene>
-          <img class="hubris-depth" data-hubris-depth src="/images/projects/cinematic/hubris-deep.webp" alt="" />
-          <img class="hubris-structure" data-hubris-structure src="/images/projects/cinematic/hubris-structure.webp" alt="" />
-          <div class="hubris-screen" data-hubris-screen>
-            <img src="/images/projects/hubris-boon.webp" alt="HUBRIS paused at a three-boon choice during a run" />
-            <img class="hubris-player" data-hubris-player src="/images/projects/hubris-assets/player-ship.png" alt="" />
-            <div class="hubris-bullets" data-hubris-bullets aria-hidden="true">
-              <i class="hubris-bullet--rune" style="--x: 9%; --y: 16%; --tx: 41%; --ty: 58%; --r: 24deg;"></i>
-              <i class="hubris-bullet--arrow" style="--x: 29%; --y: 6%; --tx: 46%; --ty: 53%; --r: 18deg;"></i>
-              <i class="hubris-bullet--popcorn" style="--x: 50%; --y: 10%; --tx: 51%; --ty: 50%; --r: 0deg;"></i>
-              <i class="hubris-bullet--rune" style="--x: 73%; --y: 7%; --tx: 56%; --ty: 53%; --r: -17deg;"></i>
-              <i class="hubris-bullet--arrow" style="--x: 91%; --y: 20%; --tx: 61%; --ty: 58%; --r: -28deg;"></i>
-              <i class="hubris-bullet--popcorn" style="--x: 95%; --y: 49%; --tx: 63%; --ty: 64%; --r: -74deg;"></i>
-              <i class="hubris-bullet--rune" style="--x: 86%; --y: 78%; --tx: 60%; --ty: 71%; --r: -120deg;"></i>
-              <i class="hubris-bullet--arrow" style="--x: 67%; --y: 93%; --tx: 56%; --ty: 75%; --r: 170deg;"></i>
-              <i class="hubris-bullet--popcorn" style="--x: 35%; --y: 91%; --tx: 47%; --ty: 75%; --r: 155deg;"></i>
-              <i class="hubris-bullet--rune" style="--x: 9%; --y: 75%; --tx: 41%; --ty: 71%; --r: 112deg;"></i>
-              <i class="hubris-bullet--arrow" style="--x: 3%; --y: 44%; --tx: 39%; --ty: 64%; --r: 68deg;"></i>
-            </div>
-            <div class="hubris-wave" data-hubris-wave aria-hidden="true"></div>
-            <div class="hubris-coins" data-hubris-coins aria-hidden="true">
-              <i style="--x: 41%; --y: 58%;"></i><i style="--x: 46%; --y: 53%;"></i>
-              <i style="--x: 51%; --y: 50%;"></i><i style="--x: 56%; --y: 53%;"></i>
-              <i style="--x: 61%; --y: 58%;"></i><i style="--x: 63%; --y: 64%;"></i>
-              <i style="--x: 60%; --y: 71%;"></i><i style="--x: 56%; --y: 75%;"></i>
-              <i style="--x: 47%; --y: 75%;"></i><i style="--x: 41%; --y: 71%;"></i>
-              <i style="--x: 39%; --y: 64%;"></i>
-            </div>
-            <div class="hubris-shards" data-hubris-shards aria-hidden="true">
-              <img style="--sx: -7rem; --sy: -5rem; --sr: -38deg;" src="/images/projects/hubris-assets/apotheosis-shard.png" alt="" />
-              <img style="--sx: -2rem; --sy: -8rem; --sr: -12deg;" src="/images/projects/hubris-assets/apotheosis-shard.png" alt="" />
-              <img style="--sx: 4rem; --sy: -7rem; --sr: 22deg;" src="/images/projects/hubris-assets/apotheosis-shard.png" alt="" />
-              <img style="--sx: 7rem; --sy: -3rem; --sr: 48deg;" src="/images/projects/hubris-assets/apotheosis-shard.png" alt="" />
-              <img style="--sx: 5rem; --sy: 3rem; --sr: 96deg;" src="/images/projects/hubris-assets/apotheosis-shard.png" alt="" />
-              <img style="--sx: -5rem; --sy: 2rem; --sr: -86deg;" src="/images/projects/hubris-assets/apotheosis-shard.png" alt="" />
-            </div>
-          </div>
-          <img class="hubris-debris" data-hubris-debris src="/images/projects/cinematic/hubris-debris.webp" alt="" />
-          <figcaption>Bullets close in. Turn them to gold to earn points</figcaption>
-        </figure>
-      </article>
-
-      <article class="print-chapter print-chapter--agame" data-print-chapter data-ink="#3154a6">
-        <div class="print-chapter__copy">
-          <p class="print-chapter__name">A-Game</p>
-          <h2>A personalised birthday RPG.</h2>
+        </div><figure class="work-figure"><div class="work-media work-media--hubris" data-reveal>
+  <img src="/images/projects/hubris-title.webp" alt="The HUBRIS title screen" width="900" height="1400" loading="lazy" />
+  <img src="/images/projects/hubris-boon.webp" alt="HUBRIS paused at a three-boon choice during a run" width="900" height="1400" loading="lazy" />
+</div><figcaption>Bullets close in. Turn them to gold to earn points</figcaption></figure></article>
+<article class="work-row work-row--agame"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">02</span>
+          <h2 class="work-title">A-Game</h2>
+          <h3>A personalised birthday RPG.</h3>
           <p>
             You visit two friends, play minigames you associate with them, and earn
             keepsakes. The keepsakes fold into a boat that goes to the ending scene.
           </p>
-          <p class="print-chapter__meta">Phaser · TypeScript · Electron · no fail states</p>
+          <p class="work-meta">Phaser · TypeScript · Electron · no fail states</p>
           <a href="/projects/a-game/">Project details <span aria-hidden="true">↗</span></a>
-        </div>
-        <figure class="project-motion project-motion--agame" data-agame-scene>
-          <div class="agame-panel agame-panel--outside" data-agame-outside>
-            <img src="/images/projects/a-game-outside.webp" alt="The village outside the player’s house in A-Game" />
-          </div>
-          <div class="agame-panel agame-panel--clearing" data-agame-clearing>
-            <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" />
-          </div>
-          <div class="agame-panel agame-panel--galaxy" data-agame-galaxy>
-            <img src="/images/projects/cinematic/a-game-galaxy.webp" alt="The water-to-galaxy transition from A-Game’s ending" />
-          </div>
-          <div class="agame-keepsakes" data-agame-keepsakes aria-hidden="true">
-            <img src="/images/projects/a-game-assets/keepsake-golden-hour-photo.png" alt="" />
-            <img src="/images/projects/a-game-assets/keepsake-glowing-koi-scale.png" alt="" />
-            <img src="/images/projects/a-game-assets/keepsake-defused-spike-charm.png" alt="" />
-          </div>
-          <img class="agame-boat" data-agame-boat src="/images/projects/a-game-assets/alice-boat.png" alt="Alice travelling in the paper boat" />
-        </figure>
-      </article>
-
-      <article class="print-chapter print-chapter--freecat" data-print-chapter data-ink="#79b9a5">
-        <div class="print-chapter__copy">
-          <p class="print-chapter__name">FreeCAT</p>
-          <h2>In progress, a free, fully local MCAT study app.</h2>
+        </div><figure class="work-figure"><div class="work-media work-media--agame" data-reveal>
+  <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" width="1600" height="1000" loading="lazy" />
+  <img src="/images/projects/a-game-outside.webp" alt="The village outside the player’s house in A-Game" width="1600" height="1000" loading="lazy" />
+</div></figure></article>
+<article class="work-row work-row--freecat"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">03</span>
+          <h2 class="work-title">FreeCAT</h2>
+          <h3>In progress, a free, fully local MCAT study app.</h3>
           <p>
             Question bank, lessons, imported Anki decks, and review history data all
             stay local. No account or hosted database.
           </p>
-          <p class="print-chapter__meta">Electron · React · TypeScript · SQLite · in development</p>
+          <p class="work-meta">Electron · React · TypeScript · SQLite · in development</p>
           <a href="/projects/freecat/">Project details <span aria-hidden="true">↗</span></a>
-        </div>
-        <figure class="project-motion project-motion--freecat" data-freecat-scene>
-          <div class="freecat-database" data-freecat-database aria-hidden="true">
-            <span>FREECAT.DB</span>
-            <i></i>
-            <small>one local file</small>
-          </div>
-          <div class="freecat-window freecat-window--home" data-freecat-window="home">
-            <span>Home / study pet</span>
-            <img src="/images/projects/freecat-home.webp" alt="FreeCAT running locally with a study pet and progress summary" />
-          </div>
-          <div class="freecat-window freecat-window--qbank" data-freecat-window="qbank">
-            <span>Question bank</span>
-            <img src="/images/projects/freecat-qbank.webp" alt="FreeCAT question-bank practice setup" />
-          </div>
-          <div class="freecat-window freecat-window--content" data-freecat-window="content">
-            <span>Content review</span>
-            <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" />
-          </div>
-          <figcaption>Three modules: Practice questions, lessons, flashcards</figcaption>
-        </figure>
-      </article>
-
-      <article class="print-chapter print-chapter--toybox" data-print-chapter data-ink="#e5aa2d">
-        <div class="print-chapter__copy">
-          <p class="print-chapter__name">Toybox</p>
-          <h2>Small Windows utilities written in Python</h2>
+        </div><figure class="work-figure"><div class="work-media work-media--freecat" data-reveal>
+  <div class="study-preview" data-study-preview>
+    <img src="/images/projects/freecat-home.webp" alt="FreeCAT running locally with a study pet and progress summary" width="1600" height="1000" loading="lazy" data-study-image />
+    <img src="/images/projects/freecat-qbank.webp" alt="FreeCAT question-bank practice setup" width="1600" height="1000" loading="lazy" data-study-image hidden />
+    <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" width="1600" height="1000" loading="lazy" data-study-image hidden />
+  </div>
+  <div class="study-tabs" aria-label="FreeCAT screenshots">
+    <button type="button" aria-pressed="true" data-study-tab>Home / study pet</button>
+    <button type="button" aria-pressed="false" data-study-tab>Question bank</button>
+    <button type="button" aria-pressed="false" data-study-tab>Content review</button>
+  </div>
+</div><figcaption>Three modules: Practice questions, lessons, flashcards</figcaption></figure></article>
+<article class="work-row work-row--toybox"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">04</span>
+          <h2 class="work-title">Toybox</h2>
+          <h3>Small Windows utilities written in Python</h3>
           <p>
             Toybox includes a system HUD using RSS, an in-memory clipboard that syncs
             text to Mac or other machines over the local network, and a pixel cat
             companion that dances to music, manages monitors, and runs timers
           </p>
-          <p class="print-chapter__meta">Python · Tkinter · Win32 APIs · no telemetry</p>
+          <p class="work-meta">Python · Tkinter · Win32 APIs · no telemetry</p>
           <a href="/projects/toybox/">Project details <span aria-hidden="true">↗</span></a>
-        </div>
-        <figure class="project-motion project-motion--toybox" data-toybox-scene>
-          <img class="toybox-proof" src="/images/projects/toybox-overview.svg" alt="Toybox’s original pixel cat alongside an illustrated overview of the system HUD, clipboard sync, and desktop companion" />
-        </figure>
-      </article>
+        </div><figure class="work-figure"><div class="work-media work-media--toybox" data-reveal>
+  <img src="/images/projects/toybox-overview.svg" alt="Toybox’s original pixel cat alongside an illustrated overview of the system HUD, clipboard sync, and desktop companion" width="1440" height="960" loading="lazy" />
+</div></figure></article>
+  </section>
+  <section class="home-secondary section-shell">
+    <div class="software-list" data-reveal>
+      <p class="eyebrow">More software</p><h2>Other things I’m building.</h2>
+      <a href="/projects/"><strong>SAT World <span aria-hidden="true">↗</span></strong><span>SAT software for students, teachers, live classes, study plans, analytics</span></a>
+    </div>
+    <div class="notes-link" data-reveal>
+      <p class="eyebrow">Notes</p><h2>Build logs, mistakes, and technical decisions.</h2>
+      <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
     </div>
   </section>
-
-  <section class="print-list section-shell">
-    <header>
-      <p class="poster-kicker">More software</p>
-      <h2>Other things I’m building.</h2>
-    </header>
-    <div class="print-list__rows">
-      <a href="/projects/">
-        <strong>SAT World</strong>
-        <span>SAT software for students, teachers, live classes, study plans, analytics</span>
-      </a>
-    </div>
+  <section class="home-place section-shell" data-reveal>
+    <p class="eyebrow">Vancouver, British Columbia</p>
+    <h2>Made here.</h2>
+    <p>Usually for a problem I encountered here too.</p>
+    <span class="place-mark" aria-hidden="true">↗</span>
   </section>
-
-  <section class="print-notes">
-    <div class="print-notes__burst" aria-hidden="true"></div>
-    <p class="poster-kicker">Notes</p>
-    <h2>Build logs, mistakes, and technical decisions.</h2>
-    <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
-  </section>
-
-  <section class="poster-coda">
-    <div class="poster-coda__sun" aria-hidden="true"></div>
-    <div class="poster-coda__mountain poster-coda__mountain--far" aria-hidden="true"></div>
-    <div class="poster-coda__mountain poster-coda__mountain--near" aria-hidden="true"></div>
-    <div class="poster-coda__water" aria-hidden="true"></div>
-    <div class="poster-coda__copy">
-      <p class="poster-kicker">Vancouver, British Columbia</p>
-      <h2>Made here.</h2>
-      <p>Usually for a problem I encountered here too.</p>
-    </div>
-  </section>
-
   <script>
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-    gsap.registerPlugin(ScrollTrigger);
-    const posterWindow = window as typeof window & { __posterMotion?: ReturnType<typeof gsap.matchMedia> };
-    posterWindow.__posterMotion?.revert();
-    const motion = gsap.matchMedia();
-    posterWindow.__posterMotion = motion;
-
-    motion.add('(prefers-reduced-motion: no-preference) and (min-width: 861px)', () => {
-      const opening = gsap.timeline({
-        scrollTrigger: {
-          trigger: '[data-poster-hero]',
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.55,
-        },
-      });
-
-      opening
-        .addLabel('harbour', 0)
-        .to('[data-poster-seabus]', { xPercent: 285, yPercent: 3, duration: 0.72, ease: 'none' }, 'harbour')
-        .to('[data-poster-sun]', { scale: 1.32, xPercent: -4, yPercent: 3, duration: 0.72, ease: 'power1.inOut' }, 'harbour+=0.08')
-        .to('[data-mountain-far]', { xPercent: -2.5, yPercent: 1.5, duration: 0.82, ease: 'none' }, 'harbour')
-        .to('[data-mountain-near]', { xPercent: 3.5, yPercent: 3, duration: 0.82, ease: 'none' }, 'harbour')
-        .to('[data-poster-city]', { xPercent: -4, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
-        .to('[data-poster-water]', { yPercent: 4, duration: 0.82, ease: 'none' }, 'harbour')
-        .to('[data-poster-copy] h1 span', { y: -22, autoAlpha: 0, duration: 0.26, stagger: 0.028, ease: 'power2.in' }, 0.36)
-        .to('[data-poster-copy] .poster-kicker, [data-poster-copy] > p:last-child', { y: -12, autoAlpha: 0, duration: 0.2, stagger: 0.035, ease: 'power2.in' }, 0.42)
-        .to('[data-poster-stamp]', { y: 16, rotate: -5, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.43)
-        .fromTo('[data-poster-tide]',
-          { transform: 'translateY(104%)' },
-          { transform: 'translateY(0%)', duration: 0.38, ease: 'power2.inOut' },
-          0.48,
-        );
-
-      const chapters = gsap.utils.toArray<HTMLElement>('[data-print-chapter]');
-      const copies = chapters.map((chapter) => chapter.querySelector('.print-chapter__copy'));
-      gsap.set(chapters.slice(1), { autoAlpha: 0 });
-      const flowBlobs = gsap.utils.toArray<HTMLElement>('[data-film-flow] i');
-
-      const bullets = gsap.utils.toArray<HTMLElement>('[data-hubris-bullets] i');
-      const coins = gsap.utils.toArray<HTMLElement>('[data-hubris-coins] i');
-      const shards = gsap.utils.toArray<HTMLElement>('[data-hubris-shards] img');
-
-      gsap.set(chapters, { x: 0, y: 0 });
-      gsap.set(copies, {
-        x: 0,
-        y: 0,
-        xPercent: 0,
-        autoAlpha: 1,
-      });
-      gsap.set(copies[0], { y: 22, autoAlpha: 0 });
-      gsap.set('[data-film-flow]', { autoAlpha: 0 });
-      gsap.set(flowBlobs, { scale: 0.18, rotate: 0, autoAlpha: 0 });
-      gsap.set('[data-hubris-player]', { yPercent: 80, autoAlpha: 0 });
-      gsap.set(bullets, { autoAlpha: 0, scale: 0.25 });
-      gsap.set(coins, { autoAlpha: 0, scale: 0, y: 0 });
-      gsap.set(shards, { autoAlpha: 0, scale: 0.2, x: 0, y: 0 });
-      gsap.set('[data-hubris-scene]', { clipPath: 'inset(100% 0 0 0)', yPercent: 4 });
-      gsap.set('[data-agame-clearing]', { clipPath: 'circle(0% at 62% 61%)' });
-      gsap.set('[data-agame-galaxy]', { clipPath: 'inset(100% 0 0 0)' });
-      gsap.set('[data-agame-keepsakes] img', { autoAlpha: 0 });
-      gsap.set('[data-agame-boat]', { autoAlpha: 0 });
-      gsap.set('[data-freecat-window="home"]', { autoAlpha: 1, clipPath: 'inset(0)' });
-      gsap.set('[data-freecat-window="qbank"], [data-freecat-window="content"]', { autoAlpha: 0, clipPath: 'inset(0 100% 0 0)' });
-      gsap.set('[data-freecat-database]', { scale: 0.82, autoAlpha: 0 });
-
-      const film = gsap.timeline({
-        scrollTrigger: {
-          trigger: '[data-print-film]',
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.6,
-        },
-      });
-
-      const flowLayer = document.querySelector<HTMLElement>('[data-film-flow]') as HTMLElement;
-      const flowScales = [0.92, 0.84, 0.96, 0.88, 0.94, 0.86, 0.76, 0.72];
-      const flowRotations = [14, -11, 9, -13, 12, -8, 17, -15];
-      const flowOpacities = [0.24, 0.13, 0.1, 0.22, 0.16, 0.11, 0.1, 0.09];
-
-      const addFluidTransition = (
-        label: string,
-        time: number,
-        outgoing: HTMLElement,
-        incoming: HTMLElement,
-        outgoingColor: string,
-        incomingColor: string,
-      ) => {
-        const colors = [
-          '#e5aa2d', incomingColor, outgoingColor, '#e5aa2d',
-          incomingColor, outgoingColor, incomingColor, outgoingColor,
-        ];
-
-        film
-          .addLabel(label, time)
-          .set(flowLayer, { autoAlpha: 0 }, label)
-          .set(flowBlobs, {
-            scale: 0.18,
-            rotate: 0,
-            autoAlpha: 0,
-            backgroundColor: (index) => colors[index],
-          }, label)
-          .to(flowLayer, { autoAlpha: 1, duration: 0.34, ease: 'sine.inOut' }, label)
-          .to(flowBlobs, {
-            scale: (index) => flowScales[index],
-            rotate: (index) => flowRotations[index],
-            autoAlpha: (index) => flowOpacities[index],
-            duration: 1.16,
-            stagger: 0.055,
-            ease: 'sine.inOut',
-          }, label)
-          .to(outgoing, { autoAlpha: 0, duration: 0.7, ease: 'sine.inOut' }, `${label}+=0.56`)
-          .to(incoming, { autoAlpha: 1, duration: 0.7, ease: 'sine.inOut' }, `${label}+=0.56`)
-          .to(flowBlobs, {
-            scale: (index) => flowScales[index] * 1.08,
-            rotate: (index) => flowRotations[index] * 1.35,
-            autoAlpha: 0,
-            duration: 0.88,
-            ease: 'sine.inOut',
-          }, `${label}+=0.94`)
-          .to(flowLayer, { autoAlpha: 0, duration: 0.7, ease: 'sine.inOut' }, `${label}+=1.02`);
-      };
-
-      film
-        .addLabel('intro', 0)
-        .to('[data-film-intro] h2', { y: -12, duration: 0.34, ease: 'none' }, 'intro')
-        .to('[data-film-intro]', { clipPath: 'inset(0 0 100% 0)', duration: 0.48, ease: 'power2.inOut' }, 'intro+=0.16')
-        .to('[data-hubris-scene]', { clipPath: 'inset(0% 0 0 0)', yPercent: 0, duration: 0.48, ease: 'power2.inOut' }, 'intro+=0.16')
-        .to(copies[0], { y: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 'intro+=0.42')
-
-        .addLabel('hubris', 0.58)
-        .to('[data-hubris-depth]', { xPercent: -3, yPercent: 1, duration: 1.45, ease: 'none' }, 'hubris')
-        .to('[data-hubris-structure]', { xPercent: 4.5, yPercent: -1, scale: 1.045, duration: 1.45, ease: 'none' }, 'hubris')
-        .to('[data-hubris-debris]', { xPercent: -7, rotate: -1.2, scale: 1.065, duration: 1.45, ease: 'none' }, 'hubris')
-        .fromTo('[data-hubris-screen]',
-          { yPercent: 4, rotateY: -2.5, scale: 0.98 },
-          { yPercent: -2, rotateY: 2, scale: 1.02, duration: 1.25, ease: 'none' },
-          'hubris+=0.05',
-        )
-        .to('[data-hubris-player]', { yPercent: 0, autoAlpha: 1, duration: 0.24, ease: 'power2.out' }, 'hubris+=0.12')
-        .to('[data-hubris-player]', { x: -10, y: -6, duration: 0.5, ease: 'none' }, 'hubris+=0.35')
-        .to('[data-hubris-player]', { x: 8, y: 2, duration: 0.48, ease: 'none' }, 'hubris+=0.85')
-        .to(bullets, { autoAlpha: 1, scale: 1, duration: 0.2, stagger: 0.018, ease: 'power2.out' }, 'hubris+=0.24')
-        .to(bullets, {
-          left: (_index, target) => (target as HTMLElement).style.getPropertyValue('--tx'),
-          top: (_index, target) => (target as HTMLElement).style.getPropertyValue('--ty'),
-          duration: 0.58,
-          stagger: 0.009,
-          ease: 'power1.in',
-        }, 'hubris+=0.48')
-        .to('[data-hubris-wave]', { autoAlpha: 0.92, scale: 2.35, duration: 0.18, ease: 'power2.out' }, 'hubris+=1')
-        .to('[data-hubris-wave]', { autoAlpha: 0, scale: 3.1, duration: 0.18, ease: 'power1.in' }, 'hubris+=1.18')
-        .to(bullets, { autoAlpha: 0, scale: 0.05, duration: 0.13, stagger: 0.007, ease: 'power2.in' }, 'hubris+=1.02')
-        .to(coins, { autoAlpha: 1, scale: 1, y: -7, duration: 0.2, stagger: 0.012, ease: 'power2.out' }, 'hubris+=1.06')
-        .to(coins, { y: 10, duration: 0.42, stagger: 0.008, ease: 'none' }, 'hubris+=1.25')
-        .to(shards, {
-          x: (_index, target) => (target as HTMLElement).style.getPropertyValue('--sx'),
-          y: (_index, target) => (target as HTMLElement).style.getPropertyValue('--sy'),
-          rotate: (_index, target) => (target as HTMLElement).style.getPropertyValue('--sr'),
-          autoAlpha: 1,
-          scale: 1,
-          duration: 0.28,
-          stagger: 0.018,
-          ease: 'power2.out',
-        }, 'hubris+=1.02')
-        .to(shards, { autoAlpha: 0, scale: 0.7, duration: 0.22, stagger: 0.012, ease: 'power1.in' }, 'hubris+=1.3');
-
-      addFluidTransition('toAgame', 2.18, chapters[0], chapters[1], '#172338', '#3154a6');
-
-      film
-        .addLabel('agame', 4.16)
-        .to('[data-agame-outside]', { xPercent: -4, yPercent: -1, scale: 1.035, duration: 1.4, ease: 'none' }, 'agame')
-        .to('[data-agame-clearing]', { clipPath: 'circle(82% at 62% 61%)', duration: 0.52, ease: 'power2.inOut' }, 'agame+=0.3')
-        .fromTo('[data-agame-clearing] img', { scale: 1.07 }, { scale: 1, duration: 0.6, ease: 'none' }, 'agame+=0.26')
-        .to('[data-agame-outside]', { autoAlpha: 0.2, duration: 0.28, ease: 'none' }, 'agame+=0.68')
-        .fromTo('[data-agame-keepsakes] img',
-          { y: -34, rotate: -8, autoAlpha: 0 },
-          { y: 0, rotate: 0, autoAlpha: 1, duration: 0.26, stagger: 0.05, ease: 'power2.out' },
-          'agame+=0.64',
-        )
-        .fromTo('[data-agame-boat]',
-          { xPercent: -110, yPercent: 7, rotate: -2, autoAlpha: 0 },
-          { xPercent: 0, yPercent: 0, rotate: 0, autoAlpha: 1, duration: 0.36, ease: 'power2.out' },
-          'agame+=0.78',
-        )
-        .to('[data-agame-keepsakes] img', { x: 24, y: 28, scale: 0.7, autoAlpha: 0, duration: 0.3, stagger: 0.04, ease: 'power2.in' }, 'agame+=1.03')
-        .to('[data-agame-galaxy]', { clipPath: 'inset(0% 0 0 0)', duration: 0.68, ease: 'power2.inOut' }, 'agame+=1.1')
-        .to('[data-agame-clearing]', { yPercent: -3, autoAlpha: 0.34, duration: 0.68, ease: 'none' }, 'agame+=1.1')
-        .to('[data-agame-boat]', { xPercent: 305, duration: 0.92, ease: 'none' }, 'agame+=1.02')
-        .to('[data-agame-boat]', { yPercent: -6, rotate: 0.8, duration: 0.3, ease: 'none' }, 'agame+=1.02')
-        .to('[data-agame-boat]', { yPercent: 2, rotate: -0.5, duration: 0.31, ease: 'none' }, 'agame+=1.32')
-        .to('[data-agame-boat]', { yPercent: -3, rotate: 0.4, duration: 0.31, ease: 'none' }, 'agame+=1.63');
-
-      addFluidTransition('toFreecat', 6.22, chapters[1], chapters[2], '#3154a6', '#79b9a5');
-
-      film
-        .addLabel('freecat', 8.2)
-        .to('[data-freecat-database]', { scale: 1, autoAlpha: 1, duration: 0.24, ease: 'power2.out' }, 'freecat+=0.12')
-        .set('[data-freecat-window="qbank"]', { autoAlpha: 1 }, 'freecat+=0.45')
-        .to('[data-freecat-window="qbank"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=0.45')
-        .to('[data-freecat-window="home"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=0.7')
-        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=0.52')
-        .set('[data-freecat-window="content"]', { autoAlpha: 1 }, 'freecat+=1.02')
-        .to('[data-freecat-window="content"]', { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power2.inOut' }, 'freecat+=1.02')
-        .to('[data-freecat-window="qbank"]', { autoAlpha: 0, duration: 0.16, ease: 'none' }, 'freecat+=1.27')
-        .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09');
-
-      addFluidTransition('toToybox', 9.72, chapters[2], chapters[3], '#79b9a5', '#0b1c24');
-
-      gsap.from('.print-list__rows > a', {
-        x: -18,
-        opacity: 0,
-        clipPath: 'inset(0 100% 0 0)',
-        duration: 0.58,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.print-list', start: 'top 78%', once: true },
-      });
-
-      gsap.from('.poster-coda__copy > *', {
-        y: 32,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '.poster-coda', start: 'top 70%', once: true },
-      });
-
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.print-notes',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.7,
-        },
-      })
-        .fromTo('.print-notes__burst', { rotate: -22, scale: 0.76 }, { rotate: 18, scale: 1.12, ease: 'none' });
-
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.poster-coda',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.7,
-        },
-      })
-        .fromTo('.poster-coda__sun', { yPercent: 58 }, { yPercent: -12, ease: 'none' })
-        .fromTo('.poster-coda__mountain--far', { xPercent: -2 }, { xPercent: 2, ease: 'none' }, 0)
-        .fromTo('.poster-coda__mountain--near', { xPercent: 2 }, { xPercent: -2, ease: 'none' }, 0)
-        .fromTo('.poster-coda__water', { backgroundPositionY: '0rem' }, { backgroundPositionY: '4rem', ease: 'none' }, 0);
-
-      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
-    });
+    const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-study-tab]'));
+    const images = Array.from(document.querySelectorAll<HTMLImageElement>('[data-study-image]'));
+    tabs.forEach((tab, index) => tab.addEventListener('click', () => {
+      tabs.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+      images.forEach((image, i) => { image.hidden = i !== index; });
+    }));
   </script>
 </BaseLayout>
