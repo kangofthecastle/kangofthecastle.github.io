@@ -98,10 +98,6 @@ em{color:var(--red);font-weight:400}
 .software-list>a>span{font-size:.8rem;color:var(--muted);max-width:45ch}
 .software-list>a:hover strong{color:var(--red)}
 .notes-link>a{display:inline-flex;gap:2rem;text-decoration:none;font-size:.8rem;border-bottom:1px solid var(--ink);padding-bottom:.3rem}
-.home-place{position:relative;border-top:1px solid var(--line);padding-block:3rem 5rem}
-.home-place h2{font-size:clamp(3rem,6vw,6rem);margin:1rem 0}
-.home-place>p:last-of-type{font-size:.85rem;color:var(--muted)}
-.place-mark{position:absolute;right:0;top:4rem;width:5rem;height:5rem;border:1px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font:400 2.5rem var(--display)}
 /* The same paper, type hierarchy, rules and media framing on every page. */
 .page-hero,.project-hero,.note-hero{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding-block:5rem 3rem}
 .page-hero>.eyebrow{margin-bottom:2rem}
@@ -183,7 +179,6 @@ em{color:var(--red);font-weight:400}
   .work-media--agame{padding:1.5rem 1.2rem 4rem}.work-media--agame .agame-inset{right:1rem;bottom:1.3rem;border-width:3px}
   .work-media--freecat{padding:1.3rem .9rem}.study-tabs{gap:.9rem}.study-tabs button{font-size:.7rem}
   .home-secondary{grid-template-columns:1fr;gap:3.5rem;padding-block:2.5rem 4rem}.home-secondary h2{font-size:2.5rem;max-width:22ch;margin-bottom:1.5rem}
-  .home-place{padding-block:2.5rem 4rem}.home-place h2{font-size:3.5rem}.home-place>p:last-of-type{max-width:27ch}.place-mark{top:3rem;width:3.5rem;height:3.5rem;font-size:2rem}
   .site-footer{padding-top:2.5rem;grid-template-columns:1fr;gap:1.5rem}.footer-links{justify-self:start}.footer-meta{font-size:.7rem;flex-wrap:wrap;padding-top:1.5rem;margin-top:1rem}.footer-meta>span:last-child{margin-left:auto}
   .page-hero,.project-hero,.note-hero{padding-block:3rem 2.5rem}.page-hero>.eyebrow{margin-bottom:1.5rem}
   .page-hero h1,.project-hero h1,.note-hero h1{font-size:clamp(3.3rem,12vw,5rem)}
