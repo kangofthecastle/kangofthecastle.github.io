@@ -38,13 +38,6 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
           </li>
         ))}
       </ol>
-    ) : (
-      <div class="empty-notebook">
-        <div>
-          <h2>There are no published posts yet.</h2>
-          <p>Coming</p>
-        </div>
-      </div>
-    )}
+    ) : null}
   </section>
 </BaseLayout>

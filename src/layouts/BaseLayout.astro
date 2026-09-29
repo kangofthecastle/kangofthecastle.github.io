@@ -74,11 +74,7 @@ const currentPath = Astro.url.pathname;
         <p class="footer-heading">Say hello.</p>
       </div>
       <div class="footer-links">
-        {site.email ? (
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        ) : (
-          <span class="pending-contact">Email address to be added</span>
-        )}
+        {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
         <a href={site.githubUrl} target="_blank" rel="noreferrer">{site.githubLabel} ↗</a>
       </div>
       <div class="footer-meta">

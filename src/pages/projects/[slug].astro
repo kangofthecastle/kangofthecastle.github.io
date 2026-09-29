@@ -36,11 +36,11 @@ const { project } = Astro.props;
     </figcaption>
   </figure>
 
-  {project.captures && project.captures.length > 0 ? (
+  {project.captures && project.captures.length > 0 && (
     <section class="project-captures section-shell" aria-labelledby="capture-heading">
       <header>
-        <p class="eyebrow">The artifact in use</p>
-        <h2 id="capture-heading">Real screens,<br />not repository chrome.</h2>
+        <p class="eyebrow">In use</p>
+        <h2 id="capture-heading">Screens from<br />the project.</h2>
       </header>
       <div class="project-captures__grid">
         {project.captures.map((capture) => (
@@ -52,11 +52,6 @@ const { project } = Astro.props;
           </figure>
         ))}
       </div>
-    </section>
-  ) : (
-    <section class="capture-pending section-shell">
-      <p class="eyebrow">Media status</p>
-      <p>This project still needs a sanitized recording or screenshot sequence before publication. The repository is private, and no live data or personal content will be used as portfolio media.</p>
     </section>
   )}
 
