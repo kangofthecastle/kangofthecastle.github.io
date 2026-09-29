@@ -11,7 +11,6 @@ export function getStaticPaths() {
 
 type Props = { project: Project };
 const { project } = Astro.props;
-const nextProject = projects[(projects.findIndex((item) => item.slug === project.slug) + 1) % projects.length];
 ---
 
 <BaseLayout
@@ -21,7 +20,6 @@ const nextProject = projects[(projects.findIndex((item) => item.slug === project
   pageClass={`inner-page project-page project-page--${project.accent}`}
 >
   <header class="project-hero">
-    <a class="project-back" href="/projects/">← The collection</a>
     <div class="project-hero__meta">
       <span>{project.year}</span>
       <span>{project.visibility === 'private' ? 'Private repository' : project.visibility}</span>
@@ -59,29 +57,28 @@ const nextProject = projects[(projects.findIndex((item) => item.slug === project
 
   <div class="project-story section-shell">
     <aside>
-      <nav class="story-nav" aria-label="On this page"><p class="eyebrow">On this page</p><a href="#why">01 / What I wanted</a><a href="#how">02 / How it works</a><a href="#now">03 / Where it is now</a></nav>
-      <p class="eyebrow">Built with</p>
+      <p class="eyebrow">Stack</p>
       <ul>
         {project.stack.map((item) => <li>{item}</li>)}
       </ul>
-      <p class="eyebrow">Areas</p>
+      <p class="eyebrow">Signals</p>
       <ul>
         {project.tags.map((item) => <li>{item}</li>)}
       </ul>
     </aside>
     <div class="project-story__chapters">
-      <section id="why">
-        <p class="eyebrow">01 / Why I made it</p>
+      <section>
+        <p class="eyebrow">Why I made it</p>
         <h2>What I wanted</h2>
         <p>{project.problem}</p>
       </section>
-      <section id="how">
-        <p class="eyebrow">02 / What it does</p>
+      <section>
+        <p class="eyebrow">What it does</p>
         <h2>How it works</h2>
         <p>{project.solution}</p>
       </section>
-      <section id="now">
-        <p class="eyebrow">03 / Current state</p>
+      <section>
+        <p class="eyebrow">Current state</p>
         <h2>Where it is now</h2>
         <p>{project.outcome}</p>
       </section>
@@ -89,7 +86,7 @@ const nextProject = projects[(projects.findIndex((item) => item.slug === project
   </div>
 
   <nav class="project-next" aria-label="Project navigation">
-    <span>Next in the collection</span>
-    <a href={`/projects/${nextProject.slug}/`}>{nextProject.title} <span aria-hidden="true">↗</span></a>
+    <span>Keep looking</span>
+    <a href="/projects/">Back to every project <span aria-hidden="true">↗</span></a>
   </nav>
 </BaseLayout>

@@ -324,3 +324,7 @@
 .home-page--poster .project-motion--toybox::before { content: none; }
 .home-page--poster .toybox-proof { object-fit: contain; filter: none; }
 .inner-page .project-lead-media img { height: auto; }
+
+/* Let the original project heading use the full introductory row. */
+.inner-page .page-hero--projects h1 { grid-column: 1 / -1; max-width: 20ch; }
+.home-page--poster .poster-copy h1 span:nth-child(3) { font-size: .82em; }

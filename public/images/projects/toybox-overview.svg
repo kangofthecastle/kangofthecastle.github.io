@@ -5,8 +5,8 @@
 <rect width="1440" height="960" fill="#172338"/>
 <g fill="#f3e7ca" font-family="Arial, sans-serif">
 <text x="80" y="98" font-size="22" letter-spacing="3">TOYBOX / DESKTOP COMPANIONS</text>
-<text x="80" y="195" font-size="72" font-weight="700" letter-spacing="-3">Little tools.</text>
-<text x="80" y="278" font-size="72" font-weight="700" letter-spacing="-3">A little company.</text>
+<text x="80" y="195" font-size="72" font-weight="700" letter-spacing="-3">Toybox</text>
+
 </g>
 <circle cx="337" cy="583" r="222" fill="#79b9a5"/>
 <ellipse cx="337" cy="752" rx="126" ry="17" fill="#172338" opacity=".18"/>

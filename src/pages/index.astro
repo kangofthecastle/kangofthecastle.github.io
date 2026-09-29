@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { projects } from '@/data/projects';
 ---
 
 <BaseLayout pageClass="home-page home-page--poster">
@@ -31,11 +30,11 @@ import { projects } from '@/data/projects';
       <div class="poster-copy" data-poster-copy>
         <p class="poster-kicker">Warren · software developer · Vancouver</p>
         <h1>
-          <span>Small software.</span>
-          <span>Personal reasons.</span>
+          <span>Welcome to</span>
+          <span>my weird</span>
+          <span>projects</span>
         </h1>
-        <p>Games, study tools, and a few useful oddities.<br />Made by Warren in Vancouver.</p>
-        <div class="poster-actions"><a href="/projects/">Explore the collection <span aria-hidden="true">↗</span></a><a href="#selected-projects">Take the scenic route <span aria-hidden="true">↓</span></a></div>
+        <p>Games, study tools, among other things</p>
       </div>
 
       <div class="poster-stamp" data-poster-stamp aria-hidden="true">
@@ -46,7 +45,7 @@ import { projects } from '@/data/projects';
     </div>
   </section>
 
-  <section id="selected-projects" class="print-film" data-print-film aria-label="Selected projects">
+  <section class="print-film" data-print-film aria-label="Selected projects">
     <div class="print-film__sticky">
       <div class="film-flow" data-film-flow aria-hidden="true">
         <div class="film-flow__blobs">
@@ -195,27 +194,22 @@ import { projects } from '@/data/projects';
 
   <section class="print-list section-shell">
     <header>
-      <p class="poster-kicker">The collection</p>
-      <h2>Pick your<br />curiosity.</h2>
-      <p class="collection-intro">A closer look at the games, study software, and desktop companions.</p>
+      <p class="poster-kicker">More software</p>
+      <h2>Other things I’m building.</h2>
     </header>
     <div class="print-list__rows">
-      {projects.map((project, index) => (
-        <a href={`/projects/${project.slug}/`}>
-          <small>{String(index + 1).padStart(2, '0')} / {project.eyebrow}</small>
-          <strong>{project.title}<span aria-hidden="true">↗</span></strong>
-          <span>{project.summary}</span>
-        </a>
-      ))}
+      <a href="/projects/">
+        <strong>SAT World</strong>
+        <span>SAT software for students, teachers, live classes, study plans, analytics</span>
+      </a>
     </div>
   </section>
 
   <section class="print-notes">
     <div class="print-notes__burst" aria-hidden="true"></div>
-    <p class="poster-kicker">Behind the projects</p>
-    <h2>Why make<br />these things?</h2>
-    <p>Usually because I want something specific for myself or someone I know. Then I keep changing it until it feels right.</p>
-    <a href="/about/">A little about me <span aria-hidden="true">↗</span></a>
+    <p class="poster-kicker">Notes</p>
+    <h2>Build logs, mistakes, and technical decisions.</h2>
+    <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
   </section>
 
   <section class="poster-coda">
@@ -259,7 +253,7 @@ import { projects } from '@/data/projects';
         .to('[data-poster-city]', { xPercent: -4, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
         .to('[data-poster-water]', { yPercent: 4, duration: 0.82, ease: 'none' }, 'harbour')
         .to('[data-poster-copy] h1 span', { y: -22, autoAlpha: 0, duration: 0.26, stagger: 0.028, ease: 'power2.in' }, 0.36)
-        .to('[data-poster-copy] .poster-kicker, [data-poster-copy] > p, [data-poster-copy] .poster-actions', { y: -12, autoAlpha: 0, duration: 0.2, stagger: 0.035, ease: 'power2.in' }, 0.42)
+        .to('[data-poster-copy] .poster-kicker, [data-poster-copy] > p:last-child', { y: -12, autoAlpha: 0, duration: 0.2, stagger: 0.035, ease: 'power2.in' }, 0.42)
         .to('[data-poster-stamp]', { y: 16, rotate: -5, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.43)
         .fromTo('[data-poster-tide]',
           { transform: 'translateY(104%)' },

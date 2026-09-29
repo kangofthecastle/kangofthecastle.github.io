@@ -19,6 +19,5 @@ const { project } = Astro.props;
     <ul aria-label="Project disciplines">
       {project.tags.map((tag) => <li>{tag}</li>)}
     </ul>
-    <a class="project-card__link" href={`/projects/${project.slug}/`}>Look inside <span aria-hidden="true">↗</span></a>
   </div>
 </article>

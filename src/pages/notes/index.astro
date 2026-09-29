@@ -14,8 +14,8 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
 >
   <header class="page-hero page-hero--notes">
     <p class="eyebrow">Notes</p>
-    <h1>Notes from<br /><em>the workshop.</em></h1>
-    <p>Build logs, things that broke, and the decisions behind the projects.</p>
+    <h1>Build logs and<br /><em>technical notes.</em></h1>
+    <p>What changed, what broke, and explaining mechanics.</p>
   </header>
 
   <section class="notes-index section-shell">
@@ -38,16 +38,6 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
           </li>
         ))}
       </ol>
-    ) : (
-      <div class="notes-empty">
-        <div class="notes-empty__graphic" aria-hidden="true"><span>W</span><i></i><i></i><i></i></div>
-        <div>
-          <p class="eyebrow">The first page is still blank</p>
-          <h2>Nothing published.<br />Plenty in progress.</h2>
-          <p>No notes here yet. In the meantime, the project pages cover what I wanted to build, how each thing works, and where it is now.</p>
-          <a class="button button--primary" href="/projects/">Explore the projects <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    )}
+    ) : null}
   </section>
 </BaseLayout>

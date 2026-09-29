@@ -11,11 +11,8 @@ import { projects } from '@/data/projects';
 >
   <header class="page-hero page-hero--projects">
     <p class="eyebrow">Projects</p>
-    <h1>The project<br /><em>collection.</em></h1>
-    <p>Games, study software, and little things that make a computer more personal. Pick one to look inside.</p>
+    <h1>Games, study software,<br /><em>and small tools.</em></h1>
   </header>
-
-  <div class="collection-label section-shell"><span>All projects / {String(projects.length).padStart(2, '0')}</span><span>Made by Warren · 2026</span></div>
 
   <section class="project-index section-shell" aria-label="All projects">
     {projects.map((project) => <ProjectCard project={project} />)}
