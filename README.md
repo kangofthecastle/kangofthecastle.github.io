@@ -1,6 +1,6 @@
 # Warren — personal website
 
-A static, GitHub Pages-ready personal site for projects, field notes, interests, and contact information. The visual concept is **Rainline Workshop**: a dark, tactile field notebook from Vancouver after rain, with project artifacts providing the light.
+A static, GitHub Pages-ready personal site for projects, field notes, interests, and contact information. The visual direction is a colorful Vancouver print poster: cream paper, navy ink, bold type, and red, blue, mustard, and mint accents. The animated homepage has a direct route to the collection; supporting pages use quieter layouts for browsing projects and reading.
 
 ## Local development
 
@@ -33,7 +33,7 @@ The first note is deliberately marked `draft: true`. Change the frontmatter and 
 
 - Astro generates plain static pages.
 - GSAP + ScrollTrigger handles the short focus/parallax transitions on the homepage.
-- CSS handles the Vancouver scene, depth layers, lighting, and all responsive layout.
+- CSS handles the Vancouver scene and responsive layout. `src/styles/inner.css` connects the supporting pages to the poster theme and contains the homepage refresh refinements.
 - Mobile removes the desktop depth corridor in favor of a normal linear reading order.
 - `prefers-reduced-motion` disables parallax, blur movement, and reveal choreography.
 

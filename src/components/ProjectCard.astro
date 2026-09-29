@@ -6,8 +6,8 @@ const { project } = Astro.props;
 ---
 
 <article class={`project-card project-card--${project.accent}`}>
-  <a class="project-card__media" href={`/projects/${project.slug}/`}>
-    <img src={project.media} alt="" width="1600" height="1000" loading="lazy" decoding="async" />
+  <a class="project-card__media" aria-label={`View ${project.title}`} href={`/projects/${project.slug}/`}>
+    <img src={project.media} alt={project.mediaAlt} width="1600" height="1000" loading="lazy" decoding="async" />
   </a>
   <div class="project-card__body">
     <div class="project-card__meta">
@@ -19,5 +19,6 @@ const { project } = Astro.props;
     <ul aria-label="Project disciplines">
       {project.tags.map((tag) => <li>{tag}</li>)}
     </ul>
+    <a class="project-card__link" href={`/projects/${project.slug}/`}>Look inside <span aria-hidden="true">↗</span></a>
   </div>
 </article>

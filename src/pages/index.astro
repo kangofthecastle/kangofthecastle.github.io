@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { projects } from '@/data/projects';
 ---
 
 <BaseLayout pageClass="home-page home-page--poster">
@@ -30,11 +31,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <div class="poster-copy" data-poster-copy>
         <p class="poster-kicker">Warren · software developer · Vancouver</p>
         <h1>
-          <span>Welcome to</span>
-          <span>my weird</span>
-          <span>projects</span>
+          <span>Small software.</span>
+          <span>Personal reasons.</span>
         </h1>
-        <p>Games, study tools, among other things</p>
+        <p>Games, study tools, and a few useful oddities.<br />Made by Warren in Vancouver.</p>
+        <div class="poster-actions"><a href="/projects/">Explore the collection <span aria-hidden="true">↗</span></a><a href="#selected-projects">Take the scenic route <span aria-hidden="true">↓</span></a></div>
       </div>
 
       <div class="poster-stamp" data-poster-stamp aria-hidden="true">
@@ -45,7 +46,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section class="print-film" data-print-film aria-label="Selected projects">
+  <section id="selected-projects" class="print-film" data-print-film aria-label="Selected projects">
     <div class="print-film__sticky">
       <div class="film-flow" data-film-flow aria-hidden="true">
         <div class="film-flow__blobs">
@@ -186,12 +187,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           <a href="/projects/toybox/">Project details <span aria-hidden="true">↗</span></a>
         </div>
         <figure class="project-motion project-motion--toybox" data-toybox-scene>
-          <img class="toybox-proof" src="/images/projects/toybox-staged.webp" alt="Toybox utilities arranged on a Windows desktop with the pixel cat companion" />
-          <div class="toybox-sync" data-toybox-sync aria-hidden="true">
-            <span>PC</span><i></i><b data-toybox-packet></b><span>MAC</span>
-          </div>
-          <div class="toybox-cat-cover" aria-hidden="true"></div>
-          <div class="toybox-cat" data-toybox-cat aria-label="The actual Toybox desktop cat sprite"></div>
+          <img class="toybox-proof" src="/images/projects/toybox-overview.svg" alt="Toybox’s original pixel cat alongside an illustrated overview of the system HUD, clipboard sync, and desktop companion" />
         </figure>
       </article>
     </div>
@@ -199,22 +195,27 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   <section class="print-list section-shell">
     <header>
-      <p class="poster-kicker">More software</p>
-      <h2>Other things I’m building.</h2>
+      <p class="poster-kicker">The collection</p>
+      <h2>Pick your<br />curiosity.</h2>
+      <p class="collection-intro">A closer look at the games, study software, and desktop companions.</p>
     </header>
     <div class="print-list__rows">
-      <a href="/projects/">
-        <strong>SAT World</strong>
-        <span>SAT software for students, teachers, live classes, study plans, analytics</span>
-      </a>
+      {projects.map((project, index) => (
+        <a href={`/projects/${project.slug}/`}>
+          <small>{String(index + 1).padStart(2, '0')} / {project.eyebrow}</small>
+          <strong>{project.title}<span aria-hidden="true">↗</span></strong>
+          <span>{project.summary}</span>
+        </a>
+      ))}
     </div>
   </section>
 
   <section class="print-notes">
     <div class="print-notes__burst" aria-hidden="true"></div>
-    <p class="poster-kicker">Notes</p>
-    <h2>Build logs, mistakes, and technical decisions.</h2>
-    <a href="/notes/">Notes index <span aria-hidden="true">↗</span></a>
+    <p class="poster-kicker">Behind the projects</p>
+    <h2>Why make<br />these things?</h2>
+    <p>Usually because I want something specific for myself or someone I know. Then I keep changing it until it feels right.</p>
+    <a href="/about/">A little about me <span aria-hidden="true">↗</span></a>
   </section>
 
   <section class="poster-coda">
@@ -258,7 +259,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-poster-city]', { xPercent: -4, yPercent: 2, duration: 0.82, ease: 'none' }, 'harbour')
         .to('[data-poster-water]', { yPercent: 4, duration: 0.82, ease: 'none' }, 'harbour')
         .to('[data-poster-copy] h1 span', { y: -22, autoAlpha: 0, duration: 0.26, stagger: 0.028, ease: 'power2.in' }, 0.36)
-        .to('[data-poster-copy] .poster-kicker, [data-poster-copy] > p:last-child', { y: -12, autoAlpha: 0, duration: 0.2, stagger: 0.035, ease: 'power2.in' }, 0.42)
+        .to('[data-poster-copy] .poster-kicker, [data-poster-copy] > p, [data-poster-copy] .poster-actions', { y: -12, autoAlpha: 0, duration: 0.2, stagger: 0.035, ease: 'power2.in' }, 0.42)
         .to('[data-poster-stamp]', { y: 16, rotate: -5, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.43)
         .fromTo('[data-poster-tide]',
           { transform: 'translateY(104%)' },
@@ -297,9 +298,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       gsap.set('[data-freecat-window="home"]', { autoAlpha: 1, clipPath: 'inset(0)' });
       gsap.set('[data-freecat-window="qbank"], [data-freecat-window="content"]', { autoAlpha: 0, clipPath: 'inset(0 100% 0 0)' });
       gsap.set('[data-freecat-database]', { scale: 0.82, autoAlpha: 0 });
-      gsap.set('[data-toybox-sync] i', { scaleX: 0 });
-      gsap.set('[data-toybox-packet]', { autoAlpha: 0, xPercent: 0 });
-      gsap.set('[data-toybox-cat]', { xPercent: -90, autoAlpha: 0 });
 
       const film = gsap.timeline({
         scrollTrigger: {
@@ -443,16 +441,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         .to('[data-freecat-database] i', { boxShadow: '0 0 0 0.72rem rgba(121,185,165,0)', duration: 0.34, ease: 'power2.out' }, 'freecat+=1.09');
 
       addFluidTransition('toToybox', 9.72, chapters[2], chapters[3], '#79b9a5', '#0b1c24');
-
-      film
-        .addLabel('toybox', 11.7)
-        .to('[data-toybox-sync] i', { scaleX: 1, duration: 0.42, ease: 'steps(6)' }, 'toybox+=0.2')
-        .to('[data-toybox-cat]', { xPercent: 0, autoAlpha: 1, duration: 0.18, ease: 'none' }, 'toybox+=0.1')
-        .to('[data-toybox-cat]', { xPercent: 180, duration: 0.36, ease: 'none' }, 'toybox+=0.3')
-        .to('[data-toybox-cat]', { xPercent: 420, duration: 0.5, ease: 'none' }, 'toybox+=0.78')
-        .to('[data-toybox-packet]', { autoAlpha: 1, duration: 0.1, ease: 'none' }, 'toybox+=0.48')
-        .to('[data-toybox-packet]', { xPercent: 1150, duration: 0.58, ease: 'none' }, 'toybox+=0.52')
-        .to('[data-toybox-packet]', { autoAlpha: 0, duration: 0.1, ease: 'none' }, 'toybox+=1.1');
 
       gsap.from('.print-list__rows > a', {
         x: -18,

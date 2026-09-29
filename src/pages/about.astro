@@ -6,15 +6,18 @@ import { site } from '@/data/site';
 <BaseLayout
   title="About — Warren"
   description="Warren is a developer in Vancouver making games, study software, desktop utilities, and other personal tools."
-  pageClass="inner-page"
+  pageClass="inner-page about-page"
 >
   <header class="page-hero page-hero--about">
     <p class="eyebrow">About</p>
-    <h1>I’m Warren.<br /><em>I work in Vancouver and keep my small hobby projects here.</em></h1>
+    <h1>A person<br /><em>behind the pixels.</em></h1>
+    <p>I’m Warren, a developer in Vancouver. This is a home for the software I make and keep using.</p>
   </header>
 
   <section class="about-intro section-shell">
     <div class="about-intro__copy prose-large">
+      <p class="eyebrow">Why I make things</p>
+      <h2>It starts with<br />“what if?”</h2>
       <p>
         I make software I want to use. I often find myself using software that feels about 70%
         right. Sometimes the aesthetics aren’t quite right, or a minor feature is arbitrarily paywalled.
@@ -33,4 +36,13 @@ import { site } from '@/data/site';
     </aside>
   </section>
 
+  <section class="about-directions section-shell" aria-labelledby="directions-heading">
+    <p class="eyebrow">Around here</p>
+    <h2 id="directions-heading">A few recurring interests.</h2>
+    <div class="about-directions__grid">
+      <a href="/projects/a-game/"><span>01 / Games</span><h3>Something<br />to get lost in.</h3><p>Small worlds, pixel art, sound, and software made for someone specific.</p><strong>A-Game ↗</strong></a>
+      <a href="/projects/freecat/"><span>02 / Learning</span><h3>Tools that<br />help it stick.</h3><p>Study software that keeps practice, review, and progress together.</p><strong>FreeCAT ↗</strong></a>
+      <a href="/projects/toybox/"><span>03 / Everyday tools</span><h3>A computer<br />with character.</h3><p>Tiny utilities, local data, and a cat that lives on the desktop.</p><strong>Toybox ↗</strong></a>
+    </div>
+  </section>
 </BaseLayout>
