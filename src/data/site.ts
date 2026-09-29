@@ -9,7 +9,7 @@ export const site = {
     'Most of them start because I want something specific for myself or someone I know.',
   githubUrl: 'https://github.com/kangofthecastle',
   githubLabel: '@kangofthecastle',
-  email: '',
+  email: 'warrenkang731@gmail.com',
   location: 'Vancouver, BC',
 };
 
