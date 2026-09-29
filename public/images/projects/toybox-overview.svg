@@ -34,7 +34,6 @@
 <circle cx="768" cy="745" r="31"/><path d="M768 725v20l14 9"/>
 </g>
 <g fill="#263739" font-family="Arial, sans-serif" font-size="21">
-<text x="337" y="867" text-anchor="middle">The original Toybox cat sprite</text>
 <text x="80" y="922" fill="#65716b" letter-spacing="2" font-size="17">PYTHON · WINDOWS · LOCAL DATA</text>
 <text x="1360" y="922" text-anchor="end" fill="#65716b" font-size="17">Utility illustration</text>
 </g>
