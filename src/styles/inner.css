@@ -328,3 +328,33 @@
 /* Let the original project heading use the full introductory row. */
 .inner-page .page-hero--projects h1 { grid-column: 1 / -1; max-width: 20ch; }
 .home-page--poster .poster-copy h1 span:nth-child(3) { font-size: .82em; }
+
+/* The opening keeps its words, with a more deliberate poster hierarchy. */
+.home-page--poster .poster-copy h1 { line-height: .96; }
+.home-page--poster .poster-copy h1 span:first-child {
+  width: fit-content;
+  margin-bottom: 1.1rem;
+  padding-left: .75rem;
+  border-left: .25rem solid var(--poster-tomato);
+  font-family: var(--mono);
+  font-size: clamp(.85rem, 1.3vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.4;
+}
+.home-page--poster .poster-copy h1 span:nth-child(2) { margin-top: 0; font-size: .9em; }
+.home-page--poster .poster-copy h1 span:nth-child(3) {
+  margin-top: .05em;
+  color: var(--poster-tomato);
+  font-size: 1em;
+  letter-spacing: -.06em;
+}
+@media (max-width: 600px) {
+  .home-page--poster .poster-copy h1 span:first-child { margin-bottom: .9rem; font-size: .8rem; }
+}
+.home-page--poster .poster-copy h1 span:nth-child(3) {
+  width: fit-content;
+  margin-left: -.12em;
+  padding: .04em .12em .08em;
+  background: var(--poster-paper);
+}
