@@ -282,7 +282,7 @@ em{color:var(--red);font-weight:400}
   .work-index.reel-active .work-stage { height:auto;min-height:0;overflow:visible;background:none; }
   .work-index.reel-active .work-row { position:relative;inset:auto; }
 }
-.harbour-window { overflow:hidden; }
+.harbour-window { overflow:hidden;perspective:1000px; }
 .harbour-window svg { transform-origin:60% 65%; }
 .hubris-particles { display:none; }
 .work-index.reel-active .hubris-particles { display:block;position:absolute;inset:0;pointer-events:none; }

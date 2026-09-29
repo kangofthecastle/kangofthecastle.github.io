@@ -53,17 +53,17 @@ motion.add('(prefers-reduced-motion: no-preference)', () => {
     });
   });
 
-  // Pointer depth is a small enhancement for a fine pointer, never a mobile requirement.
+  // Give the artwork a clear edge-and-corner response with a smooth return to rest.
   const pointerMedia = gsap.matchMedia();
   pointerMedia.add('(hover: hover) and (pointer: fine)', () => {
     if (!harbour) return;
     const art = harbour.querySelector('svg');
-    const rotateX = gsap.quickTo(art, 'rotationX', { duration: .7, ease: 'power3.out' });
-    const rotateY = gsap.quickTo(art, 'rotationY', { duration: .7, ease: 'power3.out' });
+    const rotateX = gsap.quickTo(art, 'rotationX', { duration: .45, ease: 'power3.out' });
+    const rotateY = gsap.quickTo(art, 'rotationY', { duration: .45, ease: 'power3.out' });
     const move = (event: PointerEvent) => {
       const bounds = harbour.getBoundingClientRect();
-      rotateX(((event.clientY - bounds.top) / bounds.height - .5) * -5);
-      rotateY(((event.clientX - bounds.left) / bounds.width - .5) * 6);
+      rotateX(((event.clientY - bounds.top) / bounds.height - .5) * -18);
+      rotateY(((event.clientX - bounds.left) / bounds.width - .5) * 22);
     };
     const leave = () => { rotateX(0); rotateY(0); };
     harbour.addEventListener('pointermove', move);
