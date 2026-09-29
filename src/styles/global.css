@@ -45,7 +45,7 @@ em{color:var(--red);font-weight:400}
 .footer-links a{text-decoration:none}.footer-links a:hover{color:var(--red)}
 .footer-meta{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;padding-top:2rem;border-top:1px solid var(--line);font:400 .7rem/1.6 var(--mono);color:var(--muted)}
 /* Opening: one print, one type composition, no pinned scroll stage. */
-.home-opening{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:4rem;padding-block:5rem 2.5rem}
+.home-opening{display:grid;grid-template-columns:.9fr 1.1fr;align-items:start;gap:4rem;padding-block:5rem 2.5rem}
 .home-opening__copy{position:relative;z-index:1}
 .home-opening__copy>.eyebrow{max-width:25rem;margin-bottom:3.5rem}
 .home-opening h1{font-size:clamp(4.5rem,8.3vw,8.2rem);line-height:.92;letter-spacing:-.04em}
