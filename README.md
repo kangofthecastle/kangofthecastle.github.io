@@ -35,9 +35,9 @@ The first note is deliberately marked `draft: true`. Change the frontmatter and 
 - `src/styles/global.css` is the single shared visual system.
 - Self-hosted Instrument Serif and DM Sans fonts live in `public/fonts/` with their licenses.
 - `src/components/HarbourPrint.astro` supplies the homepage's SVG illustration.
-- `src/scripts/motion.ts` handles the harbour assembly, ambient ferry and water motion, project entrances and the A-Game ending transition. There are no pinned scroll sections.
-- Project content follows the same normal scrolling order on desktop and mobile.
-- `prefers-reduced-motion` uses the static composition without entrance or parallax effects.
+- `src/scripts/motion.ts` handles the harbour assembly and camera movement, plus a continuous desktop project gallery with project-specific choreography.
+- The desktop gallery pins below the header and offers direct chapter buttons. Narrow or short viewports retain normal document flow.
+- `prefers-reduced-motion` uses the complete static project layout without pinning, entrance or parallax effects.
 - FreeCAT screenshots use keyboard-operable buttons, with one image visible at a time.
 
 ## Project-media rules

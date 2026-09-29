@@ -1,9 +1,11 @@
+<!-- Inline version of the Toybox utility illustration, for scroll choreography. -->
+<div class="toybox-scene">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 960" role="img" aria-labelledby="title desc">
 <title id="title">Toybox: small tools, one desktop companion</title>
 <desc id="desc">An illustrated overview with Toybox’s original pixel cat and symbols for system monitoring, clipboard sync, and timers. This is an illustration, not an app screenshot.</desc>
 <style>
 @media (prefers-reduced-motion: no-preference) {
-  .toybox-sprite { animation: cat-idle 1.6s steps(10) infinite; }
+  .toybox-sprite { image-rendering:pixelated; animation: cat-idle 1.6s steps(10) infinite; }
 }
 @keyframes cat-idle { to { transform: translateX(-320px); } }
 </style>
@@ -39,3 +41,4 @@
 <text x="1360" y="922" text-anchor="end" fill="#65716b" font-size="17">Utility illustration</text>
 </g>
 </svg>
+</div>

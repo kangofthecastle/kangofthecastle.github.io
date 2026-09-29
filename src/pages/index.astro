@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HarbourPrint from '@/components/HarbourPrint.astro';
+import ToyboxScene from '@/components/ToyboxScene.astro';
 ---
 
 <BaseLayout pageClass="home-page">
@@ -14,8 +15,9 @@ import HarbourPrint from '@/components/HarbourPrint.astro';
     <HarbourPrint />
   </section>
 
-  <section class="work-index section-shell" id="projects" aria-label="Selected projects">
-    <header class="section-heading" data-reveal><p class="eyebrow">Projects</p><h2>Games, study software, and small tools.</h2></header>
+  <section class="work-index" id="projects" aria-label="Selected projects">
+    <header class="section-heading section-shell" data-reveal><p class="eyebrow">Projects</p><h2>Games, study software, and small tools.</h2></header>
+<div class="work-reel"><div class="work-stage"><div class="reel-orbit" aria-hidden="true"></div>
 <article class="work-row work-row--hubris"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">01</span>
           <h2 class="work-title">Hubris</h2>
           <h3>A portrait bullet-hell where grazing charges the screen clear.</h3>
@@ -28,6 +30,15 @@ import HarbourPrint from '@/components/HarbourPrint.astro';
         </div><figure class="work-figure"><div class="work-media work-media--hubris" data-reveal>
   <img src="/images/projects/hubris-title.webp" alt="The HUBRIS title screen" width="900" height="1400" loading="lazy" />
   <img src="/images/projects/hubris-boon.webp" alt="HUBRIS paused at a three-boon choice during a run" width="900" height="1400" loading="lazy" />
+  <div class="hubris-particles" aria-hidden="true">
+    {Array.from({ length: 10 }, (_, i) => (
+      <span class="hubris-particle" style={`--px:${50 + Math.cos(i * Math.PI / 5) * 43}%;--py:${50 + Math.sin(i * Math.PI / 5) * 43}%`}>
+        <img class="hubris-projectile" src="/images/projects/hubris-assets/rune-bolt.png" alt="" loading="lazy" />
+        <img class="hubris-gold" src="/images/projects/hubris-assets/gold-coin.png" alt="" loading="lazy" />
+      </span>
+    ))}
+    <i class="hubris-energy"></i>
+  </div>
 </div><figcaption>Bullets close in. Turn them to gold to earn points</figcaption></figure></article>
 <article class="work-row work-row--agame"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">02</span>
           <h2 class="work-title">A-Game</h2>
@@ -41,6 +52,7 @@ import HarbourPrint from '@/components/HarbourPrint.astro';
         </div><figure class="work-figure"><div class="work-media work-media--agame" data-reveal>
   <img src="/images/projects/a-game-clearing.webp" alt="The lantern-lit clearing near the end of A-Game" width="1600" height="1000" loading="lazy" />
   <img class="agame-ending" src="/images/projects/cinematic/a-game-galaxy.webp" alt="The water-to-galaxy transition from A-Game’s ending" width="1600" height="1000" loading="lazy" />
+  <img class="agame-boat" src="/images/projects/a-game-assets/alice-boat.png" alt="" aria-hidden="true" width="256" height="256" loading="lazy" />
   <img class="agame-inset" src="/images/projects/a-game-outside.webp" alt="The village outside the player’s house in A-Game" width="1600" height="1000" loading="lazy" />
 </div></figure></article>
 <article class="work-row work-row--freecat"><div class="work-copy" data-reveal><span class="work-number" aria-hidden="true">03</span>
@@ -58,6 +70,8 @@ import HarbourPrint from '@/components/HarbourPrint.astro';
     <img src="/images/projects/freecat-qbank.webp" alt="FreeCAT question-bank practice setup" width="1600" height="1000" loading="lazy" data-study-image hidden />
     <img src="/images/projects/freecat-content.webp" alt="FreeCAT content-review topic list" width="1600" height="1000" loading="lazy" data-study-image hidden />
   </div>
+  <img class="study-satellite study-satellite--qbank" src="/images/projects/freecat-qbank.webp" alt="" aria-hidden="true" loading="lazy" />
+  <img class="study-satellite study-satellite--content" src="/images/projects/freecat-content.webp" alt="" aria-hidden="true" loading="lazy" />
   <div class="study-tabs" aria-label="FreeCAT screenshots">
     <button type="button" aria-pressed="true" data-study-tab>Home / study pet</button>
     <button type="button" aria-pressed="false" data-study-tab>Question bank</button>
@@ -75,8 +89,16 @@ import HarbourPrint from '@/components/HarbourPrint.astro';
           <p class="work-meta">Python · Tkinter · Win32 APIs · no telemetry</p>
           <a href="/projects/toybox/">Project details <span aria-hidden="true">↗</span></a>
         </div><figure class="work-figure"><div class="work-media work-media--toybox" data-reveal>
-  <img src="/images/projects/toybox-overview.svg" alt="Toybox’s original pixel cat alongside an illustrated overview of the system HUD, clipboard sync, and desktop companion" width="1440" height="960" loading="lazy" />
+  <ToyboxScene />
 </div></figure></article>
+    <nav class="reel-nav" aria-label="Selected projects">
+      <button type="button" data-reel-jump="0" aria-label="Hubris" aria-current="true"><span>01</span><span>Hubris</span></button>
+      <button type="button" data-reel-jump="1" aria-label="A-Game"><span>02</span><span>A-Game</span></button>
+      <button type="button" data-reel-jump="2" aria-label="FreeCAT"><span>03</span><span>FreeCAT</span></button>
+      <button type="button" data-reel-jump="3" aria-label="Toybox"><span>04</span><span>Toybox</span></button>
+      <span class="reel-progress" aria-hidden="true"><i></i></span>
+    </nav>
+    </div></div>
   </section>
   <section class="home-secondary section-shell">
     <div class="software-list" data-reveal>

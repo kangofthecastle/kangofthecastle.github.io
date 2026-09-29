@@ -3,7 +3,7 @@ type Props = { compact?: boolean };
 const { compact = false } = Astro.props;
 ---
 <figure class:list={['harbour-print', { 'harbour-print--compact': compact }]} data-harbour>
-  <svg viewBox="0 0 760 650" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <div class="harbour-window"><svg viewBox="0 0 760 650" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <pattern id="windows" width="12" height="16" patternUnits="userSpaceOnUse"><path d="M3 4h3v6H3z" fill="#e5d9bd" opacity=".6"/></pattern>
       <pattern id="water-lines" data-water-pattern width="120" height="24" patternUnits="userSpaceOnUse"><path d="M0 9h48m12 0h15m12 0h33M18 21h28m15 0h52" stroke="#ece6d7" stroke-width="1" opacity=".3"/></pattern>
@@ -40,6 +40,6 @@ const { compact = false } = Astro.props;
       </g>
       <g stroke="#27383e" stroke-width="1" opacity=".4"><path d="M24 24h26m-26 0v26m686-26h26v26M24 600v26h26m660 0h26v-26"/></g>
     </g>
-  </svg>
+  </svg></div>
   {!compact && <figcaption><span>Built in Vancouver</span><span aria-hidden="true">↗</span></figcaption>}
 </figure>
