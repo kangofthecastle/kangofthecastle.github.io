@@ -303,5 +303,4 @@ em{color:var(--red);font-weight:400}
 .work-index > .section-heading .opening-index > span { width:3rem;height:3rem;border-color:#a9433266;color:var(--red);font-size:1.3rem;transition:background 240ms,color 240ms,border-color 240ms,transform 300ms; }
 .work-index > .section-heading .opening-index:hover > span { background:var(--red);border-color:var(--red);color:var(--paper);transform:translateY(3px); }
 .work-index > .section-heading .opening-index:focus-visible { outline:2px solid var(--red);outline-offset:5px;border-radius:50%; }
-#project-gallery { scroll-margin-top:5.5rem; }
 @media (max-width:759px) { .home-opening { row-gap:2rem;padding-bottom:1rem; }.work-index > .section-heading { padding-block:3.5rem;gap:1.75rem; } }
