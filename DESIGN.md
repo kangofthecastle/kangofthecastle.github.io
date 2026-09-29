@@ -8,7 +8,7 @@ The site is a collection of personal software, grounded in Vancouver. A harbour 
 - Instrument Serif for names and page headings, italic for editorial emphasis. DM Sans for explanations and navigation. Monospace only for small labels, dates and technology lists. Fonts are self-hosted; licenses are in public/fonts.
 - A 1280px content measure, generous gutters, fine rules, and an asymmetric two-column spread. On small screens each spread becomes one ordered column. No heavy borders, arbitrary rotations or offset shadows.
 - Project visuals use actual captures. Toybox uses an explicitly labeled utility illustration with the original sprite; it is not an invented screenshot.
-- Motion is subordinate to navigation: a brief opening reveal, a small harbour parallax, restrained section entrances, and explicit screenshot selection. No scroll pinning, fake gameplay, long transitions, or content held hostage by animation.
+- Motion is subordinate to navigation: a layered opening reveal, a living harbour, staggered project entrances, a scroll-linked A-Game ending transition, and explicit screenshot selection. No scroll pinning, fake gameplay, long transitions, or content held hostage by animation.
 - Reduced motion uses the complete static layout. All content exists without JavaScript. Screenshot selectors are keyboard-operable buttons with a pressed state.
 
 ## Editorial constraint

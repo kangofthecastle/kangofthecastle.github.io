@@ -6,12 +6,12 @@ const { compact = false } = Astro.props;
   <svg viewBox="0 0 760 650" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <pattern id="windows" width="12" height="16" patternUnits="userSpaceOnUse"><path d="M3 4h3v6H3z" fill="#e5d9bd" opacity=".6"/></pattern>
-      <pattern id="water-lines" width="120" height="24" patternUnits="userSpaceOnUse"><path d="M0 9h48m12 0h15m12 0h33M18 21h28m15 0h52" stroke="#ece6d7" stroke-width="1" opacity=".3"/></pattern>
+      <pattern id="water-lines" data-water-pattern width="120" height="24" patternUnits="userSpaceOnUse"><path d="M0 9h48m12 0h15m12 0h33M18 21h28m15 0h52" stroke="#ece6d7" stroke-width="1" opacity=".3"/></pattern>
       <clipPath id="harbour-crop"><path d="M0 0h760v650H0z"/></clipPath>
     </defs>
     <g clip-path="url(#harbour-crop)">
       <path fill="#e5deca" d="M0 0h760v650H0z"/>
-      <g class="harbour-sun"><circle cx="565" cy="177" r="99" fill="#af4d38"/><circle cx="565" cy="177" r="112" stroke="#af4d38" stroke-width=".7"/></g>
+      <g class="harbour-sun"><g class="harbour-sun-rise"><circle cx="565" cy="177" r="99" fill="#af4d38"/><circle cx="565" cy="177" class="harbour-halo" r="112" stroke="#af4d38" stroke-width=".7"/></g></g>
       <path d="M0 96h230m360 216h170M0 143h120m20 0h70" stroke="#b6ac96" stroke-width="1"/>
       <g class="harbour-ranges">
         <path d="m-30 410 78-90 43 19 74-135 42 26 59 72 50-17 36-48 63 71 35-38 69-121 37 38 29-11 73 110 38-24 57 34 63 145H-30Z" fill="#9fa9a5"/>
@@ -28,14 +28,15 @@ const { compact = false } = Astro.props;
         <path d="M0 468h760" stroke="#27383e" stroke-width="10"/>
       </g>
       <path d="M0 473h760v177H0z" fill="#6d8a83"/>
-      <path d="M0 473h760v177H0z" fill="url(#water-lines)"/>
+      <path class="harbour-water" d="M0 473h760v177H0z" fill="url(#water-lines)"/>
       <path d="M0 569c135-22 260 28 416 0s211-12 344-2M0 598c115-10 249 17 374-1s274-16 386 0" stroke="#b8c5b6" opacity=".55"/>
-      <g class="harbour-boat">
+      <g class="harbour-boat-entry"><g class="harbour-boat">
         <path d="M124 550h173l-18 21H146z" fill="#27383e"/>
         <path d="M144 528h111l25 22H132z" fill="#eee7d7"/>
         <path d="M152 534h13v11h-13zm19 0h13v11h-13zm19 0h13v11h-13zm19 0h13v11h-13zm19 0h13v11h-13z" fill="#536966"/>
         <path d="M171 527v-8h32v8m-7-8v-8" stroke="#27383e" stroke-width="2"/>
         <path d="M107 574h-38m20 7H40m254-5h15" stroke="#eee7d7" stroke-width="1"/>
+      </g>
       </g>
       <g stroke="#27383e" stroke-width="1" opacity=".4"><path d="M24 24h26m-26 0v26m686-26h26v26M24 600v26h26m660 0h26v-26"/></g>
     </g>
