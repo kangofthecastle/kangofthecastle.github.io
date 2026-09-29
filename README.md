@@ -49,7 +49,7 @@ Project pages are designed for real artifacts, not only repository links. Before
 4. Explain what the viewer is seeing in the caption.
 5. Keep the prototype SVG until the real capture is approved.
 
-`HUBRIS / Goldwake` currently includes two real, locally captured screens. The other case studies intentionally retain prototype compositions until their privacy/publication boundaries are confirmed.
+`HUBRIS` currently includes two real, locally captured screens.
 
 ## GitHub Pages
 

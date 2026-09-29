@@ -25,8 +25,8 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'goldwake',
-    title: 'HUBRIS / Goldwake',
+    slug: 'hubris',
+    title: 'HUBRIS',
     eyebrow: 'A portrait bullet-hell roguelite',
     year: '2026',
     summary:
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'The game is playable directly from index.html with no server or build step. It has three sectors, bosses, permanent unlocks, its own WebGL and Canvas render stack, and procedural WebAudio.',
     stack: ['WebGL2', 'Canvas 2D', 'WebAudio', 'Vanilla JavaScript'],
     tags: ['Game design', 'Procedural audio', 'Rendering'],
-    media: '/images/projects/goldwake-title.webp',
+    media: '/images/projects/hubris-title.webp',
     mediaAlt: 'The HUBRIS title screen',
     mediaCaption: 'The title screen establishes the portrait format and gold economy.',
     accent: 'gold',
@@ -47,12 +47,12 @@ export const projects: Project[] = [
     visibility: 'private',
     captures: [
       {
-        src: '/images/projects/goldwake-title.webp',
+        src: '/images/projects/hubris-title.webp',
         alt: 'The HUBRIS title screen with a crowned silhouette above a vortex of gold coins',
         caption: 'The title screen establishes the portrait format and gold economy before the first input.',
       },
       {
-        src: '/images/projects/goldwake-boon.webp',
+        src: '/images/projects/hubris-boon.webp',
         alt: 'A mid-run HUBRIS boon selection offering Thor, Artemis, and Odin attack transforms',
         caption: 'A mid-run choice: three attack transforms, rarity, mechanical role, and readable trade-offs.',
       },
