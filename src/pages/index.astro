@@ -18,7 +18,7 @@ import ToyboxScene from '@/components/ToyboxScene.astro';
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 7h9a3.5 3.5 0 0 1 3.4 2.7l1.6 7a2.4 2.4 0 0 1-4 2.3L15 16H9l-2.5 3a2.4 2.4 0 0 1-4-2.3l1.6-7A3.5 3.5 0 0 1 7.5 7Z"/><path d="M7 10v5m-2.5-2.5h5"/><circle cx="16.5" cy="11" r=".7"/><circle cx="18" cy="14" r=".7"/></svg>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-7M8 4v17M2 8h4m-4 5h4m-4 5h4m5-9h3m-3 4h2"/><path d="m14 13 1-4 6-6 2 2-6 6-3 2Zm5-8 2 2"/></svg>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="13" rx="1.5"/><path d="m3 16-2 4h22l-2-4M10 20h4"/><path class="category-laptop-tool" d="M14 5a3 3 0 0 0-4 4l-3 3a1.4 1.4 0 0 0 2 2l3-3a3 3 0 0 0 4-4l-2 2-2-2Z"/></svg>
-      </span><svg class="category-effects" aria-hidden="true">{[0, 1, 2].map(() => <g><path class="category-trail" fill="none" /><g class="category-impact"><path d="M-4-3C-6-8-10-12-13-11C-15-9-9-7-4-3ZM0-5C-1-9-2-19 0-20C2-19 1-9 0-5ZM4-3C6-8 10-12 13-11C15-9 9-7 4-3Z" fill="none" /></g></g>)}</svg></a></h2>
+      </span><svg class="category-effects" aria-hidden="true">{[0, 1, 2].map(() => <g><path class="category-trail" fill="none" /><g class="category-impact"><path d="M-4-3C-6-9-11-13-14-11C-16-9-9-7-4-3ZM0-5C-1-9-2-19 0-20C2-19 1-9 0-5ZM4-3C6-9 11-13 14-11C16-9 9-7 4-3Z" fill="none" /></g></g>)}</svg></a></h2>
       <a class="opening-index" href="#project-gallery" aria-label="Browse projects"><span aria-hidden="true">↓</span></a>
     </header>
 <div class="work-reel" id="project-gallery"><div class="work-stage"><div class="reel-orbit" aria-hidden="true"></div>
@@ -165,8 +165,8 @@ import ToyboxScene from '@/components/ToyboxScene.astro';
             gsap.set(trails[index], { strokeDashoffset: length - Math.max(0, distance - size * .65) });
           } }, at)
           .to(trails[index], { opacity: 0, duration: .3 }, at + .45)
-          .to(impacts[index], { opacity: .8, scale: 1, duration: .06 }, at + .45)
-          .to(impacts[index], { opacity: 0, scale: 1.5, duration: .22 }, at + .49);
+          .to(impacts[index], { opacity: 1, scale: 1, duration: .06 }, at + .45)
+          .to(impacts[index], { opacity: 0, scale: 1.5, duration: .22, ease: 'power1.in' }, at + .53);
         bounce!.to(icon, { scaleX: 1.12, scaleY: .86, duration: .06 }, at + .45)
           .to(icon, { scaleX: 1, scaleY: 1, duration: .1, ease: 'back.out(2)' }, at + .49)
           .set(words[index], { color: getComputedStyle(journey).getPropertyValue('--red').trim() }, at + .45)
