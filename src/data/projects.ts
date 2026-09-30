@@ -71,7 +71,7 @@ export const projects: Project[] = [
     solution:
       'The player visits two friends, plays a Stardew-inspired fishing game inside one computer, defuses a bomb in a small top-down Valorant-inspired game inside another, then returns home for a rhythm game. The keepsakes won after each game fold a paper boat that takes the player to the final scene.',
     outcome:
-      "It runs in the browser and can also be packaged as an Electron gift build. There are no fail states or save system, it's made to be completed in one sitting.",
+      "It runs in the browser and can also be packaged as an Electron gift build. There are no fail states or save system, it's made to be completed in one sitting. You can make your own version, just point Claude towards the README.",
     stack: ['Phaser 3', 'TypeScript', 'Vite', 'WebAudio'],
     tags: ['Games', 'Personal software', 'Pixel art'],
     media: '/images/projects/a-game-clearing.webp',
