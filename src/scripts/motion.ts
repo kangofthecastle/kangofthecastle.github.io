@@ -88,37 +88,94 @@ motion.add('(prefers-reduced-motion: no-preference)', () => {
 });
 
 const galleryMotion = gsap.matchMedia();
-galleryMotion.add({
-  desktop: '(min-width: 900px) and (min-height: 720px)',
-  reduced: '(prefers-reduced-motion: reduce)',
-}, (context) => {
-  const { desktop, reduced } = context.conditions!;
+galleryMotion.add('(prefers-reduced-motion: no-preference)', () => {
+  const desktop = window.matchMedia('(min-width: 900px) and (min-height: 720px)').matches;
   const gallery = document.querySelector<HTMLElement>('.work-index');
   const stage = gallery?.querySelector<HTMLElement>('.work-stage');
-  if (!gallery || !stage || reduced) return;
+  if (!gallery || !stage) return;
   const chapters = Array.from(stage.querySelectorAll<HTMLElement>('.work-row'));
   if (!desktop) {
-    // On narrow screens the chapters stay in document flow, with continuous camera movement.
+    // Keep the mobile scenes in document flow while giving each effect room to unfold.
+    const quickMobileTrigger = (trigger: Element) => ({
+      trigger,
+      start: 'top 100%',
+      end: () => `+=${Math.round(window.innerHeight * .7)}`,
+      scrub: .25,
+    });
     chapters.forEach((chapter) => {
       const media = chapter.querySelector<HTMLElement>('.work-media');
       if (!media) return;
       gsap.from(chapter.querySelector('.work-title'), {
-        x: -45, opacity: 0, duration: .9, ease: 'power3.out',
+        x: -45, opacity: 0, duration: .65, ease: 'power3.out',
         scrollTrigger: { trigger: chapter, start: 'top 88%', once: true },
       });
       gsap.fromTo(media, { y: 60, scale: .9 }, {
         y: -15, scale: 1.03, ease: 'none',
-        scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom 25%', scrub: .7 },
+        scrollTrigger: quickMobileTrigger(media),
       });
       if (chapter.classList.contains('work-row--agame')) {
         media.classList.add('motion-ready');
         gsap.to(media.querySelector('.agame-ending'), {
           clipPath: 'inset(0% 0 0 0)', ease: 'none',
-          scrollTrigger: { trigger: media, start: 'top 60%', end: 'bottom 35%', scrub: .7 },
+          scrollTrigger: quickMobileTrigger(media),
         });
+        const journey = gsap.timeline({
+          scrollTrigger: quickMobileTrigger(media),
+        });
+        journey.fromTo(media.querySelector('.agame-inset'),
+          { xPercent: 24, yPercent: 115, rotation: 5, scale: .82 },
+          { xPercent: 0, yPercent: 0, rotation: -2, scale: 1, ease: 'power2.out' }, 0);
+        journey.fromTo(media.querySelector('.agame-boat'),
+          { xPercent: -130, y: 18, rotation: -8 },
+          { xPercent: 145, y: -10, rotation: 4, ease: 'none' }, .18);
+      }
+      if (chapter.classList.contains('work-row--hubris')) {
+        media.classList.add('motion-ready');
+        const titleScreen = media.querySelector(':scope > img:first-child');
+        const boonScreen = media.querySelector(':scope > img:nth-child(2)');
+        const particles = Array.from(media.querySelectorAll<HTMLElement>('.hubris-particle'));
+        const shots = media.querySelectorAll<HTMLElement>('.hubris-projectile');
+        const gold = media.querySelectorAll<HTMLElement>('.hubris-gold');
+        const energy = media.querySelector<HTMLElement>('.hubris-energy');
+        gsap.set(energy ? [...particles, ...gold, energy] : [...particles, ...gold], { opacity: 0 });
+        gsap.set(gold, { scale: .35, transformOrigin: 'center' });
+        const burst = gsap.timeline({
+          scrollTrigger: quickMobileTrigger(media),
+        });
+        burst.fromTo(titleScreen, { xPercent: -22, rotation: -5, scale: .84 }, { xPercent: -5, rotation: -2, scale: 1, ease: 'power2.out' }, 0)
+          .fromTo(boonScreen, { xPercent: 22, rotation: 5, scale: .84 }, { xPercent: 5, rotation: 2, scale: 1, ease: 'power2.out' }, 0)
+          .fromTo(particles, { scale: .2, opacity: 0 }, { scale: 1, opacity: 1, stagger: .025, ease: 'back.out(1.8)' }, .2)
+          .to(particles, { xPercent: (i) => -Math.cos(i * Math.PI / 5) * 58, yPercent: (i) => -Math.sin(i * Math.PI / 5) * 58, duration: .35, ease: 'power2.out' }, .36)
+          .fromTo(energy, { scale: .1, opacity: .9 }, { scale: 3.4, opacity: 0, duration: .35, ease: 'power1.out' }, .48)
+          .to(shots, { opacity: 0, scale: .3, duration: .12 }, .55)
+          .to(gold, { opacity: 1, scale: 1.2, stagger: .015, duration: .16 }, .56)
+          .to(particles, { yPercent: '-=38', opacity: 0, stagger: .012, duration: .3 }, .72);
+      }
+      if (chapter.classList.contains('work-row--freecat')) {
+        media.classList.add('motion-ready');
+        const preview = media.querySelector<HTMLElement>('.study-preview');
+        const satellites = Array.from(media.querySelectorAll<HTMLElement>('.study-satellite'));
+        gsap.set(satellites, { autoAlpha: 0 });
+        const unfold = gsap.timeline({
+          scrollTrigger: quickMobileTrigger(media),
+        });
+        unfold.fromTo(preview, { y: 42, rotationY: -9, scale: .9 }, { y: 0, rotationY: 0, scale: 1, ease: 'power2.out' }, 0)
+          .fromTo(satellites[0], { xPercent: 55, yPercent: 25, rotation: 8, scale: .8, autoAlpha: 0 }, { xPercent: 0, yPercent: 0, rotation: 3, scale: 1, autoAlpha: 1, ease: 'power2.out' }, .28)
+          .fromTo(satellites[1], { xPercent: -55, yPercent: -20, rotation: -8, scale: .8, autoAlpha: 0 }, { xPercent: 0, yPercent: 0, rotation: -3, scale: 1, autoAlpha: 1, ease: 'power2.out' }, .42);
+      }
+      if (chapter.classList.contains('work-row--toybox')) {
+        const scene = media.querySelector<HTMLElement>('.toybox-scene');
+        const cat = media.querySelector<SVGElement>('.toybox-cat-motion');
+        const icons = media.querySelector<SVGElement>('.toybox-icons');
+        const tour = gsap.timeline({
+          scrollTrigger: quickMobileTrigger(media),
+        });
+        tour.fromTo(scene, { rotationY: -7, scale: .94 }, { rotationY: 0, scale: 1, ease: 'power2.out' }, 0)
+          .fromTo(cat, { x: 0, y: 8 }, { x: 55, y: -10, ease: 'sine.inOut' }, .12)
+          .fromTo(icons, { opacity: .3, x: 30 }, { opacity: 1, x: 0, ease: 'power2.out' }, .2);
       }
     });
-    return () => stage.querySelector('.work-media--agame')?.classList.remove('motion-ready');
+    return () => stage.querySelectorAll('.work-media.motion-ready').forEach((media) => media.classList.remove('motion-ready'));
   }
 
   gallery.classList.add('reel-active');
@@ -166,7 +223,7 @@ galleryMotion.add({
   // The companion moves through the utility illustration; its original sprite keeps animating.
   story
     .fromTo('.toybox-scene', { rotationY: 12, scale: .9 }, { rotationY: 0, scale: 1.04, duration: 1.8 }, 9)
-    .fromTo('.toybox-cat', { x: 117, y: 453 }, { x: 227, y: 393, duration: 1.8, ease: 'sine.inOut' }, 9)
+    .fromTo('.toybox-cat-motion', { x: 0, y: 0 }, { x: 110, y: -60, duration: 1.8, ease: 'sine.inOut' }, 9)
     .fromTo('.toybox-icons', { opacity: .15, x: 90 }, { opacity: 1, x: 0, duration: 1.4 }, 9.3);
 
   chapters.forEach((outgoing, index) => {
