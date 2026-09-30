@@ -34,7 +34,7 @@ export const projects: Project[] = [
     problem:
       'I wanted a bullet hell designed around a portrait monitor, with an escape mechanic that did more than erase a mistake. In HUBRIS, the panic button is also part of the economy.',
     solution:
-      'Grazing fills Apotheosis. Triggering it cancels enemy bullets into gold. A run seed chooses the encounters and procedural score; god boons replace the weapon rather than adding minor stat bonuses.',
+      'Grazing fills the Hubris meter. Triggering it turns enemy bullets into gold. A run seed chooses the encounters. God boons replace the attack mechanics entirely rather than just adding stat bonuses.',
     outcome:
       'The game is playable directly from index.html with no server or build step. It has three sectors, bosses, permanent unlocks, its own WebGL and Canvas render stack, and procedural WebAudio.',
     stack: ['WebGL2', 'Canvas 2D', 'WebAudio', 'Vanilla JavaScript'],
