@@ -124,9 +124,10 @@ button.footer-heading:focus-visible{outline:2px solid var(--red);outline-offset:
 .home-secondary>div{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;padding-block:2.5rem}
 .home-secondary .eyebrow{font-size:.65rem;margin-bottom:1.1rem}
 .home-secondary h2{font-size:clamp(1.75rem,2.5vw,2.3rem);max-width:30ch;margin:0;line-height:1.15}
-.software-list>a{display:flex;flex-direction:column;gap:.9rem;text-decoration:none;padding-block:.75rem}
-.software-list strong{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:center}
-.software-list>a>span{font-size:.8rem;line-height:1.7;color:var(--muted);max-width:48ch}
+.software-items{display:grid;gap:1.75rem}
+.software-items>a,.software-item{display:flex;flex-direction:column;gap:.9rem;text-decoration:none;padding-block:.75rem}
+.software-items strong{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.software-items>a>span,.software-item>span{font-size:.8rem;line-height:1.7;color:var(--muted);max-width:48ch}
 .home-secondary a{transition:color 240ms ease}
 .home-secondary a span[aria-hidden]{color:var(--red);display:inline-block;transition:transform 300ms cubic-bezier(.22,1,.36,1)}
 .home-secondary a:is(:hover,:focus-visible){color:var(--red)}
