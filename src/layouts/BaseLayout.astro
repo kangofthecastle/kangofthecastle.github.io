@@ -46,6 +46,12 @@ const currentPath = Astro.url.pathname;
 
     <header class="site-header" data-site-header>
       <a class="site-mark" href="/" aria-label={`${site.publicName} — home`}>
+        <svg class="site-mark__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="site-mark__core" cx="12" cy="12" r="5.5" fill="currentColor" />
+          <g class="site-mark__rays" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            {Array.from({ length: 8 }, (_, i) => <path d="M12 1.5v3" transform={`rotate(${i * 45} 12 12)`} />)}
+          </g>
+        </svg>
         <span class="site-mark__text">{site.publicName}</span>
       </a>
 
@@ -76,8 +82,8 @@ const currentPath = Astro.url.pathname;
       </div>
       <div class="footer-links">
         {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
-        <a href={site.githubUrl} target="_blank" rel="noreferrer">{site.githubLabel} ↗</a>
-        <a href={site.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href={site.githubUrl} target="_blank" rel="noreferrer">{site.githubLabel} <span aria-hidden="true">↗</span></a>
+        <a href={site.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-meta">
         <span>{site.location}</span>

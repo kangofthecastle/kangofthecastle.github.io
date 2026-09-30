@@ -31,8 +31,12 @@ em{color:var(--red);font-weight:400}
 .site-noise{display:none}
 .site-header{position:sticky;z-index:80;top:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;min-height:5.5rem;padding:.9rem var(--page-gutter);background:var(--paper);border-bottom:1px solid var(--line);transition:background-color 240ms ease}
 .site-header.is-scrolled{background:#f3f0e8ed;backdrop-filter:blur(12px)}
-.site-mark{text-decoration:none;justify-self:start;font-family:var(--display);font-size:1.8rem;letter-spacing:-.03em}
-.site-mark::before{display:inline-block;width:.4rem;height:.4rem;background:var(--red);border-radius:50%;content:'';margin-right:.7rem;vertical-align:middle}
+.site-mark{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;justify-self:start;font-family:var(--display);font-size:1.8rem;letter-spacing:-.03em}
+.site-mark__sun{width:1.5rem;height:1.5rem;flex:none;color:var(--red);overflow:visible}
+.site-mark__core,.site-mark__rays{transform-origin:12px 12px;transition:transform 600ms cubic-bezier(.22,1,.36,1),opacity 400ms}
+.site-mark__rays{opacity:0;transform:rotate(-90deg) scale(.35)}
+.site-mark:is(:hover,:focus-visible) .site-mark__core{transform:scale(.7)}
+.site-mark:is(:hover,:focus-visible) .site-mark__rays{opacity:1;transform:rotate(0deg) scale(1)}
 .site-nav{display:flex;align-items:center;gap:2rem}
 .site-nav a,.header-github{position:relative;text-decoration:none;font-size:.8rem}
 .site-nav a::after,.header-github::after{position:absolute;bottom:-.25rem;left:0;right:0;height:1px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 240ms ease;content:''}
@@ -43,6 +47,10 @@ em{color:var(--red);font-weight:400}
 .footer-heading{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--display);margin-top:.7rem}
 .footer-links{display:flex;flex-direction:column;gap:.5rem;align-self:center;justify-self:end;font-size:.9rem}
 .footer-links a{text-decoration:none}.footer-links a:hover{color:var(--red)}
+.footer-links a span,.header-github span{display:inline-block;transition:transform 300ms cubic-bezier(.22,1,.36,1)}
+.footer-links a:is(:hover,:focus-visible) span,.header-github:is(:hover,:focus-visible) span{transform:translate(3px,-3px)}
+.site-nav a{transition:color 240ms,transform 300ms cubic-bezier(.22,1,.36,1)}
+.site-nav a:is(:hover,:focus-visible){color:var(--red);transform:translateY(-1px)}
 .footer-meta{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;padding-top:2rem;border-top:1px solid var(--line);font:400 .7rem/1.6 var(--mono);color:var(--muted)}
 /* Opening: one print, one type composition, no pinned scroll stage. */
 .home-opening{display:grid;grid-template-columns:.9fr 1.1fr;align-items:start;gap:4rem;padding-block:5rem 2.5rem}
