@@ -60,7 +60,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'a-game',
-    title: 'A-Game',
+    title: 'RPG Birthday Card',
     eyebrow: 'A browser RPG made as a birthday present',
     year: '2026',
     summary:
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     stack: ['Phaser 3', 'TypeScript', 'Vite', 'WebAudio'],
     tags: ['Games', 'Personal software', 'Pixel art'],
     media: '/images/projects/a-game-clearing.webp',
-    mediaAlt: 'The lantern-lit clearing near the end of A-Game',
+    mediaAlt: 'The lantern-lit clearing near the end of RPG Birthday Card',
     mediaCaption: 'The lantern-lit clearing near the end of the game.',
     accent: 'violet',
     selected: true,
@@ -82,12 +82,12 @@ export const projects: Project[] = [
     captures: [
       {
         src: '/images/projects/a-game-outside.webp',
-        alt: 'The outdoor village in A-Game near the player’s house',
+        alt: 'The outdoor village in RPG Birthday Card near the player’s house',
         caption: 'The village connects the homes and the game’s small activities.',
       },
       {
         src: '/images/projects/cinematic/a-game-galaxy.webp',
-        alt: 'The water-to-galaxy transition from A-Game’s ending',
+        alt: 'The water-to-galaxy transition from RPG Birthday Card’s ending',
         caption: 'The final scene changes the water into a galaxy after the keepsakes become a paper boat.',
       },
     ],
