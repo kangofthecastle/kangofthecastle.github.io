@@ -76,10 +76,10 @@ const currentPath = Astro.url.pathname;
     </main>
 
     <footer class="site-footer">
-      <div>
-        <p class="footer-heading">Say hello.</p>
-      </div>
-      <div class="footer-links" aria-label="Contact links">
+      <div class="footer-contact" data-footer-contact>
+        <button class="footer-heading" type="button" aria-expanded="false" aria-controls="footer-contact-links" hidden>Say hello.</button>
+        <noscript><p class="footer-heading">Say hello.</p></noscript>
+        <div class="footer-links" id="footer-contact-links" aria-label="Contact links">
         {site.email && <a href={`mailto:${site.email}`} aria-label={`Email ${site.email}`} title={site.email}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2" /><path d="m3 6 9 7 9-7" /></svg>
         </a>}
@@ -90,6 +90,7 @@ const currentPath = Astro.url.pathname;
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" /><path d="M7 10v7m4-7v7m0-4a3 3 0 0 1 6 0v4" /><circle cx="7" cy="7" r=".9" fill="currentColor" stroke="none" /></svg>
         </a>
       </div>
+      </div>
       <div class="footer-meta">
         <span>{site.location}</span>
         <span>© {new Date().getFullYear()}</span>
@@ -98,6 +99,23 @@ const currentPath = Astro.url.pathname;
 
     <script>
       import '@/scripts/motion';
+      const contact = document.querySelector<HTMLElement>('[data-footer-contact]');
+      const hello = contact?.querySelector<HTMLButtonElement>('button');
+      const links = contact?.querySelector<HTMLElement>('.footer-links');
+      if (contact && hello && links) {
+        links.inert = true;
+        hello.hidden = false;
+        contact.classList.add('is-ready');
+        hello.addEventListener('click', () => {
+          if (contact.classList.contains('is-open')) return;
+          hello.setAttribute('aria-expanded', 'true');
+          hello.tabIndex = -1;
+          links.inert = false;
+          contact.classList.add('is-open');
+          const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 650;
+          window.setTimeout(() => links.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true }), delay);
+        });
+      }
       const header = document.querySelector('[data-site-header]');
 
       const updateHeader = () => {

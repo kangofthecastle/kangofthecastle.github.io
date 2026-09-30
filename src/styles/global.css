@@ -43,8 +43,20 @@ em{color:var(--red);font-weight:400}
 .site-nav a:hover::after,.site-nav a[aria-current],.header-github:hover::after{color:var(--red)}
 .site-nav a:hover::after,.site-nav a[aria-current]::after,.header-github:hover::after{transform:scaleX(1)}
 .header-github{justify-self:end}.header-github span{display:inline-block;margin-left:.35rem}
-.site-footer{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding:2.75rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
-.footer-heading{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--display);margin-top:.7rem}
+.site-footer{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding:2.75rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:2.5rem}
+.footer-contact{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:5rem;gap:1.5rem}
+.footer-contact.is-ready{display:grid;place-items:center;gap:0}
+.footer-contact.is-ready>*{grid-area:1/1}
+.footer-heading{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--display);margin:0;padding:.25rem .5rem;border:0;background:none;color:var(--ink)}
+button.footer-heading{cursor:pointer;transition:opacity 400ms ease,transform 500ms cubic-bezier(.22,1,.36,1),filter 400ms ease,color 240ms ease}
+button.footer-heading:hover{color:var(--red)}
+button.footer-heading:focus-visible{outline:2px solid var(--red);outline-offset:8px;border-radius:4px}
+.footer-contact.is-ready:not(.is-open) .footer-links{visibility:hidden;pointer-events:none}
+.footer-contact.is-ready .footer-links a{opacity:0;transform:translateY(16px) scale(.8);transition:opacity 400ms ease,transform 550ms cubic-bezier(.22,1,.36,1),color 240ms ease}
+.footer-contact.is-open .footer-heading{opacity:0;transform:translateY(-18px) scale(.96);filter:blur(4px);pointer-events:none;visibility:hidden;transition:opacity 400ms ease,transform 500ms cubic-bezier(.22,1,.36,1),filter 400ms ease,visibility 0s 500ms}
+.footer-contact.is-open .footer-links a{opacity:1;transform:translateY(0) scale(1);transition-delay:140ms}
+.footer-contact.is-open .footer-links a:nth-child(2){transition-delay:210ms}
+.footer-contact.is-open .footer-links a:nth-child(3){transition-delay:280ms}
 .footer-links{display:flex;align-items:center;gap:1rem;align-self:center;justify-self:center}
 .footer-links a{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.25rem}
 .footer-links svg{display:block;width:2rem;height:2rem;transition:transform 350ms cubic-bezier(.22,1,.36,1)}
