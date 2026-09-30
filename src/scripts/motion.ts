@@ -53,6 +53,14 @@ motion.add('(prefers-reduced-motion: no-preference)', () => {
     });
   });
 
+  document.querySelectorAll<HTMLElement>('.home-secondary .secondary-heading, .home-secondary .software-item').forEach((element, index) => {
+    gsap.from(element, {
+      y: 12, opacity: 0, duration: .45, delay: index * .06,
+      ease: 'power2.out', clearProps: 'opacity,transform',
+      scrollTrigger: { trigger: element, start: 'top 92%', once: true },
+    });
+  });
+
   // Give the artwork a clear edge-and-corner response with a smooth return to rest.
   const pointerMedia = gsap.matchMedia();
   pointerMedia.add('(hover: hover) and (pointer: fine)', () => {
