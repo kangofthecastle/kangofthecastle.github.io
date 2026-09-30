@@ -44,7 +44,8 @@ export const projects: Project[] = [
     mediaCaption: 'The title screen establishes the portrait format and gold economy.',
     accent: 'gold',
     selected: true,
-    visibility: 'private',
+    visibility: 'public',
+    repository: 'https://github.com/kangofthecastle/goldwake',
     captures: [
       {
         src: '/images/projects/hubris-title.webp',
@@ -78,7 +79,8 @@ export const projects: Project[] = [
     mediaCaption: 'The lantern-lit clearing near the end of the game.',
     accent: 'violet',
     selected: true,
-    visibility: 'private',
+    visibility: 'public',
+    repository: 'https://github.com/kangofthecastle/rpg-birthday-card',
     captures: [
       {
         src: '/images/projects/a-game-outside.webp',
@@ -112,7 +114,8 @@ export const projects: Project[] = [
     mediaCaption: 'The home screen brings the study pet and progress summary together.',
     accent: 'mint',
     selected: true,
-    visibility: 'private',
+    visibility: 'public',
+    repository: 'https://github.com/kangofthecastle/freecat',
     captures: [
       {
         src: '/images/projects/freecat-qbank.webp',
@@ -146,7 +149,8 @@ export const projects: Project[] = [
     mediaCaption: 'An illustrated overview of the utilities, using Toybox’s original cat sprite.',
     accent: 'blue',
     selected: true,
-    visibility: 'private',
+    visibility: 'public',
+    repository: 'https://github.com/kangofthecastle/Toybox',
   },
 ];
 

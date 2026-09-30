@@ -27,6 +27,11 @@ const { project } = Astro.props;
     <p class="eyebrow">{project.eyebrow}</p>
     <h1>{project.title}</h1>
     <p class="project-hero__summary">{project.summary}</p>
+    {project.repository && (
+      <a class="project-repository" href={project.repository} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`}>
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    )}
   </header>
 
   <figure class="project-lead-media">
@@ -68,17 +73,14 @@ const { project } = Astro.props;
     </aside>
     <div class="project-story__chapters">
       <section>
-        <p class="eyebrow">Why I made it</p>
-        <h2>What I wanted</h2>
+        <h2>Why I made it</h2>
         <p>{project.problem}</p>
       </section>
       <section>
-        <p class="eyebrow">What it does</p>
         <h2>How it works</h2>
         <p>{project.solution}</p>
       </section>
       <section>
-        <p class="eyebrow">Current state</p>
         <h2>Where it is now</h2>
         <p>{project.outcome}</p>
       </section>
