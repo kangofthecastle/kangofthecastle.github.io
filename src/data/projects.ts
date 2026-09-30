@@ -69,9 +69,9 @@ export const projects: Project[] = [
     problem:
       'I wanted the birthday present to be a place someone could explore rather than a message they would read once. The game was built around shared interests and people the recipient knows.',
     solution:
-      'The player visits two friends, fishes inside one computer, defuses a small top-down game inside another, then returns home when a violin starts calling. Three keepsakes become a lit paper boat before the water transitions into a galaxy.',
+      'The player visits two friends, plays a Stardew-inspired fishing game inside one computer, defuses a bomb in a small top-down Valorant-inspired game inside another, then returns home for a rhythm game. The keepsakes won after each game fold a paper boat that takes the player to the final scene.',
     outcome:
-      'It runs in the browser and can also be packaged as an Electron gift build. There are no fail states or save system; it is meant to be completed in one sitting with sound on.',
+      "It runs in the browser and can also be packaged as an Electron gift build. There are no fail states or save system, it's made to be completed in one sitting.",
     stack: ['Phaser 3', 'TypeScript', 'Vite', 'WebAudio'],
     tags: ['Games', 'Personal software', 'Pixel art'],
     media: '/images/projects/a-game-clearing.webp',
@@ -90,7 +90,7 @@ export const projects: Project[] = [
       {
         src: '/images/projects/cinematic/a-game-galaxy.webp',
         alt: 'The water-to-galaxy transition from RPG Birthday Card’s ending',
-        caption: 'The final scene changes the water into a galaxy after the keepsakes become a paper boat.',
+        caption: 'The final scene takes the player over the water in a paper boat folded out of keepsakes discovered along the way.',
       },
     ],
   },

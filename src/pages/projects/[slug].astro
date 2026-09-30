@@ -44,7 +44,6 @@ const { project } = Astro.props;
   {project.captures && project.captures.length > 0 && (
     <section class="project-captures section-shell" aria-labelledby="capture-heading">
       <header>
-        <p class="eyebrow">In use</p>
         <h2 id="capture-heading">Screens from<br />the project.</h2>
       </header>
       <div class="project-captures__grid">
@@ -73,17 +72,14 @@ const { project } = Astro.props;
     </aside>
     <div class="project-story__chapters">
       <section>
-        <p class="eyebrow">Why I made it</p>
-        <h2>What I wanted</h2>
+        <h2>Why I made it</h2>
         <p>{project.problem}</p>
       </section>
       <section>
-        <p class="eyebrow">What it does</p>
         <h2>How it works</h2>
         <p>{project.solution}</p>
       </section>
       <section>
-        <p class="eyebrow">Current state</p>
         <h2>Where it is now</h2>
         <p>{project.outcome}</p>
       </section>
