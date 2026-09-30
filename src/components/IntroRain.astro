@@ -1,0 +1,45 @@
+<div class="intro-rain" data-intro-rain hidden aria-hidden="true">
+  {Array.from({ length: 36 }, (_, i) => (
+    <svg class="intro-rain__drop" viewBox="0 0 6 30" fill="none"
+      style={`--rain-x:${((i * .61803398875) % 1) * 108}%;--rain-delay:${(i % 9) * .06}s;--rain-duration:${1.15 + (i % 4) * .08}s;--rain-size:${20 + (i % 3) * 5}px`}>
+      <path d="M3 1C2 9 0 24 3 28C6 24 4 9 3 1Z" />
+    </svg>
+  ))}
+</div>
+
+<style>
+  .intro-rain { position:fixed;inset:0;z-index:100;overflow:hidden;pointer-events:none; }
+  .intro-rain[hidden] { display:none; }
+  .intro-rain__drop {
+    position:absolute;left:var(--rain-x);top:-40px;width:6px;height:var(--rain-size);
+    stroke:var(--red);stroke-width:.8;stroke-linecap:round;opacity:0;
+    animation:intro-rain-fall var(--rain-duration) linear var(--rain-delay) both;
+  }
+  @keyframes intro-rain-fall {
+    0% { transform:translate(0,0) rotate(8deg);opacity:0; }
+    8% { opacity:.85; }
+    78% { opacity:.85; }
+    100% { transform:translate(-8vw,calc(100dvh + 80px)) rotate(8deg);opacity:0; }
+  }
+  @media(prefers-reduced-motion:reduce) { .intro-rain { display:none; } }
+</style>
+
+<script>
+  const rain = document.querySelector<HTMLElement>('[data-intro-rain]');
+  if (rain) {
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem('intro-rain-seen') === '1';
+      sessionStorage.setItem('intro-rain-seen', '1');
+    } catch { /* The effect still works if browser storage is unavailable. */ }
+    if (seen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      rain.remove();
+    } else {
+      let remaining = rain.children.length;
+      rain.addEventListener('animationend', () => {
+        if (--remaining === 0) rain.remove();
+      });
+      rain.hidden = false;
+    }
+  }
+</script>
