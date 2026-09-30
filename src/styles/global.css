@@ -120,13 +120,19 @@ button.footer-heading:focus-visible{outline:2px solid var(--red);outline-offset:
 @keyframes screenshot-in{from{opacity:.2;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
 .work-media--toybox{background:#d9ded6;aspect-ratio:1.5}
 .work-media--toybox img{width:100%;height:100%;object-fit:contain}
-.home-secondary{display:grid;grid-template-columns:1fr 1fr;gap:6rem;padding-block:4rem 6rem;border-top:1px solid var(--ink)}
-.home-secondary h2{font-size:clamp(2rem,3vw,3rem);max-width:20ch;margin:1rem 0 2rem}
-.software-list>a{display:flex;flex-direction:column;gap:.7rem;padding-block:1.25rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none}
-.software-list strong{font-size:.95rem;font-weight:500;display:flex;justify-content:space-between}
-.software-list>a>span{font-size:.8rem;color:var(--muted);max-width:45ch}
-.software-list>a:hover strong{color:var(--red)}
-.notes-link>a{display:inline-flex;gap:2rem;text-decoration:none;font-size:.8rem;border-bottom:1px solid var(--ink);padding-bottom:.3rem}
+.home-secondary{display:grid;grid-template-columns:1fr;gap:0;padding-block:1rem 2rem;border-top:1px solid var(--line)}
+.home-secondary>div{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding-block:2.25rem}
+.home-secondary>div+div{border-top:1px solid var(--line)}
+.home-secondary .eyebrow{font-size:.65rem;margin-bottom:.75rem}
+.home-secondary h2{font-size:clamp(1.75rem,2.5vw,2.3rem);max-width:30ch;margin:0;line-height:1.15}
+.software-list>a{display:flex;flex-direction:column;gap:.55rem;text-decoration:none;padding-block:.5rem}
+.software-list strong{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.software-list>a>span{font-size:.8rem;line-height:1.7;color:var(--muted);max-width:48ch}
+.home-secondary a{transition:color 240ms ease}
+.home-secondary a span[aria-hidden]{color:var(--red);display:inline-block;transition:transform 300ms cubic-bezier(.22,1,.36,1)}
+.home-secondary a:is(:hover,:focus-visible){color:var(--red)}
+.home-secondary a:is(:hover,:focus-visible) span[aria-hidden]{transform:translate(3px,-3px)}
+.notes-link>a{display:inline-flex;align-items:center;gap:1.5rem;justify-self:start;text-decoration:none;font-size:.9rem;border-bottom:1px solid var(--line);padding-block:.5rem}
 /* The same paper, type hierarchy, rules and media framing on every page. */
 .page-hero,.project-hero,.note-hero{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding-block:5rem 3rem}
 .page-hero>.eyebrow{margin-bottom:2rem}
@@ -197,7 +203,7 @@ button.footer-heading:focus-visible{outline:2px solid var(--red);outline-offset:
   .home-opening{gap:2.5rem;padding-block:3.5rem 4rem}.home-opening h1{font-size:clamp(4rem,9vw,6.5rem)}
   .home-opening__copy>.eyebrow{margin-bottom:2.5rem;font-size:.7rem}.opening-index{margin-top:2rem}
   .work-row,.section-heading{gap:2.5rem}.work-media--hubris{padding:2rem 1.5rem;gap:1rem}
-  .home-secondary{gap:3rem}.project-story,.project-captures{grid-template-columns:.25fr .75fr;gap:2.5rem}
+  .home-secondary>div{gap:2.5rem}.project-story,.project-captures{grid-template-columns:.25fr .75fr;gap:2.5rem}
   .about-intro{gap:3rem}
 }
 @media(max-width:700px){
@@ -212,7 +218,7 @@ button.footer-heading:focus-visible{outline:2px solid var(--red);outline-offset:
   .work-meta{margin-top:1rem}.work-copy>a{margin-top:1.25rem}.work-media--hubris{padding:1.8rem;aspect-ratio:1.2}
   .work-media--agame{padding:1.5rem 1.2rem 4rem}.work-media--agame .agame-inset{right:1rem;bottom:1.3rem;border-width:3px}
   .work-media--freecat{padding:1.3rem .9rem}.study-tabs{gap:.9rem}.study-tabs button{font-size:.7rem}
-  .home-secondary{grid-template-columns:1fr;gap:3.5rem;padding-block:2.5rem 4rem}.home-secondary h2{font-size:2.5rem;max-width:22ch;margin-bottom:1.5rem}
+  .home-secondary{padding-block:0 1rem}.home-secondary>div{grid-template-columns:1fr;gap:1.25rem;padding-block:2rem}.home-secondary h2{font-size:2rem;max-width:28ch}
   .site-footer{padding-top:2.5rem;grid-template-columns:1fr;gap:1.5rem}.footer-links{justify-self:center}.footer-meta{font-size:.7rem;flex-wrap:wrap;padding-top:1.5rem;margin-top:1rem}.footer-meta>span:last-child{margin-left:auto}
   .page-hero,.project-hero,.note-hero{padding-block:3rem 2.5rem}.page-hero>.eyebrow{margin-bottom:1.5rem}
   .page-hero h1,.project-hero h1,.note-hero h1{font-size:clamp(3.3rem,12vw,5rem)}
