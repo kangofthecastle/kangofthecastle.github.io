@@ -176,7 +176,8 @@ galleryMotion.add({
       .to(oldFigure, { yPercent: -90, xPercent: -18, scale: .8, rotation: -3, opacity: 0, duration: 1.1 }, at)
       .fromTo(newFigure, { yPercent: 85, xPercent: 22, scale: 1.2, rotation: 3, opacity: 0 }, { yPercent: 0, xPercent: 0, scale: 1, rotation: 0, opacity: 1, duration: 1.1 }, at)
       .to(stage, { backgroundColor: colors[index + 1], duration: 1.1 }, at)
-      .to('.reel-nav button, .reel-progress', { color: index > 0 ? '#263739' : '#f3f0e8', duration: 1.1 }, at)
+      .to('.reel-nav button', { color: index > 0 ? '#263739' : '#f3f0e8', duration: 1.1 }, at)
+      .to('.reel-progress', { color: index > 0 ? '#65716b' : '#f3f0e8', duration: 1.1 }, at)
       .to('.reel-orbit', { scale: 1 + (index + 1) * .2, xPercent: -(index + 1) * 15, yPercent: (index + 1) * 12, duration: 1.1 }, at)
       .set(outgoing, { autoAlpha: 0 }, at + 1.1);
   });
