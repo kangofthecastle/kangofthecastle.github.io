@@ -43,9 +43,9 @@ em{color:var(--red);font-weight:400}
 .site-nav a:hover::after,.site-nav a[aria-current],.header-github:hover::after{color:var(--red)}
 .site-nav a:hover::after,.site-nav a[aria-current]::after,.header-github:hover::after{transform:scaleX(1)}
 .header-github{justify-self:end}.header-github span{display:inline-block;margin-left:.35rem}
-.site-footer{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding:2.75rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:2.5rem}
+.site-footer{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding:2.75rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
 .footer-heading{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--display);margin-top:.7rem}
-.footer-links{display:flex;align-items:center;gap:1rem;align-self:center;justify-self:end}
+.footer-links{display:flex;align-items:center;gap:1rem;align-self:center;justify-self:center}
 .footer-links a{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.25rem}
 .footer-links svg{display:block;width:2rem;height:2rem;transition:transform 350ms cubic-bezier(.22,1,.36,1)}
 .footer-links a:is(:hover,:focus-visible) svg{transform:rotate(-9deg)}
@@ -201,7 +201,7 @@ em{color:var(--red);font-weight:400}
   .work-media--agame{padding:1.5rem 1.2rem 4rem}.work-media--agame .agame-inset{right:1rem;bottom:1.3rem;border-width:3px}
   .work-media--freecat{padding:1.3rem .9rem}.study-tabs{gap:.9rem}.study-tabs button{font-size:.7rem}
   .home-secondary{grid-template-columns:1fr;gap:3.5rem;padding-block:2.5rem 4rem}.home-secondary h2{font-size:2.5rem;max-width:22ch;margin-bottom:1.5rem}
-  .site-footer{padding-top:2.5rem;grid-template-columns:1fr;gap:1.5rem}.footer-links{justify-self:start}.footer-meta{font-size:.7rem;flex-wrap:wrap;padding-top:1.5rem;margin-top:1rem}.footer-meta>span:last-child{margin-left:auto}
+  .site-footer{padding-top:2.5rem;grid-template-columns:1fr;gap:1.5rem}.footer-links{justify-self:center}.footer-meta{font-size:.7rem;flex-wrap:wrap;padding-top:1.5rem;margin-top:1rem}.footer-meta>span:last-child{margin-left:auto}
   .page-hero,.project-hero,.note-hero{padding-block:3rem 2.5rem}.page-hero>.eyebrow{margin-bottom:1.5rem}
   .page-hero h1,.project-hero h1,.note-hero h1{font-size:clamp(3.3rem,12vw,5rem)}
   .project-index{grid-template-columns:1fr;gap:3rem;padding-block:1rem 4rem}.project-card__media{padding:1.5rem}.project-card__media img{inset:1.5rem;width:calc(100% - 3rem);height:calc(100% - 3rem)}.project-card h2{font-size:2.8rem}
