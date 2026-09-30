@@ -43,12 +43,16 @@ em{color:var(--red);font-weight:400}
 .site-nav a:hover::after,.site-nav a[aria-current],.header-github:hover::after{color:var(--red)}
 .site-nav a:hover::after,.site-nav a[aria-current]::after,.header-github:hover::after{transform:scaleX(1)}
 .header-github{justify-self:end}.header-github span{display:inline-block;margin-left:.35rem}
-.site-footer{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding:2.75rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(16rem,.65fr) 1fr;gap:2.5rem}
+.site-footer{width:min(calc(100% - var(--page-gutter)*2),var(--measure));margin:auto;padding:2.75rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:2.5rem}
 .footer-heading{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--display);margin-top:.7rem}
-.footer-links{display:flex;flex-direction:column;gap:.5rem;align-self:center;justify-self:start;font-size:.9rem}
+.footer-links{display:flex;align-items:center;gap:1rem;align-self:center;justify-self:end}
+.footer-links a{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.25rem}
+.footer-links svg{display:block;width:2rem;height:2rem;transition:transform 350ms cubic-bezier(.22,1,.36,1)}
+.footer-links a:is(:hover,:focus-visible) svg{transform:rotate(-9deg)}
+.footer-links a:focus-visible{outline:2px solid var(--red);outline-offset:4px}
 .footer-links a{text-decoration:none;transition:color 240ms ease}.footer-links a:is(:hover,:focus-visible){color:var(--red)}
-.footer-links a span,.header-github span{display:inline-block;transition:transform 300ms cubic-bezier(.22,1,.36,1)}
-.footer-links a:is(:hover,:focus-visible) span,.header-github:is(:hover,:focus-visible) span{transform:translate(3px,-3px)}
+.header-github span{display:inline-block;transition:transform 300ms cubic-bezier(.22,1,.36,1)}
+.header-github:is(:hover,:focus-visible) span{transform:translate(3px,-3px)}
 .site-nav a{transition:color 240ms,transform 300ms cubic-bezier(.22,1,.36,1)}
 .site-nav a:is(:hover,:focus-visible){color:var(--red);transform:translateY(-1px)}
 .footer-meta{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;padding-top:2rem;border-top:1px solid var(--line);font:500 .7rem/1.6 var(--sans);color:var(--muted)}
