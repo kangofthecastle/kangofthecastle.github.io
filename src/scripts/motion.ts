@@ -223,7 +223,7 @@ galleryMotion.add('(prefers-reduced-motion: no-preference)', () => {
   // The companion moves through the utility illustration; its original sprite keeps animating.
   story
     .fromTo('.toybox-scene', { rotationY: 12, scale: .9 }, { rotationY: 0, scale: 1.04, duration: 1.8 }, 9)
-    .fromTo('.toybox-cat-motion', { x: 0, y: 0 }, { x: 110, y: -60, duration: 1.8, ease: 'sine.inOut' }, 9)
+    .fromTo('.toybox-cat-motion', { x: -60, y: 35 }, { x: 50, y: -25, duration: 1.8, ease: 'sine.inOut' }, 9)
     .fromTo('.toybox-icons', { opacity: .15, x: 90 }, { opacity: 1, x: 0, duration: 1.4 }, 9.3);
 
   chapters.forEach((outgoing, index) => {
