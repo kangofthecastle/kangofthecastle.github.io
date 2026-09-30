@@ -55,9 +55,9 @@ motion.add('(prefers-reduced-motion: no-preference)', () => {
 
   document.querySelectorAll<HTMLElement>('.home-secondary .secondary-heading, .home-secondary .software-item').forEach((element, index) => {
     gsap.from(element, {
-      y: 12, opacity: 0, duration: .45, delay: index * .06,
-      ease: 'power2.out', clearProps: 'opacity,transform',
-      scrollTrigger: { trigger: element, start: 'top 92%', once: true },
+      y: 28, opacity: 0, duration: .7, delay: index * .14,
+      ease: 'power3.out', clearProps: 'opacity,transform',
+      scrollTrigger: { trigger: element, start: 'top 78%', once: true },
     });
   });
 
