@@ -106,14 +106,42 @@ const currentPath = Astro.url.pathname;
         links.inert = true;
         hello.hidden = false;
         contact.classList.add('is-ready');
-        hello.addEventListener('click', () => {
-          if (contact.classList.contains('is-open')) return;
+        let focusTimer: ReturnType<typeof window.setTimeout> | undefined;
+        let hideTimer: ReturnType<typeof window.setTimeout> | undefined;
+        const reveal = (moveFocus = false) => {
+          window.clearTimeout(hideTimer);
           hello.setAttribute('aria-expanded', 'true');
           hello.tabIndex = -1;
           links.inert = false;
           contact.classList.add('is-open');
-          const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 650;
-          window.setTimeout(() => links.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true }), delay);
+          if (moveFocus) {
+            window.clearTimeout(focusTimer);
+            const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 650;
+            focusTimer = window.setTimeout(() => {
+              if (contact.classList.contains('is-open')) links.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+            }, delay);
+          }
+        };
+        const conceal = () => {
+          window.clearTimeout(focusTimer);
+          contact.classList.remove('is-open');
+          hello.setAttribute('aria-expanded', 'false');
+          hello.tabIndex = 0;
+          links.inert = true;
+        };
+        contact.addEventListener('pointerenter', (event) => {
+          if (event.pointerType !== 'touch') reveal();
+        });
+        contact.addEventListener('pointerleave', () => {
+          window.clearTimeout(hideTimer);
+          hideTimer = window.setTimeout(() => {
+            if (!contact.contains(document.activeElement)) conceal();
+          }, 220);
+        });
+        hello.addEventListener('focus', () => reveal(true));
+        hello.addEventListener('click', () => reveal(true));
+        contact.addEventListener('focusout', (event) => {
+          if (!contact.contains(event.relatedTarget as Node | null) && !contact.matches(':hover')) conceal();
         });
       }
       const header = document.querySelector('[data-site-header]');
