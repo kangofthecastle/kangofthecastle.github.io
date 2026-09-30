@@ -197,7 +197,8 @@ galleryMotion.add({
   nav.forEach((button, index) => {
     const jump = () => {
       const trigger = story.scrollTrigger!;
-      window.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * ((index * 3 + 1.1) / 12), behavior: 'smooth' });
+      const chapterStart = index * 3;
+      window.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * (chapterStart / story.duration()), behavior: 'smooth' });
     };
     button.addEventListener('click', jump);
     clickHandlers.push(jump);
