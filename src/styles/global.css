@@ -48,8 +48,7 @@ em{color:var(--red);font-weight:400}
 .footer-contact.is-ready{display:grid;place-items:center;gap:0}
 .footer-contact.is-ready>*{grid-area:1/1}
 .footer-heading{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--display);margin:0;padding:.25rem .5rem;border:0;background:none;color:var(--ink)}
-button.footer-heading{position:relative;display:inline-flex;align-items:center;gap:.25em;cursor:pointer;color:var(--red);transition:opacity 400ms ease,transform 500ms cubic-bezier(.22,1,.36,1),filter 400ms ease,color 240ms ease}
-.footer-cursor{width:.38em;height:.38em;flex-shrink:0;transform:scaleX(-1)}
+button.footer-heading{position:relative;cursor:pointer;color:var(--red);transition:opacity 400ms ease,transform 500ms cubic-bezier(.22,1,.36,1),filter 400ms ease,color 240ms ease}
 button.footer-heading[hidden]{display:none}
 button.footer-heading:hover{color:var(--red)}
 button.footer-heading:focus-visible{outline:2px solid var(--red);outline-offset:8px;border-radius:4px}

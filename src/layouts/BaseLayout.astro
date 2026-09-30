@@ -77,7 +77,7 @@ const currentPath = Astro.url.pathname;
 
     <footer class="site-footer">
       <div class="footer-contact" data-footer-contact>
-        <button class="footer-heading" type="button" aria-expanded="false" aria-controls="footer-contact-links" hidden><svg class="footer-cursor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 3v17l5-5 4 7 3-1.7-4-7 7-1Z" /></svg><span>Say hello!</span></button>
+        <button class="footer-heading" type="button" aria-expanded="false" aria-controls="footer-contact-links" hidden>Say hello!</button>
         <noscript><p class="footer-heading">Say hello!</p></noscript>
         <div class="footer-links" id="footer-contact-links" aria-label="Contact links">
         {site.email && <a href={`mailto:${site.email}`} aria-label={`Email ${site.email}`} title={site.email}>
