@@ -156,12 +156,13 @@ import ToyboxScene from '@/components/ToyboxScene.astro';
         gsap.set(trails[index], { strokeDasharray: length, strokeDashoffset: length, opacity: 0 });
         gsap.set(impacts[index], { x: endX, y: stop.y + size + 3, scale: .4, opacity: 0, transformOrigin: '0px 0px' });
         const flight = { progress: 0 };
-        bounce!.set(trails[index], { opacity: .45 }, at)
+        bounce!.set(trails[index], { opacity: .65 }, at)
           .to(flight, { progress: 1, duration: .45, ease: 'power1.inOut', onUpdate: () => {
             const distance = length * flight.progress;
             const point = trails[index].getPointAtLength(distance);
             gsap.set(icon, { x: point.x - size / 2, y: point.y - size / 2 });
-            gsap.set(trails[index], { strokeDashoffset: length - distance });
+            // Keep the line behind the icon rather than through its centre.
+            gsap.set(trails[index], { strokeDashoffset: length - Math.max(0, distance - size * .65) });
           } }, at)
           .to(trails[index], { opacity: 0, duration: .3 }, at + .45)
           .to(impacts[index], { opacity: .8, scale: 1, duration: .06 }, at + .45)
