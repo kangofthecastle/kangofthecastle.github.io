@@ -52,7 +52,7 @@ em{color:var(--red);font-weight:400}
 @media (min-width:760px) {
   .home-opening__copy { align-self:stretch; }
   .home-opening__copy > .eyebrow { margin-bottom:0; }
-  .home-opening h1 { position:absolute;top:50%;width:100%;transform:translateY(-50%); }
+  .home-opening h1 { position:absolute;top:58%;width:100%;transform:translateY(-50%); }
 }
 .opening-line{display:block;overflow:hidden;padding-bottom:.13em;margin-bottom:-.13em}
 .opening-line>span{display:block}
