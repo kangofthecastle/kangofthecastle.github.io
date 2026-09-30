@@ -1,6 +1,5 @@
 ---
 import '@/styles/global.css';
-import IntroRain from '@/components/IntroRain.astro';
 import { mainNav, site } from '@/data/site';
 
 type Props = {
@@ -42,7 +41,6 @@ const currentPath = Astro.url.pathname;
     <title>{title}</title>
   </head>
   <body class={pageClass}>
-    <IntroRain />
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="site-noise" aria-hidden="true"></div>
 

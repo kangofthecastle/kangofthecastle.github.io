@@ -8,7 +8,7 @@
 </div>
 
 <style>
-  .intro-rain { position:fixed;inset:0;z-index:100;overflow:hidden;pointer-events:none; }
+  .intro-rain { position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none; }
   .intro-rain[hidden] { display:none; }
   .intro-rain__drop {
     position:absolute;left:var(--rain-x);top:-40px;width:6px;height:var(--rain-size);
@@ -19,27 +19,58 @@
     0% { transform:translate(0,0) rotate(8deg);opacity:0; }
     8% { opacity:.85; }
     78% { opacity:.85; }
-    100% { transform:translate(-8vw,calc(100dvh + 80px)) rotate(8deg);opacity:0; }
+    100% { transform:translate(-8vw,var(--rain-travel,calc(100dvh + 80px))) rotate(8deg);opacity:0; }
   }
   @media(prefers-reduced-motion:reduce) { .intro-rain { display:none; } }
 </style>
 
 <script>
   const rain = document.querySelector<HTMLElement>('[data-intro-rain]');
-  if (rain) {
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem('intro-rain-seen') === '1';
-      sessionStorage.setItem('intro-rain-seen', '1');
-    } catch { /* The effect still works if browser storage is unavailable. */ }
-    if (seen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      rain.remove();
-    } else {
-      let remaining = rain.children.length;
-      rain.addEventListener('animationend', () => {
-        if (--remaining === 0) rain.remove();
-      });
+  const opening = rain?.closest<HTMLElement>('.home-opening');
+  if (rain && opening) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let firstShower = true;
+    try { firstShower = sessionStorage.getItem('intro-rain-seen') !== '1'; }
+    catch { /* Rain also works when browser storage is unavailable. */ }
+    let visible = false;
+    let remaining = 0;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const enabled = () => visible && !document.hidden && !reducedMotion.matches;
+    const cancelTimer = () => { clearTimeout(timer); timer = undefined; };
+    const schedule = () => {
+      cancelTimer();
+      if (enabled()) timer = setTimeout(play, 30_000);
+    };
+    const play = () => {
+      cancelTimer();
+      if (!enabled()) return;
+      rain.style.setProperty('--rain-travel', `${opening.clientHeight + 80}px`);
+      remaining = rain.children.length;
       rain.hidden = false;
-    }
+      firstShower = false;
+      try { sessionStorage.setItem('intro-rain-seen', '1'); }
+      catch { /* No storage is needed for subsequent showers. */ }
+    };
+    const reconcile = () => {
+      if (!enabled()) {
+        cancelTimer();
+        rain.hidden = true;
+        remaining = 0;
+      } else if (rain.hidden) {
+        if (firstShower) play();
+        else schedule();
+      }
+    };
+    rain.addEventListener('animationend', () => {
+      if (rain.hidden || --remaining > 0) return;
+      rain.hidden = true;
+      schedule();
+    });
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= .15;
+      reconcile();
+    }, { threshold: [.15] }).observe(opening);
+    document.addEventListener('visibilitychange', reconcile);
+    reducedMotion.addEventListener('change', reconcile);
   }
 </script>
